@@ -122,8 +122,77 @@ function msitheme_widgets_init() {
 			'description'   => esc_html__( 'Add widgets here.', 'msitheme' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_title'  => '<h6 class="widget-title uppercase fz-18 lh-27 clrWhite">',
+			'after_title'   => '</h6>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer top left', 'msitheme' ),
+			'id'            => 'footer-top-1',
+			'description'   => esc_html__( 'Add widgets here.', 'msitheme' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer top right', 'msitheme' ),
+			'id'            => 'footer-top-2',
+			'description'   => esc_html__( 'Add widgets here.', 'msitheme' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer middle 2', 'msitheme' ),
+			'id'            => 'footer-mid-2',
+			'description'   => esc_html__( 'Add widgets here.', 'msitheme' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h6 class="widget-title uppercase fz-18 lh-27 clrWhite">',
+			'after_title'   => '</h6>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer middle 3', 'msitheme' ),
+			'id'            => 'footer-mid-3',
+			'description'   => esc_html__( 'Add widgets here.', 'msitheme' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h6 class="widget-title uppercase fz-18 lh-27 clrWhite">',
+			'after_title'   => '</h6>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer middle 4', 'msitheme' ),
+			'id'            => 'footer-mid-4',
+			'description'   => esc_html__( 'Add widgets here.', 'msitheme' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h6 class="widget-title uppercase fz-18 lh-27 clrWhite">',
+			'after_title'   => '</h6>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer bottom left', 'msitheme' ),
+			'id'            => 'footer-bottom-1',
+			'description'   => esc_html__( 'Add widgets here.', 'msitheme' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer bottom right', 'msitheme' ),
+			'id'            => 'footer-bottom-2',
+			'description'   => esc_html__( 'Add widgets here.', 'msitheme' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
 		)
 	);
 }

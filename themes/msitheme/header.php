@@ -26,34 +26,43 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'msitheme' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$msitheme_description = get_bloginfo( 'description', 'display' );
-			if ( $msitheme_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $msitheme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'msitheme' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+		<div class="container-default">
+			<div class="header-wrap grid grid-2-8-2 align-center g-gap-30">
+				<div class="site-branding">
+					<?php
+					$custom_logo = get_theme_mod( 'custom_logo' );
+					if ( !empty($custom_logo) ) : the_custom_logo();
+					else :
+						?>
+						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+						<?php
+					endif;
+					?>
+				</div><!-- .site-branding -->
+				<nav id="site-navigation" class="main-navigation">
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'msitheme' ); ?></button>
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-1',
+							'menu_id'        => 'primary-menu',
+						)
+					);
+					?>
+				</nav><!-- #site-navigation -->
+				<div class="header-right-content flex align-center f-gap-10">
+					<div class="languages">
+						<select name="language" id="language" class="language-list">
+							<option value="hn">Hung</option>
+							<option value="en">Eng</option>
+						</select>
+					</div>
+					<div class="header-btn">
+						<a href="" class="button theme-btn bordered-btn uppercase flex align-center justify-center fz-12 fw-700 clrDarkBlue">
+							CONFIGURATOR
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</header><!-- #masthead -->

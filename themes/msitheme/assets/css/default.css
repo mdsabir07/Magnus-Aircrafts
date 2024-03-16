@@ -48,6 +48,27 @@
     --dFlex: flex;
     --dGrid: grid;
     --dNone: none;
+    /* text align and transform */
+    --taCenter: center;
+    --taLeft: left;
+    --taRight: right;
+    --justify: justify;
+    --uppercase: uppercase;
+    --capitalize: capitalize;
+    --lowercase: lowercase;
+    /* overflow */
+    --overflowHidden: hidden;
+    --overflowXHidden: hidden;
+    /* Container */
+    --containerDefault: 1170px;
+    --container85: 85%;
+    --container90: 90%;
+    --container95: 95%;
+    --container100: 100%;
+    /* section padding */
+    --sectionPadding80: 80px 0;
+    --sectionPadding90: 90px 0;
+    --sectionPadding100: 100px 0;
 }
 
   
@@ -76,6 +97,10 @@ body {
     font-size: var(--fz18);
     line-height: var(--lh27);
 }
+main {
+	display: block;
+}
+
 a,
 input[type="submit"],
 button[type="submit"] {
@@ -712,24 +737,24 @@ img {
     display: var(--dNone);
 }
 /* Text transform */
-.tt-upercase {
-    text-transform: uppercase;
+.upercase {
+    text-transform: var(--uppercase);
 }
-.tt-capitalize {
-    text-transform: capitalize;
+.capitalize {
+    text-transform: var(--capitalize);
 }
-.tt-lowercase {
-    text-transform: lowercase;
+.lowercase {
+    text-transform: var(--lowercase);
 }
 /* align css */
 .text-center {
-    text-align: center;
+    text-align: var(--taCenter);
 }
 .text-left {
-    text-align: left;
+    text-align: var(--taLeft);
 }
 .text-right {
-    text-align: right;
+    text-align: var(--taRight);
 }
 .g-justify-center {
     justify-items: center;
@@ -760,40 +785,47 @@ img {
 }
 
 .overflow-hidden {
-    overflow: hidden;
+    overflow: var(--overflowHidden);
 }
 .overflow-x-hidden {
-    overflow: hidden;
+    overflow: var(--overflowXHidden);
 }
 .list-unstyled {
     margin: 0;
     padding: 0;
     list-style: none;
 }
+.container-default {
+    width: var(--containerDefault);
+}
 .container-85 {
-    width: 85%;
+    width: var(--container85);
 }
 .container-90 {
-    width: 90%;
+    width: var(--container90);
 }
 .container-95 {
-    width: 95%;
+    width: var(--container95);
 }
+.container-100 {
+    width: var(--container100);
+}
+.container-default,
 .container-85, 
 .container-90, 
-.container-95 {
+.container-95,
+.container-100 {
     margin: 0 auto;
     max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
 }
-
 .section-padding-80 {
-    padding: 80px 0;
+    padding: var(--sectionPadding80);
 }
-
 .section-padding-90 {
-    padding: 80px 0;
+    padding: var(--sectionPadding90);
 }
-
 .section-padding-100 {
-    padding: 80px 0;
+    padding: var(--sectionPadding100);
 }
