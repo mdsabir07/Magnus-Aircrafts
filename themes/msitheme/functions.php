@@ -8,16 +8,11 @@
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
 }
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
  */
 function msitheme_setup() {
 	/*
@@ -93,8 +88,8 @@ function msitheme_setup() {
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'      => 250,
-			'width'       => 250,
+			'height'      => 56,
+			'width'       => 150,
 			'flex-width'  => true,
 			'flex-height' => true,
 		)
@@ -138,10 +133,13 @@ add_action( 'widgets_init', 'msitheme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function msitheme_scripts() {
+	wp_enqueue_style( 'google-font', '//fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&display=swap' );
+	wp_enqueue_style( 'default', get_template_directory_uri() . '/assets/css/default.css', array(), _S_VERSION, 'all' );
 	wp_enqueue_style( 'msitheme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'msitheme-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'msitheme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'msitheme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'msitheme-script', get_template_directory_uri() . '/assets/js/msitheme-script.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
