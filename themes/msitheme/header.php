@@ -31,7 +31,8 @@
 				<div class="site-branding">
 					<?php
 					$custom_logo = get_theme_mod( 'custom_logo' );
-					if ( !empty($custom_logo) ) : the_custom_logo();
+					if ( !empty($custom_logo) ) : 
+						the_custom_logo();
 					else :
 						?>
 						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
@@ -40,7 +41,7 @@
 					?>
 				</div><!-- .site-branding -->
 				<nav id="site-navigation" class="main-navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'msitheme' ); ?></button>
+					<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php //esc_html_e( 'Primary Menu', 'msitheme' ); ?></button> -->
 					<?php
 					wp_nav_menu(
 						array(

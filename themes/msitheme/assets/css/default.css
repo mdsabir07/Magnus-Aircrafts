@@ -614,6 +614,10 @@ img {
 .grid-2-2-1 {
     grid-template-columns: 2fr 2fr 1fr;
 }
+.grid-2-8-2 {
+    grid-template-columns: 2fr 8fr 2fr;
+}
+
 .grid-3-1 {
     grid-template-columns: 3fr 1fr;
 }
@@ -828,4 +832,26 @@ img {
 }
 .section-padding-100 {
     padding: var(--sectionPadding100);
+}
+
+/* Header CSS */
+.main-navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.main-navigation ul li {
+    position: relative;
+}
+
+.main-navigation ul li a {
+    font-size: var(--fz12);
+    color: var(--clrDarkBlue);
+    font-weight: var(--fw-700);
+    text-transform: var(--uppercase);
 }
