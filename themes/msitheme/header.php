@@ -27,7 +27,7 @@
 
 	<header id="masthead" class="site-header">
 		<div class="container-default">
-			<div class="header-wrap grid grid-2-8-2 align-center g-gap-30">
+			<div class="header-wrap grid grid-2-7-3 align-center g-gap-30">
 				<div class="site-branding">
 					<?php
 					$custom_logo = get_theme_mod( 'custom_logo' );
@@ -35,7 +35,11 @@
 						the_custom_logo();
 					else :
 						?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+						<p class="site-title">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+								<?php bloginfo( 'name' ); ?>
+							</a>
+						</p>
 						<?php
 					endif;
 					?>
@@ -52,11 +56,9 @@
 					?>
 				</nav><!-- #site-navigation -->
 				<div class="header-right-content flex align-center f-gap-10">
-					<div class="languages">
-						<select name="language" id="language" class="language-list">
-							<option value="hn">Hung</option>
-							<option value="en">Eng</option>
-						</select>
+					<div class="languages clrDarkBlue fz-12 fw-700">
+						<span class="language">Hung /</span>
+						<span class="language"> Eng</span>
 					</div>
 					<div class="header-btn">
 						<a href="" class="button theme-btn bordered-btn uppercase flex align-center justify-center fz-12 fw-700 clrDarkBlue">

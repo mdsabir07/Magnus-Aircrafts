@@ -614,8 +614,8 @@ img {
 .grid-2-2-1 {
     grid-template-columns: 2fr 2fr 1fr;
 }
-.grid-2-8-2 {
-    grid-template-columns: 2fr 8fr 2fr;
+.grid-2-7-3 {
+    grid-template-columns: 2fr 7fr 3fr;
 }
 
 .grid-3-1 {
@@ -855,3 +855,114 @@ img {
     font-weight: var(--fw-700);
     text-transform: var(--uppercase);
 }
+.button.theme-btn {
+    display: flex;
+    padding: 21px 36px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--clrDarkBlue);
+}
+
+.button.theme-btn:hover {
+    background: var(--clrDarkRed);
+    color: var(--clrWhite);
+    border-color: var(--clrDarkRed);
+}
+.main-navigation ul ul {
+    position: absolute;
+    width: 200px;
+    background: var(--clrWhite);
+    left: 0;
+    justify-content: left;
+    padding: 15px;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    gap: 10px;
+}
+
+.main-navigation ul ul li {
+    border-bottom: 1px solid #413C5A;
+    width: 100%;
+    position: relative;
+}
+
+.main-navigation ul ul li::before {
+    position: absolute;
+    content: "";
+    background: #070028;
+    width: 30px;
+    height: 1.5px;
+    bottom: 0;
+    left: 0;
+}
+
+.main-navigation ul ul li a {
+    padding: 5px;
+    display: block;
+    width: 100%;
+}
+
+.main-navigation ul li:hover ul {
+    opacity: 1;
+    visibility: visible;
+}
+
+.site-header .header-wrap {
+    border-bottom: 1px solid var(--clrDarkBlue);
+    padding: 15px 0;
+}
+
+.header-right-content {
+    justify-content: end;
+}
+.main-navigation ul li.menu-item-has-children::after {
+    position: absolute;
+    content: '\f107';
+    font-family: 'FontAwesome';
+    color: var(--clrDarkRed);
+    right: -15px;
+    top: 3px;
+    font-size: 12px;
+}
+
+/* Footer CSS */
+.site-footer {
+    background: var(--clrDarkBlue);
+}
+.foo-mid-1 {
+    display: var(--dGrid);
+    gap: 20px;
+}
+.widget ul {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.widget ul li a {color: var(--clrWhite);display: var(--dBlock);padding: 10px 0;}
+
+.widget ul li {width: 100%;border-bottom: 1px solid var(--clrWhite);}
+
+.footer-bottom .textwidget p {
+    color: var(--clrWhite);
+    margin-bottom: 0;
+}
+
+.footer-bottom {
+    padding: 20px 0;
+    border-top: 1px solid var(--clrWhite);
+}
+
+.footer-middle {
+    padding: 30px 0;
+}
+
+.footer-top {
+    padding-top: 50px;
+}
+

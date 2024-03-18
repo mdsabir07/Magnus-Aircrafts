@@ -202,6 +202,7 @@ add_action( 'widgets_init', 'msitheme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function msitheme_scripts() {
+	wp_enqueue_style( 'fontawesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), 'all' );
 	wp_enqueue_style( 'google-font', '//fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&display=swap' );
 	wp_enqueue_style( 'default', get_template_directory_uri() . '/assets/css/default.css', array(), _S_VERSION, 'all' );
 	wp_enqueue_style( 'msitheme-style', get_stylesheet_uri(), array(), _S_VERSION );
@@ -243,3 +244,10 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+function word_count($string, $limit) {
+ 
+$words = explode(' ', $string);
+	
+return implode(' ', array_slice($words, 0, $limit));
+	
+}

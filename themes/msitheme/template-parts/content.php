@@ -10,29 +10,36 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+	<?php 
+	if ( !is_singular() ) :
+		msitheme_post_thumbnail(); 
+	endif;
+	?>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			the_title( '<h1 class="entry-title fz-48 lh-48 uppercase clrDarkBlue">', '</h1>' );
+			msitheme_post_thumbnail();
 		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2 class="entry-title fz-18 lh-27 uppercase"><a class="" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
 				<?php
-				msitheme_posted_on();
-				msitheme_posted_by();
+				// msitheme_posted_on();
+				// msitheme_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php msitheme_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
+		if ( is_single() ) :
 		the_content(
 			sprintf(
 				wp_kses(
@@ -47,6 +54,9 @@
 				wp_kses_post( get_the_title() )
 			)
 		);
+		else : 
+			echo word_count(get_the_excerpt(), '12');
+		endif;
 
 		wp_link_pages(
 			array(
@@ -58,6 +68,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php msitheme_entry_footer(); ?>
+		<?php //msitheme_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -30,12 +30,12 @@
 						Our aim is to design an aircraft that it is not only custom-made for you, but it is also about you.
 					</div>
 					<div class="site-address">
-						<h6 class="clrMidWhite">MAGNUS AIRCRAFT ZRT.</h6>
+						<h6 class="clrMidWhite fz-18">MAGNUS AIRCRAFT ZRT.</h6>
 						<p class="clrMidWhite">H-7666 Pogány<br>Repülőtér 08/8 hrsz.</p>
 					</div>
 					<div class="footer-contact">
-						<a href="tel:+36304121129" class="d-block">+36 30 412 1129</a>
-						<a href="mailto:info@magnus-aircraft.com" class="d-block">info@magnus-aircraft.com</a>
+						<a href="tel:+36304121129" class="d-block clrMidWhite fz-18">+36 30 412 1129</a>
+						<a href="mailto:info@magnus-aircraft.com" class="d-block clrMidWhite fz-18">info@magnus-aircraft.com</a>
 					</div>
 					<div class="footer-socials flex align-center">
 						<a href="" class="facebook"><span class="dashicons dashicons-facebook-alt"></span></a>
