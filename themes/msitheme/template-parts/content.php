@@ -6,14 +6,29 @@
  *
  * @package MSITheme
  */
+if (get_post_meta( $post->ID, 'msitheme_post_meta', true ) ) {
+	$msitheme_meta = get_post_meta( $post->ID, 'msitheme_post_meta', true );
+} else {
+	$msitheme_meta = array();
+}
 
+if(array_key_exists('post_extra_img', $msitheme_meta)) {
+	$post_extra_img = $msitheme_meta['post_extra_img'];
+} else {
+	$post_extra_img = '';
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php 
 	if ( !is_singular() ) :
-		msitheme_post_thumbnail(); 
+		if ( !empty($msitheme_meta['post_extra_img']) ) { ?>
+			<img class="custom-blog-imgs" src="<?php echo esc_url($post_extra_img['url']); ?>" alt="<?php echo esc_attr( the_title() ); ?>">
+		<?php 
+		} else {
+			msitheme_post_thumbnail(); 
+		}
 	endif;
 	?>
 	<header class="entry-header">

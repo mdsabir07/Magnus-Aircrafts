@@ -929,7 +929,7 @@ img {
 
 /* Footer CSS */
 .site-footer {
-    background: var(--clrDarkBlue);
+    background: linear-gradient(0deg, #CFD6D3 0%, var(--clrMidBlue) 40%, var(--clrDarkBlue) 90%);
 }
 .foo-mid-1 {
     display: var(--dGrid);
@@ -965,4 +965,26 @@ img {
 .footer-top {
     padding-top: 50px;
 }
+
+
+/* News post Addon */
+.single-news-post .entry-details h4, 
+.single-news-post .entry-details .excerpt {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: var(--fz18);
+    text-transform: var(--uppercase);
+    line-height: var(--lh27);
+}
+.single-news-post .entry-details h4 {
+    -webkit-line-clamp: 2;
+    margin: 15px 0;
+}
+
+.single-news-post .entry-details .excerpt {
+    -webkit-line-clamp: 3;
+}
+
 

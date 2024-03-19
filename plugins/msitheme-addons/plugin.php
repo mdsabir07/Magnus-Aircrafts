@@ -3,6 +3,7 @@ namespace MsiThemeEssentialAddons;
 use MsiThemeEssentialAddons\Widgets\HeroSlider;
 use MsiThemeEssentialAddons\Widgets\AsForm;
 use MsiThemeEssentialAddons\Widgets\SocialShare;
+use MsiThemeEssentialAddons\Widgets\Blogs;
 /**
  * Class Plugin
  *
@@ -73,6 +74,7 @@ class MsiThemeEssentialAddonsPlugin {
 		require_once( __DIR__ . '/widgets/hero-slider.php' );
 		require_once( __DIR__ . '/widgets/advanced-search-from.php' );
 		require_once( __DIR__ . '/widgets/social-share.php' );
+		require_once( __DIR__ . '/widgets/blog-posts.php' );
 	}
 
 	/**
@@ -91,6 +93,7 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new HeroSlider() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new AsForm() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new SocialShare() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Blogs() );
 	}
 
 	/**
@@ -117,7 +120,7 @@ class MsiThemeEssentialAddonsPlugin {
 	}
 	
 	public function register_msitheme_category($manager) {
-		$manager->add_category('MsiTheme',[
+		$manager->add_category('msitheme',[
 			'title'	=> esc_html__( 'MsiTheme', 'msitheme' ),
 			'icon'	=> esc_attr__( 'fas fa-image', 'msitheme' ),
 		]);

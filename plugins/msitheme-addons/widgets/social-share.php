@@ -1,5 +1,5 @@
 <?php
-namespace CoderdevsbdEssentialAddons\Widgets;
+namespace MsiThemeEssentialAddons\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
