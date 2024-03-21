@@ -23,6 +23,7 @@
     --clrMidWhite: #FAFAFA;
     --clrWhite: #fff;
     --clrBlack: #171717;
+    --clrTransparent: transparent;
     /* transition */
     --transition: 0.3s all ease-in-out;
     /* line height */
@@ -36,18 +37,25 @@
     /* positioning */
     --relative: relative;
     --absolute: absolute;
+    --fixed: fixed;
+    --content: '';
     --top-0: 0;
     --bottom-0: 0;
     --left-0: 0;
     --right-0: 0;
     /* cursor pointer */
     --pointer: pointer;
+    --pointerEvent: none;
     /* display poperty */
     --dBlock: block;
     --dInlineBlock: inline-block;
     --dFlex: flex;
+    --inlineFlex: inline-flex;
     --dGrid: grid;
+    --center: center;
     --dNone: none;
+    --none: none;
+    --textUnderline: underline;
     /* text align and transform */
     --taCenter: center;
     --taLeft: left;
@@ -69,6 +77,16 @@
     --sectionPadding80: 80px 0;
     --sectionPadding90: 90px 0;
     --sectionPadding100: 100px 0;
+    /* height and width 100% */
+    --w100: 100%;
+    --h100: 100%;
+    --vh100: 100vh;
+    /* border radius */
+    --br100: 100%;
+    --br50: 50%;
+    /* background size */
+    --cover: cover;
+    --contain: contain;
 }
 
   
@@ -681,7 +699,7 @@ img {
     display: var(--dFlex);
 }
 .inline-flex {
-    display: inline-flex;
+    display: var(--inlineFlex);
 }
 .f-gap-5 {
     gap: 5px;
@@ -987,4 +1005,149 @@ img {
     -webkit-line-clamp: 3;
 }
 
+/* Theme border CSS */
+.theme-border {
+    position: relative;
+}
 
+.theme-border::before, .theme-border::after {
+    content: '';
+    position: var(--absolute);
+    left: var(--left-0);
+    bottom: -3px;
+    height: 1px;
+    background: var(
+    --clrWhite);
+}
+
+.theme-border::before {
+    width: 175px;
+}
+
+.theme-border::after {
+    height: 2px;
+    width: 57px;
+}
+
+/* Parallax Hero CSS */
+.hero-wrapper {
+    min-height: var(--vh100);
+}
+
+.parallax-hero {
+    position: var(--relative);
+    width: var(--w100);
+    height: var(--vh100);
+    display: var(--dFlex);
+    justify-content: center;
+    align-items: center;
+}
+/* .parallax-hero::before {
+    position: var(--absolute);
+    content: var(--content);
+    bottom: var(--bottom-0);
+    left: var(--left-0);
+    width: var(--w100);
+    height: 100px;
+    background: linear-gradient(to top, #094b65, transparent);
+    z-index: 10;
+} */
+.parallax-hero img {
+    position: var(--absolute);
+    top: var(--top-0);
+    left: var(--left-0);
+    width: var(--w100);
+    height: var(--h100);
+    object-fit: var(--cover);
+    pointer-events: var(--pointerEvent);
+}
+.parallax-hero h6,
+.parallax-hero h2 {
+    position: var(--absolute);
+    font-size: var(--fz12);
+    line-height: var(--lh18);
+    transform: translateY(-50%);
+    text-transform: var(--uppercase);
+}
+.parallax-hero h6 {
+    font-size: var(--fz12);
+    line-height: var(--lh18);
+}
+.parallax-hero h2 {
+    font-size: var(--fz64);
+    line-height: var(--lh76);
+}
+.theme-btn {
+    text-decoration: var(--none);
+    font-size: var(--fz12);
+    font-weight: var(--fw-700);
+    color: var(--clrDarkBlue);
+    display: var(--inlineFlex);
+    padding: 21px 36px;
+    justify-content: var(--center);
+    align-items: var(--center);
+}
+
+.parallax-hero .hover-border-btn {
+    transform: translateY(100px);
+    text-decoration: var(--textUnderline);
+    border: 1px solid var(--clrTransparent);
+}
+
+.parallax-hero .hover-border-btn:hover {
+    border-color: var(--clrDarkBlue);
+}
+
+.hero-top-right {
+    width: 270px;
+    right: 190px;
+    top: 120px;
+    position: var(--absolute);
+    z-index: 9;
+    border-bottom: 1px solid var(--clrDarkBlue);
+    padding: 10px;
+}
+
+.hero-bottom-content {
+    position: var(--absolute);
+    bottom: 170px;
+    left: 190px;
+    z-index: 5;
+    width: 571px;
+}
+
+.hero-text h6 {
+    top: -145px;
+}
+
+#hero-btns {
+    margin-top: 50px !important;
+}
+
+.site-header {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+
+.admin-bar .site-header {
+    margin-top: 32px;
+}
+
+img#aircraft {
+    z-index: 20;
+    height: auto !important;
+    width: 522px;
+    margin-left: 480px;
+    margin-top: 70px;
+}
+
+img#hand {
+    width: 862px;
+    z-index: 1;
+    margin-left: 520px;
+    margin-top: 310px;
+}
+.hero-wrapper {
+    overflow: hidden;
+}

@@ -8,11 +8,11 @@ if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 /**
- * Elementor widget for hero slider.
+ * Elementor widget for Parallax Hero.
  *
  * @since 1.0.0
  */
-class HeroSlider extends Widget_Base
+class ParallaxHero extends Widget_Base
 {
 
 	/**
@@ -26,7 +26,7 @@ class HeroSlider extends Widget_Base
 	 */
 	public function get_name()
 	{
-		return 'hero-slider';
+		return 'parallax-hero';
 	}
 
 	/**
@@ -40,7 +40,7 @@ class HeroSlider extends Widget_Base
 	 */
 	public function get_title()
 	{
-		return esc_html__('Hero Slider', 'coderdevsbd');
+		return esc_html__('Parallax Hero', 'coderdevsbd');
 	}
 
 	/**
@@ -110,19 +110,26 @@ class HeroSlider extends Widget_Base
 			]
 		);
 
-		$repeater = new \Elementor\Repeater();
-		$repeater->add_control(
-			'image',
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
 			[
-				'label' => esc_html__( 'Choose Image', 'coderdevsbd' ),
-				'type' => \Elementor\Controls_Manager::MEDIA,
-				'default' => [
-					'url' => \Elementor\Utils::get_placeholder_image_src(),
-				],
+				'name' => 'background',
+				'label' => esc_html__( 'Background', 'msitheme' ),
+				'types' => [ 'classic', 'gradient', 'video' ],
+				'selector' => '{{WRAPPER}} .hero-wrapper',
 			]
 		);
 
-		$repeater->add_control(
+		$this->add_control(
+			'top_right_txt',
+			[
+				'label'	=> __( 'Top right text', 'coderdevsbd' ),
+				'type'	=> Controls_Manager::TEXTAREA,
+				'label_block'	=> true,
+			]
+		);
+
+		$this->add_control(
 			'top_heading',
 			[
 				'label'	=> __( 'Top heading', 'coderdevsbd' ),
@@ -131,15 +138,49 @@ class HeroSlider extends Widget_Base
 			]
 		);
 
-		$repeater->add_control(
+		$this->add_control(
 			'bottom_heading',
 			[
 				'label'	=> __( 'Bottom heading', 'coderdevsbd' ),
-				'type'	=> Controls_Manager::TEXT,
+				'type'	=> Controls_Manager::TEXTAREA,
 				'label_block'	=> true,
 			]
 		);
 
+		$this->add_control(
+			'aircraft',
+			[
+				'label' => esc_html__( 'Choose Aircraft Image', 'coderdevsbd' ),
+				'type' => \Elementor\Controls_Manager::MEDIA,
+				'default' => [
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
+				],
+			]
+		);
+
+		$this->add_control(
+			'hand',
+			[
+				'label' => esc_html__( 'Choose Hand Image', 'coderdevsbd' ),
+				'type' => \Elementor\Controls_Manager::MEDIA,
+				'default' => [
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
+				],
+			]
+		);
+
+		$this->add_control(
+			'cloud',
+			[
+				'label' => esc_html__( 'Choose Cloud Image', 'coderdevsbd' ),
+				'type' => \Elementor\Controls_Manager::MEDIA,
+				'default' => [
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
+				],
+			]
+		);
+
+		$repeater = new \Elementor\Repeater();
 		$repeater->add_control(
 			'btn_label',
 			[
@@ -165,9 +206,9 @@ class HeroSlider extends Widget_Base
 		);
 
 		$this->add_control(
-			'sliders',
+			'btns',
 			[
-				'label' => esc_html__( 'Sliders', 'coderdevsbd' ),
+				'label' => esc_html__( 'Buttons', 'coderdevsbd' ),
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 			]
@@ -284,39 +325,68 @@ class HeroSlider extends Widget_Base
 	protected function render()
 	{
 		$settings = $this->get_settings_for_display();
-		if(!empty($settings['sliders'])) : 
 		?>
 			<!-- start of hero -->
-			<div class="hero-slider overflow-hidden">
-				<?php 
-					foreach ( $settings['sliders'] as $slider ) : 
-						$target = $slider['btn_link']['is_external'] ? ' target="_blank"' : '';
-						$nofollow = $slider['btn_link']['nofollow'] ? ' rel="nofollow"' : '';
-				?>
-					<div class="single-slide relative">
-						<img width="100%" src="<?php echo esc_url(wp_get_attachment_image_url( $slider['image']['id'], '' )); ?>" alt="<?php echo esc_attr( $slider['top_heading'] ); ?>">
-						<div class="slider-txts absolute text-center">
-							<?php if( !empty($slider['top_heading'])) : ?>
-								<h2 class="caveat fw-400 clr-white">
-									<?php echo esc_html( $slider['top_heading'] ); ?>
-								</h2>
-							<?php endif; if( !empty($slider['bottom_heading'])) : ?>
-								<h1 class="brygada-1918 fw-500 clr-white">
-									<?php echo esc_html( $slider['bottom_heading'] ); ?>
-								</h1>
-							<?php endif; if( !empty($slider['btn_label'])) : ?>
-								<a href="<?php echo esc_url( $slider['btn_link']['url'] ); ?>" <?php echo esc_attr( $target ); ?> <?php echo esc_attr( $nofollow ); ?> class="btn rounded-btn clr-orange-bg clr-white">
-									<?php echo esc_html( $slider['btn_label'] ); ?> <i class="fa fa-arrow-right"></i>
-								</a>
+			<div class="hero-wrapper">
+				<div class="parallax-hero">
+					<?php if ( !empty($settings['top_right_txt']) ) : ?>
+						<div class="hero-top-right fz-18 lh-27 fw-700 clrDarkBlue">
+							<?php echo wp_kses_post( $settings['top_right_txt'] ); ?>
+						</div>
+						<div class="hero-bottom-content">
+							<?php endif; if(!empty($settings['bottom_heading'])) : ?>
+								<div class="hero-text" id="hero-text">
+									<?php if(!empty($settings['top_heading'])) : ?>
+										<h6><?php echo esc_html( $settings['top_heading'] ); ?></h6>
+									<?php endif; ?>
+									<h2><?php echo esc_html( $settings['bottom_heading'] ); ?></h2>
+								</div>
+							<?php endif; if(!empty($settings['btns'])) : ?>
+								<div class="flex align-center f-gap-25" id="hero-btns">
+									<?php 
+									foreach( $settings['btns'] as $btn ) :
+										$target = $btn['btn_link']['is_external'] ? ' target="_blank"' : '';
+										$nofollow = $btn['btn_link']['nofollow'] ? ' rel="nofollow"' : '';
+									?>
+										<a class="hover-border-btn hero-btn theme-btn" href="<?php echo esc_url( $btn['btn_link']['url'] ); ?>" <?php echo esc_attr( $target ); ?> <?php echo esc_attr( $nofollow ); ?> id="btn">
+											<?php echo esc_html( $btn['btn_label'] ); ?>
+										</a>
+									<?php endforeach; ?>
+								</div>
 							<?php endif; ?>
 						</div>
-					</div>
-				<?php endforeach; ?>
+					<?php if(!empty($settings['aircraft'])) : ?>
+						<img src="<?php echo esc_url(wp_get_attachment_image_url( $settings['aircraft']['id'], 'large' )); ?>" alt="Aircraft" id="aircraft">
+					<?php endif; if(!empty($settings['hand'])) : ?>
+						<img src="<?php echo esc_url(wp_get_attachment_image_url( $settings['hand']['id'], 'large' )); ?>" alt="Hand" id="hand">
+					<?php endif; if(!empty($settings['cloud'])) : ?>
+						<img src="<?php echo esc_url(wp_get_attachment_image_url( $settings['cloud']['id'], 'large' )); ?>" alt="cloud" id="cloud">
+					<?php endif; ?>
+				</div>
 			</div>
 			<!-- end of hero slider -->
+			<script>
+				let text = document.getElementById("hero-text");
+				let aircraft = document.getElementById("aircraft");
+				let hand = document.getElementById("hand");
+				let btn = document.getElementById("hero-btns");
+				let cloud = document.getElementById("cloud");
+				let masthead = document.getElementById("masthead");
 
+				window.addEventListener('scroll', function() {
+					let value = window.scrollY;
+
+					text.style.top = 50 + value * -2.5 + '%';
+					aircraft.style.top = value * 1 + 'px';
+					aircraft.style.left = value * -0.1 + '%';
+					hand.style.top = value * -1.5 + 'px';
+					hand.style.left = value * 2 + 'px';
+					btn.style.marginTop = value * -3.5 + 'px';
+					cloud.style.top = value * -1.12 + 'px';
+					masthead.style.top = value * -0.3 + 'px';
+				});
+			</script>					
 		<?php
-		endif;
 	}
 
 }

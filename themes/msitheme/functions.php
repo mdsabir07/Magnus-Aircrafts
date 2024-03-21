@@ -238,9 +238,14 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Customizer additions.
+ * Metabox and options
  */
 require get_template_directory() . '/inc/metabox-and-options.php';
+
+/**
+ * Custom post type
+ */
+require get_template_directory() . '/inc/products.php';
 
 /**
  * Load Jetpack compatibility file.

@@ -410,7 +410,7 @@ class Blogs extends Widget_Base {
                     <?php if($settings['show_section_title'] === 'yes') : ?>
                         <div class="section-title">
                             <?php if($settings['show_top_heading'] === 'yes') : ?>
-                                <h6 class=""><?php echo esc_html( $settings['top_heading'] ); ?></h6>
+                                <h6 class="theme-border relative"><?php echo esc_html( $settings['top_heading'] ); ?></h6>
                             <?php endif; ?>
                             <h3><?php echo esc_html( $settings['section_title'] ); ?></h3>
                         </div>

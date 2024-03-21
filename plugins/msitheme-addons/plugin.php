@@ -1,6 +1,6 @@
 <?php
 namespace MsiThemeEssentialAddons;
-use MsiThemeEssentialAddons\Widgets\HeroSlider;
+use MsiThemeEssentialAddons\Widgets\ParallaxHero;
 use MsiThemeEssentialAddons\Widgets\AsForm;
 use MsiThemeEssentialAddons\Widgets\SocialShare;
 use MsiThemeEssentialAddons\Widgets\Blogs;
@@ -71,7 +71,7 @@ class MsiThemeEssentialAddonsPlugin {
 	 * @access private
 	 */
 	private function include_widgets_files() {
-		require_once( __DIR__ . '/widgets/hero-slider.php' );
+		require_once( __DIR__ . '/widgets/parallax-hero.php' );
 		require_once( __DIR__ . '/widgets/advanced-search-from.php' );
 		require_once( __DIR__ . '/widgets/social-share.php' );
 		require_once( __DIR__ . '/widgets/blog-posts.php' );
@@ -90,7 +90,7 @@ class MsiThemeEssentialAddonsPlugin {
 		$this->include_widgets_files();
 
 		// Register Widgets
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new HeroSlider() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ParallaxHero() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new AsForm() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new SocialShare() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Blogs() );
