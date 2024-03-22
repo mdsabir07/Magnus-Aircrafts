@@ -87,6 +87,7 @@
     /* background size */
     --cover: cover;
     --contain: contain;
+    --scroll: scroll;
 }
 
   
@@ -962,9 +963,16 @@ img {
     gap: 5px;
 }
 
-.widget ul li a {color: var(--clrWhite);display: var(--dBlock);padding: 10px 0;}
+.widget ul li a {
+    color: var(--clrWhite);
+    display: var(--dBlock);
+    padding: 10px 0;
+}
 
-.widget ul li {width: 100%;border-bottom: 1px solid var(--clrWhite);}
+.widget ul li {
+    width: 100%;
+    border-bottom: 1px solid var(--clrWhite);
+}
 
 .footer-bottom .textwidget p {
     color: var(--clrWhite);
@@ -1005,19 +1013,46 @@ img {
     -webkit-line-clamp: 3;
 }
 
+.msitheme-news-wrap {
+    padding: 80px 0;
+}
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+.single-news-post .entry-media img {
+    height: 363px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.single-news-post.theme-border::before {
+    width: 100%;
+}
+
+.single-news-post {
+    padding-bottom: 20px;
+}
+
+.single-news-post.theme-border::after {
+    width: 75px;
+}
+
+
 /* Theme border CSS */
 .theme-border {
     position: relative;
 }
 
-.theme-border::before, .theme-border::after {
+.theme-border::before, 
+.theme-border::after {
     content: '';
     position: var(--absolute);
     left: var(--left-0);
     bottom: -3px;
     height: 1px;
-    background: var(
-    --clrWhite);
+    background: var(--clrWhite);
 }
 
 .theme-border::before {
@@ -1120,7 +1155,7 @@ img {
     top: -145px;
 }
 
-#hero-btns {
+#heroBtns {
     margin-top: 50px !important;
 }
 
@@ -1150,4 +1185,42 @@ img#hand {
 }
 .hero-wrapper {
     overflow: hidden;
+}
+
+/* Image/gallery sllider */
+.gallery-wrapper {
+    display: flex;
+    gap: 20px;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    padding-bottom: 40px;
+    height: 393px;
+    scrollbar-width: 80vw !important;
+}
+
+.gallery-wrapper::-webkit-scrollbar {
+    height: 5px;
+    max-width: 80vw !important;
+    scrollbar-width: 80vw !important;
+}
+.gallery-wrapper::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
+    background: #fff;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    
+}
+.gallery-wrapper::-webkit-scrollbar-track {
+    background: #fff;
+    width: 80vw !important;
+    max-width: 80vw !important;
+}
+.gallery-wrapper::-webkit-scrollbar-thumb {
+    background: #B1DEE3;
+    position: relative;
+}
+
+/* About us CSS */
+
+.about-lead-content, .about-details, .about-us-wrap .section-title {
+    margin-bottom: 24px;
 }

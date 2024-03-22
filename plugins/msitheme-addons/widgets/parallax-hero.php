@@ -40,7 +40,7 @@ class ParallaxHero extends Widget_Base
 	 */
 	public function get_title()
 	{
-		return esc_html__('Parallax Hero', 'coderdevsbd');
+		return esc_html__('Parallax Hero', 'msitheme');
 	}
 
 	/**
@@ -73,7 +73,7 @@ class ParallaxHero extends Widget_Base
 	 */
 	public function get_categories()
 	{
-		return ['coderdevsbd'];
+		return ['msitheme'];
 	}
 
 	/**
@@ -89,7 +89,7 @@ class ParallaxHero extends Widget_Base
 	 */
 	public function get_script_depends()
 	{
-		return ['coderdevsbd'];
+		return ['msitheme'];
 	}
 
 	/**
@@ -106,7 +106,7 @@ class ParallaxHero extends Widget_Base
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => __('Slider content', 'coderdevsbd'),
+				'label' => __('Slider content', 'msitheme'),
 			]
 		);
 
@@ -123,7 +123,7 @@ class ParallaxHero extends Widget_Base
 		$this->add_control(
 			'top_right_txt',
 			[
-				'label'	=> __( 'Top right text', 'coderdevsbd' ),
+				'label'	=> __( 'Top right text', 'msitheme' ),
 				'type'	=> Controls_Manager::TEXTAREA,
 				'label_block'	=> true,
 			]
@@ -132,7 +132,7 @@ class ParallaxHero extends Widget_Base
 		$this->add_control(
 			'top_heading',
 			[
-				'label'	=> __( 'Top heading', 'coderdevsbd' ),
+				'label'	=> __( 'Top heading', 'msitheme' ),
 				'type'	=> Controls_Manager::TEXT,
 				'label_block'	=> true,
 			]
@@ -141,7 +141,7 @@ class ParallaxHero extends Widget_Base
 		$this->add_control(
 			'bottom_heading',
 			[
-				'label'	=> __( 'Bottom heading', 'coderdevsbd' ),
+				'label'	=> __( 'Bottom heading', 'msitheme' ),
 				'type'	=> Controls_Manager::TEXTAREA,
 				'label_block'	=> true,
 			]
@@ -150,7 +150,7 @@ class ParallaxHero extends Widget_Base
 		$this->add_control(
 			'aircraft',
 			[
-				'label' => esc_html__( 'Choose Aircraft Image', 'coderdevsbd' ),
+				'label' => esc_html__( 'Choose Aircraft Image', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::MEDIA,
 				'default' => [
 					'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -161,7 +161,7 @@ class ParallaxHero extends Widget_Base
 		$this->add_control(
 			'hand',
 			[
-				'label' => esc_html__( 'Choose Hand Image', 'coderdevsbd' ),
+				'label' => esc_html__( 'Choose Hand Image', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::MEDIA,
 				'default' => [
 					'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -172,7 +172,7 @@ class ParallaxHero extends Widget_Base
 		$this->add_control(
 			'cloud',
 			[
-				'label' => esc_html__( 'Choose Cloud Image', 'coderdevsbd' ),
+				'label' => esc_html__( 'Choose Cloud Image', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::MEDIA,
 				'default' => [
 					'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -184,7 +184,7 @@ class ParallaxHero extends Widget_Base
 		$repeater->add_control(
 			'btn_label',
 			[
-				'label'	=> __( 'Button label', 'coderdevsbd' ),
+				'label'	=> __( 'Button label', 'msitheme' ),
 				'type'	=> Controls_Manager::TEXT,
 				'label_block'	=> true,
 			]
@@ -193,9 +193,9 @@ class ParallaxHero extends Widget_Base
 		$repeater->add_control(
 			'btn_link',
 			[
-				'label' => esc_html__( 'Button Link', 'coderdevsbd' ),
+				'label' => esc_html__( 'Button Link', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => esc_html__( 'https://domain-link.com', 'coderdevsbd' ),
+				'placeholder' => esc_html__( 'https://domain-link.com', 'msitheme' ),
 				'show_external' => true,
 				'default' => [
 					'url' => '',
@@ -208,7 +208,7 @@ class ParallaxHero extends Widget_Base
 		$this->add_control(
 			'btns',
 			[
-				'label' => esc_html__( 'Buttons', 'coderdevsbd' ),
+				'label' => esc_html__( 'Buttons', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 			]
@@ -219,7 +219,7 @@ class ParallaxHero extends Widget_Base
 		$this->start_controls_section(
 			'section_style',
 			[
-				'label' => __('Style', 'coderdevsbd'),
+				'label' => __('Style', 'msitheme'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -227,7 +227,7 @@ class ParallaxHero extends Widget_Base
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'top_heading_typography',
-				'label' => __('Typography for top heading', 'coderdevsbd'),
+				'label' => __('Typography for top heading', 'msitheme'),
 				'selector' => '{{WRAPPER}} .slider-txts h2',
 				'default' => '36px',
 			]
@@ -235,7 +235,7 @@ class ParallaxHero extends Widget_Base
 		$this->add_control(
 			'top_heading_color',
 			[
-				'label' => __('Top Heading Color', 'coderdevsbd'),
+				'label' => __('Top Heading Color', 'msitheme'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'scheme' => [
@@ -251,7 +251,7 @@ class ParallaxHero extends Widget_Base
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'bottom_heading_typography',
-				'label' => __('Typography for bottom heading', 'coderdevsbd'),
+				'label' => __('Typography for bottom heading', 'msitheme'),
 				'selector' => '{{WRAPPER}} .slider-txts h1',
 				'default' => '100px',
 			]
@@ -259,7 +259,7 @@ class ParallaxHero extends Widget_Base
 		$this->add_control(
 			'bottom_heading_color',
 			[
-				'label' => __('Bottom Heading Color', 'coderdevsbd'),
+				'label' => __('Bottom Heading Color', 'msitheme'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'scheme' => [
@@ -275,7 +275,7 @@ class ParallaxHero extends Widget_Base
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'button_typography',
-				'label' => __('Typography for button', 'coderdevsbd'),
+				'label' => __('Typography for button', 'msitheme'),
 				'selector' => '{{WRAPPER}} .slider-txts a.btn',
 				'default' => '100px',
 			]
@@ -283,7 +283,7 @@ class ParallaxHero extends Widget_Base
 		$this->add_control(
 			'button_color',
 			[
-				'label' => __('Button Color', 'coderdevsbd'),
+				'label' => __('Button Color', 'msitheme'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'scheme' => [
@@ -298,7 +298,7 @@ class ParallaxHero extends Widget_Base
 		$this->add_control(
 			'btn_bg_color',
 			[
-				'label' => __('Button background Color', 'coderdevsbd'),
+				'label' => __('Button background Color', 'msitheme'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#FA6400',
 				'scheme' => [
@@ -333,28 +333,29 @@ class ParallaxHero extends Widget_Base
 						<div class="hero-top-right fz-18 lh-27 fw-700 clrDarkBlue">
 							<?php echo wp_kses_post( $settings['top_right_txt'] ); ?>
 						</div>
-						<div class="hero-bottom-content">
-							<?php endif; if(!empty($settings['bottom_heading'])) : ?>
-								<div class="hero-text" id="hero-text">
-									<?php if(!empty($settings['top_heading'])) : ?>
-										<h6><?php echo esc_html( $settings['top_heading'] ); ?></h6>
-									<?php endif; ?>
-									<h2><?php echo esc_html( $settings['bottom_heading'] ); ?></h2>
-								</div>
-							<?php endif; if(!empty($settings['btns'])) : ?>
-								<div class="flex align-center f-gap-25" id="hero-btns">
-									<?php 
-									foreach( $settings['btns'] as $btn ) :
-										$target = $btn['btn_link']['is_external'] ? ' target="_blank"' : '';
-										$nofollow = $btn['btn_link']['nofollow'] ? ' rel="nofollow"' : '';
-									?>
-										<a class="hover-border-btn hero-btn theme-btn" href="<?php echo esc_url( $btn['btn_link']['url'] ); ?>" <?php echo esc_attr( $target ); ?> <?php echo esc_attr( $nofollow ); ?> id="btn">
-											<?php echo esc_html( $btn['btn_label'] ); ?>
-										</a>
-									<?php endforeach; ?>
-								</div>
-							<?php endif; ?>
-						</div>
+					<?php endif; ?>
+					<div class="hero-bottom-content" id="heroText">
+						<?php if(!empty($settings['bottom_heading'])) : ?>
+							<div class="hero-text">
+								<?php if(!empty($settings['top_heading'])) : ?>
+									<h6><?php echo esc_html( $settings['top_heading'] ); ?></h6>
+								<?php endif; ?>
+								<h2><?php echo esc_html( $settings['bottom_heading'] ); ?></h2>
+							</div>
+						<?php endif; if(!empty($settings['btns'])) : ?>
+							<div class="flex align-center f-gap-25" id="heroBtns">
+								<?php 
+								foreach( $settings['btns'] as $btn ) :
+									$target = $btn['btn_link']['is_external'] ? ' target="_blank"' : '';
+									$nofollow = $btn['btn_link']['nofollow'] ? ' rel="nofollow"' : '';
+								?>
+									<a class="hover-border-btn hero-btn theme-btn" href="<?php echo esc_url( $btn['btn_link']['url'] ); ?>" <?php echo esc_attr( $target ); ?> <?php echo esc_attr( $nofollow ); ?> id="btn">
+										<?php echo esc_html( $btn['btn_label'] ); ?>
+									</a>
+								<?php endforeach; ?>
+							</div>
+						<?php endif; ?>
+					</div>
 					<?php if(!empty($settings['aircraft'])) : ?>
 						<img src="<?php echo esc_url(wp_get_attachment_image_url( $settings['aircraft']['id'], 'large' )); ?>" alt="Aircraft" id="aircraft">
 					<?php endif; if(!empty($settings['hand'])) : ?>
@@ -366,24 +367,25 @@ class ParallaxHero extends Widget_Base
 			</div>
 			<!-- end of hero slider -->
 			<script>
-				let text = document.getElementById("hero-text");
+				let text = document.getElementById("heroText");
 				let aircraft = document.getElementById("aircraft");
 				let hand = document.getElementById("hand");
-				let btn = document.getElementById("hero-btns");
+				let btn = document.getElementById("heroBtns");
 				let cloud = document.getElementById("cloud");
 				let masthead = document.getElementById("masthead");
 
 				window.addEventListener('scroll', function() {
 					let value = window.scrollY;
 
-					text.style.top = 50 + value * -2.5 + '%';
+					text.style.marginTop = value * 50 + 'px';
+					text.style.right = value * -5.2 + 'px';
 					aircraft.style.top = value * 1 + 'px';
 					aircraft.style.left = value * -0.1 + '%';
 					hand.style.top = value * -1.5 + 'px';
 					hand.style.left = value * 2 + 'px';
-					btn.style.marginTop = value * -3.5 + 'px';
+					btn.style.marginTop = value * -1.5 + 'px';
 					cloud.style.top = value * -1.12 + 'px';
-					masthead.style.top = value * -0.3 + 'px';
+					masthead.style.top = value * 0.7 + 'px';
 				});
 			</script>					
 		<?php

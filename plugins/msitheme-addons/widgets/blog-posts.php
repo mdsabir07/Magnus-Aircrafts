@@ -59,7 +59,7 @@ class Blogs extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'eicon-posts-ticker';
+		return 'eicon-posts-grid';
 	}
 
 	/**
@@ -440,7 +440,7 @@ class Blogs extends Widget_Base {
                                 $post_extra_img = '';
                             }
                         ?>
-                            <div class="single-news-post">
+                            <div class="single-news-post theme-border">
                                 <?php if($settings['show_img'] === 'yes') : ?>
                                     <div class="entry-media">
                                         <?php 
