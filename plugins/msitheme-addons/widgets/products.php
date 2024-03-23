@@ -8,20 +8,19 @@ if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
-function msitheme_post_cat_list( ) {
-    $elements = get_terms( 'category', array('hide_empty' => true) );
+function msitheme_product_cat_list( ) {
+    $elements = get_terms( 'product_cats', array('hide_empty' => true) );
     $post_cat_array = array();
 
     if ( !empty($elements) ) {
         foreach ( $elements as $element ) {
-            $info = get_term($element, 'category');
+            $info = get_term($element, 'product_cats');
             $post_cat_array[ $info->term_id ] = $info->name;
         }
     }
     return $post_cat_array;
 }
-
-class Blogs extends Widget_Base {
+class Products extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -33,7 +32,7 @@ class Blogs extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'blogs';
+		return 'products';
 	}
 
 	/**
@@ -46,7 +45,7 @@ class Blogs extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Blogs', 'msitheme' );
+		return __( 'Products', 'msitheme' );
 	}
 
 	/**
@@ -108,7 +107,7 @@ class Blogs extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => __( 'Section title', 'msitheme' ),
+				'label' => __( 'Products content', 'msitheme' ),
 			]
 		);
 		
@@ -177,7 +176,7 @@ class Blogs extends Widget_Base {
 			[
 				'label' => __( 'Post count', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => '2',
+				'default' => '3',
 			]
 		);
 
@@ -187,7 +186,10 @@ class Blogs extends Widget_Base {
                 'label' => __( 'Select Categories', 'msitheme' ),
                 'type' => \Elementor\Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options' => msitheme_post_cat_list(),
+                'options' => msitheme_product_cat_list(),
+				'condition' => [
+					'post_type' => 'product',
+				],
             ]
         );
 
@@ -436,14 +438,14 @@ class Blogs extends Widget_Base {
 
 		if ($settings['cat_ids']) {
 			$q = new \WP_Query( array(
-				'post_type'	=> 'post', 
+				'post_type'	=> 'product', 
 				'posts_per_page' => $settings['count'],
 				'orderby'	=> $settings['orderby'],
 				'order'	=> $settings['order'],
 				'post_status'	=> $settings['post_status'],
 				'tax_query'	=> array(
 					array(
-						'taxonomy'	=> 'category',
+						'taxonomy'	=> 'product_cats',
 						'field'		=> 'term_id',
 						'terms'		=> $settings['cat_ids']
 					)
@@ -451,7 +453,7 @@ class Blogs extends Widget_Base {
 			) );
 		} else {
 			$q = new \WP_Query( array(
-				'post_type'	=> 'post',  
+				'post_type'	=> 'product',  
 				'posts_per_page' => $settings['count'],
 				'orderby'	=> $settings['orderby'],
 				'order'	=> $settings['order'],

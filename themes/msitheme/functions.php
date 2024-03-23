@@ -94,6 +94,18 @@ function msitheme_setup() {
 			'flex-height' => true,
 		)
 	);
+
+	 /**
+	 * Enable suporrt for Post Formats
+	 * see: https://codex.wordpress.org/Post_Formats
+	 */
+	add_theme_support( 'post-formats', [
+		'gallery',
+		'image',
+		'quote',
+		'video',
+		'standard'
+	] );
 }
 add_action( 'after_setup_theme', 'msitheme_setup' );
 

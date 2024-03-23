@@ -5,8 +5,6 @@
 */
   
 function msitheme_product_custom_post_type() {
-  
-// Set UI labels for Custom Post Type
     $labels = array(
         'name'                => _x( 'Products', 'Post Type General Name', 'msitheme' ),
         'singular_name'       => _x( 'Product', 'Post Type Singular Name', 'msitheme' ),
@@ -29,7 +27,7 @@ function msitheme_product_custom_post_type() {
         'description'         => __( 'Product news and reviews', 'msitheme' ),
         'labels'              => $labels,
         'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions',       
-                                        'custom-fields', ),
+                                        'custom-fields', 'trackbacks', 'page-attributes', 'post-formats' ),
         'taxonomies'          => array( 'product_cats' ),
         'hierarchical'        => false,
         'public'              => true,
@@ -46,9 +44,19 @@ function msitheme_product_custom_post_type() {
         'show_in_rest' => true,
     
     );
-        
-    // Registering your Custom Post Type
-    register_post_type( 'products', $args );
+    register_post_type( 'product', $args );
+
+
+    register_taxonomy( 'product_cats', 'product', [
+        'hierarchical'  => true,
+        'label' => 'Product Category',
+        'query_var' => true,
+        'show_admin_column' => true,
+        'rewrite'   => [
+            'slug'  => 'product-category',
+            'with_front'    => true
+        ]
+    ] );
     
 }
 add_action( 'init', 'msitheme_product_custom_post_type', 0 );

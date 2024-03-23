@@ -6,6 +6,7 @@ use MsiThemeEssentialAddons\Widgets\AboutUs;
 use MsiThemeEssentialAddons\Widgets\AsForm;
 use MsiThemeEssentialAddons\Widgets\SocialShare;
 use MsiThemeEssentialAddons\Widgets\Blogs;
+use MsiThemeEssentialAddons\Widgets\Products;
 /**
  * Class Plugin
  *
@@ -79,6 +80,7 @@ class MsiThemeEssentialAddonsPlugin {
 		require_once( __DIR__ . '/widgets/advanced-search-from.php' );
 		require_once( __DIR__ . '/widgets/social-share.php' );
 		require_once( __DIR__ . '/widgets/blog-posts.php' );
+		require_once( __DIR__ . '/widgets/products.php' );
 	}
 
 	/**
@@ -100,6 +102,7 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new AsForm() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new SocialShare() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Blogs() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Products() );
 	}
 
 	/**
