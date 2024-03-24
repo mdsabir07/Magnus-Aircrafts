@@ -40,7 +40,7 @@ class SocialShare extends Widget_Base
 	 */
 	public function get_title()
 	{
-		return esc_html__('Social Share', 'coderdevsbd');
+		return esc_html__('Social link', 'msitheme');
 	}
 
 	/**
@@ -54,7 +54,7 @@ class SocialShare extends Widget_Base
 	 */
 	public function get_icon()
 	{
-		return 'eicon-posts-ticker';
+		return 'eicon-social-icons';
 	}
 
 	/**
@@ -73,7 +73,7 @@ class SocialShare extends Widget_Base
 	 */
 	public function get_categories()
 	{
-		return ['coderdevsbd'];
+		return ['msitheme'];
 	}
 
 	/**
@@ -89,7 +89,7 @@ class SocialShare extends Widget_Base
 	 */
 	public function get_script_depends()
 	{
-		return ['coderdevsbd'];
+		return ['msitheme'];
 	}
 
 	/**
@@ -106,24 +106,39 @@ class SocialShare extends Widget_Base
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => __('Social Share', 'coderdevsbd'),
+				'label' => __('Social link', 'msitheme'),
 			]
 		);
 
 		$this->add_control(
-			'share_label',
+			'facebook',
 			[
-				'label' => __('Share heading', 'coderdevsbd'),
+				'label' => __('Facebook link', 'msitheme'),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+			]
+		);
+		$this->add_control(
+			'facebook_label',
+			[
+				'label' => __('Facebook label', 'msitheme'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 			]
 		);
 
-
 		$this->add_control(
 			'insta',
 			[
-				'label' => __('Instagram link', 'coderdevsbd'),
+				'label' => __('Instagram link', 'msitheme'),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+			]
+		);
+		$this->add_control(
+			'insta_label',
+			[
+				'label' => __('Instagram label', 'msitheme'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 			]
@@ -132,7 +147,49 @@ class SocialShare extends Widget_Base
 		$this->add_control(
 			'linked',
 			[
-				'label' => __('Linkedin link', 'coderdevsbd'),
+				'label' => __('Linkedin link', 'msitheme'),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+			]
+		);
+		$this->add_control(
+			'linked_label',
+			[
+				'label' => __('Linkedin label', 'msitheme'),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+			]
+		);
+		
+		$this->add_control(
+			'tiktok',
+			[
+				'label' => __('Tiktok link', 'msitheme'),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+			]
+		);
+		$this->add_control(
+			'tiktok_label',
+			[
+				'label' => __('Tiktok label', 'msitheme'),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+			]
+		);
+
+		$this->add_control(
+			'youtube',
+			[
+				'label' => __('YouTube link', 'msitheme'),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+			]
+		);
+		$this->add_control(
+			'youtube_label',
+			[
+				'label' => __('YouTube label', 'msitheme'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 			]
@@ -141,22 +198,124 @@ class SocialShare extends Widget_Base
 		$this->add_control(
 			'twitter',
 			[
-				'label' => __('Twitter link', 'coderdevsbd'),
+				'label' => __('Twitter link', 'msitheme'),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+			]
+		);
+		$this->add_control(
+			'twitter_label',
+			[
+				'label' => __('Twitter label', 'msitheme'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 			]
 		);
 
 		$this->add_control(
-			'facebook',
+			'pinterest',
 			[
-				'label' => __('Facebook link', 'coderdevsbd'),
+				'label' => __('Pinterest link', 'msitheme'),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+			]
+		);
+		$this->add_control(
+			'pinterest_label',
+			[
+				'label' => __('Pinterest label', 'msitheme'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 			]
 		);
 
-		
+		$this->add_control(
+			'show_icon',
+			[
+				'label' => __( 'Show icon', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'no',
+				'options' => [
+					'yes'	=> __( 'Yes', 'msitheme' ), 
+					'no'	=> __( 'No', 'msitheme' ), 
+				],
+			]
+		);
+		$this->add_control(
+			'text_align',
+			[
+				'label' => esc_html__( 'Alignment', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'start' => [
+						'title' => esc_html__( 'Left', 'msitheme' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'msitheme' ),
+						'icon' => 'eicon-text-align-center',
+					],
+					'end' => [
+						'title' => esc_html__( 'Right', 'msitheme' ),
+						'icon' => 'eicon-text-align-right',
+					],
+				],
+				'default' => 'end',
+				'toggle' => true,
+				'selectors' => [
+					'{{WRAPPER}} .social-links' => 'justify-content: {{VALUE}};',
+				],
+			]
+		);
+		$this->end_controls_section();
+
+		// style
+		$this->start_controls_section(
+			'section_style',
+			[
+				'label' => __( 'Style', 'msitheme' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'social_typography',
+				'label' => __( 'Typography', 'msitheme' ),
+				'selector' => '{{WRAPPER}} .social-icon',
+			]
+		);
+        $this->add_control(
+			'social_color',
+			[
+				'label' => __( 'Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#070028',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .social-icon' => 'color: {{VALUE}}',
+				],
+			]
+		);
+        $this->add_control(
+			'social_hover_color',
+			[
+				'label' => __( 'Hover Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#AF1A15',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .social-icon:hover' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -173,23 +332,65 @@ class SocialShare extends Widget_Base
 	{
 		$settings = $this->get_settings_for_display();
 		?>
-			<div class="social-shares flex align-center">
-                <?php if ( !empty($settings['share_label']) ) : ?>
-                    <div class="share clr-white fw-500"><?php echo esc_html( $settings['share_label'] ); ?></div>
-                <?php endif; ?>
-                <div class="share-line"></div>
-                <div class="share-icons flex aling-center clr-white">
-                    <?php if ( !empty($settings['insta']) ) : ?>
-                        <a href="<?php echo esc_url($settings['insta']); ?>" class="social-icon clr-white"><i class="fab fa-instagram"></i></a>
-                    <?php endif; if ( !empty($settings['linked']) ) : ?>
-                        <a href="<?php echo esc_url($settings['linked']); ?>" class="social-icon clr-white"><i class="fab fa-linkedin-in"></i></a>
-                    <?php endif; if ( !empty($settings['twitter']) ) : ?>
-                        <a href="<?php echo esc_url($settings['twitter']); ?>" class="social-icon clr-white"><i class="fab fa-twitter"></i></a>
-                    <?php endif; if ( !empty($settings['facebook']) ) : ?>
-                        <a href="<?php echo esc_url($settings['facebook']); ?>" class="social-icon clr-white"><i class="fab fa-facebook-f"></i></a>
-                    <?php endif; ?>
-                </div>
-            </div>
+			<div class="social-links">
+				<?php if ( !empty($settings['facebook']) ) : ?>
+					<a href="<?php echo esc_url($settings['facebook']); ?>" class="social-icon">
+						<?php if ( !empty($settings['facebook_label']) ) : ?>
+							<?php echo esc_html( $settings['facebook_label'] ); ?>
+						<?php endif; if ( $settings['show_icon'] === 'yes') : ?>
+							<i class="fab fa-facebook-f"></i>
+						<?php endif; ?>
+					</a>
+				<?php endif; if ( !empty($settings['insta']) ) : ?>
+					<a href="<?php echo esc_url($settings['insta']); ?>" class="social-icon">
+						<?php if ( !empty($settings['insta_label']) ) : ?>
+							<?php echo esc_html( $settings['insta_label'] ); ?>
+						<?php endif; if ( $settings['show_icon'] === 'yes') : ?>
+							<i class="fab fa-instagram"></i>
+						<?php endif; ?>
+					</a>
+				<?php endif; if ( !empty($settings['linked']) ) : ?>
+					<a href="<?php echo esc_url($settings['linked']); ?>" class="social-icon">
+						<?php if ( !empty($settings['linked_label']) ) : ?>
+							<?php echo esc_html( $settings['linked_label'] ); ?>
+						<?php endif; if ( $settings['show_icon'] === 'yes') : ?>
+							<i class="fab fa-linkedin-in"></i>
+						<?php endif; ?>
+					</a>
+				<?php endif; if ( !empty($settings['tiktok']) ) : ?>
+					<a href="<?php echo esc_url($settings['tiktok']); ?>" class="social-icon">
+						<?php if ( !empty($settings['tiktok_label']) ) : ?>
+							<?php echo esc_html( $settings['tiktok_label'] ); ?>
+						<?php endif; if ( $settings['show_icon'] === 'yes') : ?>
+								<i class="fa-brands fa-tiktok"></i>
+						<?php endif; ?>
+					</a>
+				<?php endif; if ( !empty($settings['youtube']) ) : ?>
+					<a href="<?php echo esc_url($settings['youtube']); ?>" class="social-icon">
+						<?php if ( !empty($settings['youtube_label']) ) : ?>
+							<?php echo esc_html( $settings['youtube_label'] ); ?>
+						<?php endif; if ( $settings['show_icon'] === 'yes') : ?>
+							<i class="fa-brands fa-youtube"></i>
+						<?php endif; ?>
+					</a>
+				<?php endif; if ( !empty($settings['twitter']) ) : ?>
+					<a href="<?php echo esc_url($settings['twitter']); ?>" class="social-icon">
+						<?php if ( !empty($settings['twitter_label']) ) : ?>
+							<?php echo esc_html( $settings['twitter_label'] ); ?>
+						<?php endif; if ( $settings['show_icon'] === 'yes') : ?>
+							<i class="fa-brands fa-x-twitter"></i>
+						<?php endif; ?>
+					</a>
+				<?php endif; if ( !empty($settings['pinterest']) ) : ?>
+					<a href="<?php echo esc_url($settings['pinterest']); ?>" class="social-icon">
+						<?php if ( !empty($settings['pinterest_label']) ) : ?>
+							<?php echo esc_html( $settings['pinterest_label'] ); ?>
+						<?php endif; if ( $settings['show_icon'] === 'yes') : ?>
+							<i class="fa-brands fa-pinterest"></i>
+						<?php endif; ?>
+					</a>
+				<?php endif; ?>
+			</div>
 		<?php
 	}
 

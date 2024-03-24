@@ -45,7 +45,7 @@ class Products extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Products', 'msitheme' );
+		return __( 'Aircrafts Products', 'msitheme' );
 	}
 
 	/**
@@ -58,7 +58,7 @@ class Products extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'eicon-posts-grid';
+		return 'eicon-products';
 	}
 
 	/**
@@ -140,6 +140,21 @@ class Products extends Widget_Base {
 				'label' => __( 'Top heading', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'show_label' => true,
+				'condition'	=> [
+					'show_top_heading'	=> 'yes',
+				],
+			]
+		);
+		$this->add_control(
+			'top_heading_border',
+			[
+				'label' => __( 'Top heading border?', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'yes',
+				'options' => [
+					'yes'	=> __( 'Yes', 'msitheme' ), 
+					'no'	=> __( 'No', 'msitheme' ), 
+				],
 				'condition'	=> [
 					'show_top_heading'	=> 'yes',
 				],
@@ -243,32 +258,7 @@ class Products extends Widget_Base {
 				]
 			]
 		);
-		
-		$this->add_control(
-			'show_date',
-			[
-				'label' => __( 'Show date', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'msitheme' ),
-				'label_off' => __( 'Hide', 'msitheme' ),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
 
-		
-		$this->add_control(
-			'show_cats',
-			[
-				'label' => __( 'Show categories', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'msitheme' ),
-				'label_off' => __( 'Hide', 'msitheme' ),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
-	
 		$this->add_control(
 			'show_img',
 			[
@@ -282,6 +272,49 @@ class Products extends Widget_Base {
 		);
 		
 		$this->add_control(
+			'show_bottom_content',
+			[
+				'label' => __( 'Show bottom content?', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'msitheme' ),
+				'label_off' => __( 'Hide', 'msitheme' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+		
+		$this->add_control(
+			'show_date',
+			[
+				'label' => __( 'Show date', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'msitheme' ),
+				'label_off' => __( 'Hide', 'msitheme' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+				'condition'	=> [
+					'show_bottom_content'	=> 'yes',
+				],
+			]
+		);
+
+		
+		$this->add_control(
+			'show_cats',
+			[
+				'label' => __( 'Show categories', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'msitheme' ),
+				'label_off' => __( 'Hide', 'msitheme' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+				'condition'	=> [
+					'show_bottom_content'	=> 'yes',
+				],
+			]
+		);
+		
+		$this->add_control(
 			'show_title',
 			[
 				'label' => __( 'Show title', 'msitheme' ),
@@ -290,6 +323,9 @@ class Products extends Widget_Base {
 				'label_off' => __( 'Hide', 'msitheme' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
+				'condition'	=> [
+					'show_bottom_content'	=> 'yes',
+				],
 			]
 		);
 		
@@ -302,6 +338,9 @@ class Products extends Widget_Base {
 				'label_off' => __( 'Hide', 'msitheme' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
+				'condition'	=> [
+					'show_bottom_content'	=> 'yes',
+				],
 			]
 		);
         $this->add_control(
@@ -463,76 +502,90 @@ class Products extends Widget_Base {
 		
 		?>
 
-			<div class="msitheme-news-wrap">
+			<div class="msitheme-product-wrap">
                 <div class="container-default">
-                    <?php if($settings['show_section_title'] === 'yes') : ?>
-                        <div class="section-title">
-                            <?php if($settings['show_top_heading'] === 'yes') : ?>
-                                <h6 class="theme-border relative"><?php echo esc_html( $settings['top_heading'] ); ?></h6>
-                            <?php endif; ?>
-                            <h3><?php echo esc_html( $settings['section_title'] ); ?></h3>
-                        </div>
-                    <?php endif; ?>
+					<?php if($settings['show_section_title'] === 'yes') : ?>
+						<div class="section-title">
+							<?php if($settings['show_top_heading'] === 'yes') : 
+								if ( !empty($settings['top_heading']) ) : 
+									if ( $settings['top_heading_border'] === 'yes' ) :
+										$border = 'theme-border relative';
+									else : 
+										$border = '';
+									endif;
+							?>
+								<h6 class="<?php echo esc_attr( $border ); ?>">
+									<?php echo esc_html( $settings['top_heading'] ); ?>
+								</h6>
+							<?php endif; endif; if ( !empty($settings['section_title']) ) : ?>
+								<h3>
+									<?php echo esc_html( $settings['section_title'] ); ?>
+								</h3>
+							<?php endif; ?>
+						</div>
+					<?php endif; ?>
 
-                    <div class="news-posts grid grid-3 g-gap-25">
-                        <?php 
-                        while($q->have_posts()) : $q->the_post(); 
-                            $post_id = get_the_ID(); 
-                            $categories = get_the_category($post_id);
+					<div class="gallery-wrapper products-wrap">
+						<?php 
+						while($q->have_posts()) : $q->the_post(); 
+							$post_id = get_the_ID(); 
+							$categories = get_the_category($post_id);
 
-                            if ( $settings['excerpt_count'] ) {
-                                $excerpt = word_count(get_the_excerpt($post_id), ''.$settings['excerpt_count'].'');
-                            } else {
-                                $excerpt = word_count(get_the_excerpt($post_id), '20');
-                            }
+							if ( $settings['excerpt_count'] ) {
+								$excerpt = word_count(get_the_excerpt($post_id), ''.$settings['excerpt_count'].'');
+							} else {
+								$excerpt = word_count(get_the_excerpt($post_id), '20');
+							}
 
-                            if (get_post_meta( $post_id, 'msitheme_post_meta', true ) ) {
-                                $msitheme_meta = get_post_meta( $post_id, 'msitheme_post_meta', true );
-                            } else {
-                                $msitheme_meta = array();
-                            }
-                            
-                            if(array_key_exists('post_extra_img', $msitheme_meta)) {
-                                $post_extra_img = $msitheme_meta['post_extra_img'];
-                            } else {
-                                $post_extra_img = '';
-                            }
-                        ?>
-                            <div class="single-news-post theme-border">
-                                <?php if($settings['show_img'] === 'yes') : ?>
-                                    <div class="entry-media">
-                                        <?php 
-                                        if(has_post_thumbnail( $post_id )) :
-                                            if ( !empty($msitheme_meta['post_extra_img']) ) { ?>
-                                                <img class="custom-blog-img" src="<?php echo esc_url($post_extra_img['url']); ?>" alt="<?php echo esc_attr( the_title() ); ?>">
-                                            <?php 
-                                            } else {
-                                                the_post_thumbnail($post_id); 
-                                            }
-                                        endif; 
-                                        ?>
-                                        <?php if($settings['show_cats'] === 'yes') : $categories = get_the_category($post_id);  foreach($categories as $category) : ?>
-                                            <button><?php echo esc_html($category->cat_name); ?></button>
-                                        <?php endforeach; endif; ?>
-                                    </div>
-                                <?php endif; ?>
+							if (get_post_meta( $post_id, 'msitheme_post_meta', true ) ) {
+								$msitheme_meta = get_post_meta( $post_id, 'msitheme_post_meta', true );
+							} else {
+								$msitheme_meta = array();
+							}
+							
+							if(array_key_exists('post_extra_img', $msitheme_meta)) {
+								$post_extra_img = $msitheme_meta['post_extra_img'];
+							} else {
+								$post_extra_img = '';
+							}
+						?>
+							<div class="single-product-item">
+								<?php if($settings['show_img'] === 'yes') : ?>
+									<div class="entry-media">
+										<?php 
+										if(has_post_thumbnail( $post_id )) :
+											if ( !empty($msitheme_meta['post_extra_img']) ) { ?>
+												<img class="custom-blog-img" src="<?php echo esc_url($post_extra_img['url']); ?>" alt="<?php echo esc_attr( the_title() ); ?>">
+											<?php 
+											} else {
+												the_post_thumbnail($post_id); 
+											}
+										endif; 
+										?>
+										<?php if($settings['show_cats'] === 'yes') : $categories = get_the_category($post_id);  foreach($categories as $category) : ?>
+											<button><?php echo esc_html($category->cat_name); ?></button>
+										<?php endforeach; endif; ?>
+									</div>
+								<?php endif;
 
-                                <div class="entry-details">
-                                    <?php if($settings['show_title'] === 'yes') : ?>
-                                        <h4>
-                                            <a href="<?php esc_url(the_permalink($post_id)); ?>">
-                                                <?php esc_html( the_title() ); ?>
-                                            </a>
-                                        </h4>
-                                    <?php endif; ?>
-                                    <?php if($settings['show_excerpt'] === 'yes') : ?>
-                                        <p class="excerpt"><?php echo esc_html( $excerpt ); ?></p>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        <?php endwhile; ?>
-                    </div>
-                </div>
+								if ( $settings['show_bottom_content'] === 'yes' ) : ?>
+									<div class="entry-details">
+										<?php if($settings['show_title'] === 'yes') : ?>
+											<h4>
+												<a href="<?php esc_url(the_permalink($post_id)); ?>">
+													<?php esc_html( the_title() ); ?>
+												</a>
+											</h4>
+										<?php endif; ?>
+										<?php if($settings['show_excerpt'] === 'yes') : ?>
+											<p class="excerpt"><?php echo esc_html( $excerpt ); ?></p>
+										<?php endif; ?>
+									</div>
+								<?php endif; ?>
+							</div>
+						<?php endwhile; ?>
+					</div>
+				</div>
 			</div>
 		<?php wp_reset_query(); 
 	}

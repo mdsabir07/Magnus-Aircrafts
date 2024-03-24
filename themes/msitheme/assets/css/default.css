@@ -785,8 +785,11 @@ img {
 .g-justify-start {
     justify-items: start;
 }
-.g-justify-eng {
+.g-justify-end {
     justify-items: end;
+}
+.justify-start {
+    justify-content: start;
 }
 .justify-center {
     justify-content: center;
@@ -1224,3 +1227,39 @@ img#hand {
 .about-lead-content, .about-details, .about-us-wrap .section-title {
     margin-bottom: 24px;
 }
+
+/* Product addon CSS */
+.msitheme-product-wrap .gallery-wrapper {
+    margin-bottom: 0;
+}
+.msitheme-product-wrap .container-default {
+    margin-right: -175px;
+    width: 100vw;
+}
+.single-product-item .entry-media {
+    width: 473px;
+}
+.single-product-item .entry-media img {
+    object-fit: cover;
+    height: 324px;
+}
+
+/* Social CSS */
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-links a {
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 1px solid;
+}
+
+
+
+

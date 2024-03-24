@@ -1,5 +1,7 @@
 <?php
 namespace MsiThemeEssentialAddons;
+use MsiThemeEssentialAddons\Widgets\SectionTitle;
+use MsiThemeEssentialAddons\Widgets\BorderHeading;
 use MsiThemeEssentialAddons\Widgets\ParallaxHero;
 use MsiThemeEssentialAddons\Widgets\ImageSlider;
 use MsiThemeEssentialAddons\Widgets\AboutUs;
@@ -74,6 +76,8 @@ class MsiThemeEssentialAddonsPlugin {
 	 * @access private
 	 */
 	private function include_widgets_files() {
+		require_once( __DIR__ . '/widgets/section-title.php' );
+		require_once( __DIR__ . '/widgets/border-heading.php' );
 		require_once( __DIR__ . '/widgets/parallax-hero.php' );
 		require_once( __DIR__ . '/widgets/image-slider.php' );
 		require_once( __DIR__ . '/widgets/about-us.php' );
@@ -96,6 +100,8 @@ class MsiThemeEssentialAddonsPlugin {
 		$this->include_widgets_files();
 
 		// Register Widgets
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new SectionTitle() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new BorderHeading() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ParallaxHero() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ImageSlider() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new AboutUs() );

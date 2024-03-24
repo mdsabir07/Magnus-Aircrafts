@@ -146,9 +146,11 @@ class ImageSlider extends Widget_Base
         if ( !empty($settings['gallery']) ) { ?>
             <!-- start of hero -->
             <div class="gallery-wrapper">
-                <?php $i = 0; foreach( $settings['gallery'] as $image ) : $i++; ?>
-                    <img class="gallery-img<?php echo esc_attr( $i ); ?>" src="<?php echo esc_attr( $image['url'] ); ?>">
-                <?php endforeach; ?>
+				<!-- <div class="container-95"> -->
+					<?php $i = 0; foreach( $settings['gallery'] as $image ) : $i++; ?>
+						<img class="gallery-img<?php echo esc_attr( $i ); ?>" src="<?php echo esc_attr( $image['url'] ); ?>">
+					<?php endforeach; ?>
+				<!-- </div> -->
             </div>
             <!-- end of hero slider -->
     <?php } } 

@@ -146,6 +146,21 @@ class Blogs extends Widget_Base {
 				],
 			]
 		);
+		$this->add_control(
+			'top_heading_border',
+			[
+				'label' => __( 'Top heading border?', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'yes',
+				'options' => [
+					'yes'	=> __( 'Yes', 'msitheme' ), 
+					'no'	=> __( 'No', 'msitheme' ), 
+				],
+				'condition'	=> [
+					'show_top_heading'	=> 'yes',
+				],
+			]
+		);
 
 		$this->add_control(
 			'show_section_title',
@@ -465,10 +480,22 @@ class Blogs extends Widget_Base {
                 <div class="container-default">
                     <?php if($settings['show_section_title'] === 'yes') : ?>
                         <div class="section-title">
-                            <?php if($settings['show_top_heading'] === 'yes') : ?>
-                                <h6 class="theme-border relative"><?php echo esc_html( $settings['top_heading'] ); ?></h6>
-                            <?php endif; ?>
-                            <h3><?php echo esc_html( $settings['section_title'] ); ?></h3>
+                            <?php if($settings['show_top_heading'] === 'yes') : 
+								if ( !empty($settings['top_heading']) ) : 
+									if ( $settings['top_heading_border'] === 'yes' ) :
+										$border = 'theme-border relative';
+									else : 
+										$border = '';
+									endif;
+							?>
+                                <h6 class="<?php echo esc_attr( $border ); ?>">
+									<?php echo esc_html( $settings['top_heading'] ); ?>
+								</h6>
+                            <?php endif; endif; if ( !empty($settings['section_title']) ) : ?>
+								<h3>
+									<?php echo esc_html( $settings['section_title'] ); ?>
+								</h3>
+							<?php endif; ?>
                         </div>
                     <?php endif; ?>
 
