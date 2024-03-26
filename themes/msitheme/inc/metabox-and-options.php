@@ -4,17 +4,17 @@
 if (class_exists('CSF')) {
 
 	// Set a unique slug-like ID
-	$codermsiit_options_prefix = 'codermsiit_options';
+	$msitheme_options_prefix = 'msitheme_options';
 
 	// Create options
-	CSF::createOptions($codermsiit_options_prefix, array(
+	CSF::createOptions($msitheme_options_prefix, array(
 		'menu_title' => 'Theme Options',
 		'framework_title' => 'Theme Options',
 		'menu_slug' => 'theme-options',
 	));
 
 	// Create a section
-	CSF::createSection($codermsiit_options_prefix, array(
+	CSF::createSection($msitheme_options_prefix, array(
 		'title' => 'General',
 		'fields' => array(
 			// A text field
@@ -34,11 +34,10 @@ if (class_exists('CSF')) {
 						'id' => 'link',
 						'type' => 'text',
 						'title' => 'Link',
-						'title' => esc_html__('Type social link', 'codermsiit'),
+						'title' => esc_html__('Type social link', 'msitheme'),
 					),
 				)
 			),
-
 			array(
 				'id' => 'phone',
 				'type' => 'text',
@@ -48,7 +47,7 @@ if (class_exists('CSF')) {
 	));
 
 	// Create a section
-	CSF::createSection($codermsiit_options_prefix, array(
+	CSF::createSection($msitheme_options_prefix, array(
 		'title' => 'Backup',
 		'fields' => array(
 			// A textarea field
@@ -64,37 +63,59 @@ if (class_exists('CSF')) {
 // Metabox 
 if (class_exists('CSF')) {
 	// Set a unique slug-like ID
-	$codermsiit_metabox_prefix = 'codermsiit_page_meta';
+	$msitheme_metabox_prefix = 'msitheme_page_meta';
 	// Create a metabox
-	CSF::createMetabox($codermsiit_metabox_prefix, array(
+	CSF::createMetabox($msitheme_metabox_prefix, array(
 		'title' => 'Page Options',
 		'post_type' => 'page',
 		'data_type' => 'serialize',
 	));
 
 	// Create a section
-	CSF::createSection($codermsiit_metabox_prefix, array(
+	CSF::createSection($msitheme_metabox_prefix, array(
 		'fields' => array(
-			// A text field
+			// changing header menu color as per the page
 			array(
-				'id' => 'enable_page_title',
-				'type' => 'switcher',
-				'title' => 'Enable page title?',
-				'default' => true,
+				'id'     => 'header_menu_color',
+				'type'   => 'color',
+				'title'  => 'Change Header Menu Color',
+				'output' => array( 
+					'color' => '.main-navigation ul li a, .header-btn .theme-btn, .header-right-content .languages', 
+					'border-color' => '.main-navigation ul ul li, .site-header .header-wrap, .header-btn .bordered-btn', 
+					'background' => '.main-navigation ul ul li::before' 
+				)
 			),
 			array(
-				'id' => 'custom_title',
-				'type' => 'textarea',
-				'title' => esc_html__('Custom title', 'msitheme'),
-				'desc' => esc_html__('Type custom title here', 'msitheme'),
-				'dependency' => array('enable_page_title', '==', 'true'),
+				'id'     => 'header_drop_menu_color',
+				'type'   => 'color',
+				'title'  => 'Change Header Dropdown Menu Background Color',
+				'output' => array( 'background' => '.main-navigation ul ul' )
 			),
 			array(
-				'id' => 'default_padding',
-				'type' => 'switcher',
-				'title' => 'Enable default padding?',
-				'default' => true,
+				'id'      => 'header-logo',
+				'type'    => 'media',
+				'title'   => 'Change header logo',
+				'library' => 'image',
 			),
+			// array(
+			// 	'id' => 'enable_page_title',
+			// 	'type' => 'switcher',
+			// 	'title' => 'Enable page title?',
+			// 	'default' => true,
+			// ),
+			// array(
+			// 	'id' => 'custom_title',
+			// 	'type' => 'textarea',
+			// 	'title' => esc_html__('Custom title', 'msitheme'),
+			// 	'desc' => esc_html__('Type custom title here', 'msitheme'),
+			// 	'dependency' => array('enable_page_title', '==', 'true'),
+			// ),
+			// array(
+			// 	'id' => 'default_padding',
+			// 	'type' => 'switcher',
+			// 	'title' => 'Enable default padding?',
+			// 	'default' => true,
+			// ),
 		)
 	));
 

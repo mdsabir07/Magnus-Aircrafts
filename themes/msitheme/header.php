@@ -21,7 +21,22 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
+<?php wp_body_open(); 
+// $page_meta = get_option('msitheme_page_meta');
+if (get_post_meta( $post->ID, 'msitheme_page_meta', true )) {
+	$page_meta = get_post_meta( $post->ID, 'msitheme_page_meta', true );
+} else {
+	$page_meta = array();
+}
+
+if (array_key_exists('header-logo', $page_meta)) {
+	$logo = $page_meta['header-logo'];
+} else {
+	$logo = '';
+}
+
+
+?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'msitheme' ); ?></a>
 
@@ -30,17 +45,14 @@
 			<div class="header-wrap grid grid-2-7-3 align-center g-gap-30">
 				<div class="site-branding">
 					<?php
+					if ( !empty($logo) ) : ?>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-logo-link" rel="home">
+							<img width="151" height="56" src="<?php echo ( $logo['url'] ); ?>" class="custom-logo" alt="<?php bloginfo( 'name' ); ?>" decoding="async">
+						</a>
+					<?php
 					$custom_logo = get_theme_mod( 'custom_logo' );
-					if ( !empty($custom_logo) ) : 
+					else : 
 						the_custom_logo();
-					else :
-						?>
-						<p class="site-title">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-								<?php bloginfo( 'name' ); ?>
-							</a>
-						</p>
-						<?php
 					endif;
 					?>
 				</div><!-- .site-branding -->
