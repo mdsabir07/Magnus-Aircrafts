@@ -1307,5 +1307,54 @@ img#hand {
     margin-top: 2px;
 }
 
+/* Video gallery */
 
+.video-gallery {
+    width: 100vw;
+}
+
+.single-v-gallery {
+    height: 324px;
+    width: 473px !important;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    min-width: 473px;
+}
+
+.single-v-gallery .v-gallery-img {
+    position: relative;z-index: 1;
+}
+
+.v-gallery-top-heading {
+    top: 96px;
+    left: 20px;
+    z-index: 3;
+}
+
+.single-v-gallery h4.section-heading {
+    top: 117px;
+    left: 20px;
+    z-index: 3;
+}
+
+.video-item {
+    bottom: 96px;
+    left: 20px;
+    display: inline-block;
+    border-bottom: 2px solid #FAFAFA;
+    z-index: 3;
+}
+
+.single-v-gallery::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--clrDarkBlue);
+    z-index: 2;
+    opacity: 0.48;
+}
 

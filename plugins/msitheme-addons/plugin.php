@@ -5,11 +5,12 @@ use MsiThemeEssentialAddons\Widgets\BorderHeading;
 use MsiThemeEssentialAddons\Widgets\ParallaxHero;
 use MsiThemeEssentialAddons\Widgets\ImageSlider;
 use MsiThemeEssentialAddons\Widgets\AboutUs;
-use MsiThemeEssentialAddons\Widgets\AsForm;
+// use MsiThemeEssentialAddons\Widgets\AsForm;
 use MsiThemeEssentialAddons\Widgets\SocialShare;
 use MsiThemeEssentialAddons\Widgets\Blogs;
 use MsiThemeEssentialAddons\Widgets\Products;
 use MsiThemeEssentialAddons\Widgets\CounterUp;
+use MsiThemeEssentialAddons\Widgets\VideoGallery;
 /**
  * Class Plugin
  *
@@ -55,6 +56,7 @@ class MsiThemeEssentialAddonsPlugin {
 	 * @access public
 	 */
 	public function widget_scripts() {
+		wp_enqueue_script( 'magnific-popup', plugins_url( 'assets/js/jquery.magnific-popup.min.js', __FILE__ ), array('jquery'), '1.0.0', true );
 		wp_enqueue_script( 'msitheme-addons', plugins_url( 'assets/js/msitheme-addons.js', __FILE__ ), array('jquery'), '1.0.0', true );
 	}
 
@@ -65,6 +67,7 @@ class MsiThemeEssentialAddonsPlugin {
 	 *
 	 */
 	public function widget_styles() { 
+		wp_enqueue_style( 'magnific-popup', plugins_url( '/assets/css/magnific-popup.css', __FILE__ ) );
 		wp_enqueue_style( 'msitheme-addons-css', plugins_url( '/assets/css/msitheme-addons.css', __FILE__ ) );
 	}
 
@@ -87,6 +90,7 @@ class MsiThemeEssentialAddonsPlugin {
 		require_once( __DIR__ . '/widgets/blog-posts.php' );
 		require_once( __DIR__ . '/widgets/products.php' );
 		require_once( __DIR__ . '/widgets/counter-up.php' );
+		require_once( __DIR__ . '/widgets/video-gallery.php' );
 	}
 
 	/**
@@ -112,6 +116,7 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Blogs() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Products() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new CounterUp() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new VideoGallery() );
 	}
 
 	/**

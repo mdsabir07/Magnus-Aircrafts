@@ -18,6 +18,19 @@
             time: 1000
         });
     });
+
+    $(document).ready(function() {
+        $('.popup-youtube, .popup-vimeo, .popup-media-v').magnificPopup({
+            disableOn: 700,
+            type: 'iframe',
+            mainClass: 'mfp-fade',
+            removalDelay: 160,
+            preloader: false,
+    
+            fixedContentPos: false
+        });
+    });
+
     // Responsive Navigation JS
     // $(".nav-mobile").click(function () {
     //     $(".nav-list").stop().slideUp(300);
