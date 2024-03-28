@@ -159,6 +159,10 @@ class BorderHeading extends Widget_Base {
 						'title' => esc_html__( 'Right', 'msitheme' ),
 						'icon' => 'eicon-text-align-right',
 					],
+					'justify' => [
+						'title' => esc_html__( 'Justify', 'msitheme' ),
+						'icon' => 'eicon-text-align-justify',
+					],
 				],
 				'default' => 'center',
 				'toggle' => true,

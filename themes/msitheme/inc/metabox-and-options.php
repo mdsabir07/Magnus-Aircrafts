@@ -142,5 +142,34 @@ if (class_exists('CSF')) {
 			),
 		)
 	));
+	// Create a section
+	CSF::createSection($msitheme_post_metabox_prefix, array(
+		'title' => esc_html__('Post header customization', 'msitheme'),
+		'fields' => array(
+			// changing header menu color as per the page
+			array(
+				'id'     => 'header_menu_color',
+				'type'   => 'color',
+				'title'  => 'Change Header Menu Color',
+				'output' => array( 
+					'color' => '.main-navigation ul li a, .header-btn .theme-btn, .header-right-content .languages', 
+					'border-color' => '.main-navigation ul ul li, .site-header .header-wrap, .header-btn .bordered-btn', 
+					'background' => '.main-navigation ul ul li::before' 
+				)
+			),
+			array(
+				'id'     => 'header_drop_menu_color',
+				'type'   => 'color',
+				'title'  => 'Change Header Dropdown Menu Background Color',
+				'output' => array( 'background' => '.main-navigation ul ul' )
+			),
+			array(
+				'id'      => 'header-logo',
+				'type'    => 'media',
+				'title'   => 'Change header logo',
+				'library' => 'image',
+			),
+		)
+	));
 
 } 

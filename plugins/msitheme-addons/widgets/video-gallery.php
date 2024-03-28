@@ -348,41 +348,42 @@ class VideoGallery extends Widget_Base
         if ( !empty($settings['galleries']) ) : ?>
 
             <!-- start of video gallery -->
-            <div class="video-gallery gallery-wrapper">
-                <?php $i = 0; foreach( $settings['galleries'] as $video ) : $i++; ?>
-                    <div class="single-v-gallery relative v-gallery-<?php echo esc_attr( $i ); ?>">
-                        <?php if( !empty($video['top_heading']) ) : ?>
-                            <div class="v-gallery-top-heading absolute">
-                                <h6 class="section-top-heading theme-border relative">
-                                    <?php echo esc_html( $video['top_heading'] ); ?>
-                                </h6>
-                            </div>
-                        <?php endif; if( !empty($video['section_title']) ) : ?>
-                            <h4 class="section-heading absolute"><?php echo wp_kses_post( $video['section_title'] ); ?></h4>
-                        <?php endif; if( $video['video_type'] === '1' ) : ?>
-                            <div class="video-item absolute">
-                                <a class="popup-youtube" href="<?php echo esc_url( $video['youtube'] ); ?>">
-                                    <?php echo esc_html( $video['play_label'] ); ?>
-                                </a>
-                            </div>
-                        <?php endif; if( !empty($video['vimeo']) ) : ?>
-                            <div class="video-item absolute">
-                                <a class="popup-vimeo" href="<?php echo esc_url( $video['vimeo'] ); ?>">
-                                    <?php echo esc_html( $video['play_label'] ); ?>
-                                </a>
-                            </div>
-                        <?php endif; if( !empty($video['media_library']) ) : ?>
-                            <div class="video-item absolute">
-                                <a class="popup-media-v" href="<?php echo esc_url( $video['vimeo'] ); ?>">
-                                    <?php echo esc_html( $video['play_label'] ); ?>
-                                </a>
-                            </div>
-                        <?php endif; if( !empty($video['image']) ) : ?>
-                            <img class="v-gallery-img" src="<?php echo esc_url(wp_get_attachment_image_url( $video['image']['id'], 'large' )); ?>">
-                        <?php endif; ?>
-                    </div>
-                <?php endforeach; ?>
-				<!-- </div> -->
+			<div class="video-galleries overflow-x-hidden">
+				<div class="video-gallery gallery-wrapper">
+					<?php $i = 0; foreach( $settings['galleries'] as $video ) : $i++; ?>
+						<div class="single-v-gallery relative v-gallery-<?php echo esc_attr( $i ); ?>">
+							<?php if( !empty($video['top_heading']) ) : ?>
+								<div class="v-gallery-top-heading absolute">
+									<h6 class="section-top-heading theme-border relative">
+										<?php echo esc_html( $video['top_heading'] ); ?>
+									</h6>
+								</div>
+							<?php endif; if( !empty($video['section_title']) ) : ?>
+								<h4 class="section-heading absolute"><?php echo wp_kses_post( $video['section_title'] ); ?></h4>
+							<?php endif; if( $video['video_type'] === '1' ) : ?>
+								<div class="video-item absolute">
+									<a class="popup-youtube" href="<?php echo esc_url( $video['youtube'] ); ?>">
+										<?php echo esc_html( $video['play_label'] ); ?>
+									</a>
+								</div>
+							<?php endif; if( !empty($video['vimeo']) ) : ?>
+								<div class="video-item absolute">
+									<a class="popup-vimeo" href="<?php echo esc_url( $video['vimeo'] ); ?>">
+										<?php echo esc_html( $video['play_label'] ); ?>
+									</a>
+								</div>
+							<?php endif; if( !empty($video['media_library']) ) : ?>
+								<div class="video-item absolute">
+									<a class="popup-media-v" href="<?php echo esc_url( $video['vimeo'] ); ?>">
+										<?php echo esc_html( $video['play_label'] ); ?>
+									</a>
+								</div>
+							<?php endif; if( !empty($video['image']) ) : ?>
+								<img class="v-gallery-img" src="<?php echo esc_url(wp_get_attachment_image_url( $video['image']['id'], 'large' )); ?>">
+							<?php endif; ?>
+						</div>
+					<?php endforeach; ?>
+				</div>
             </div>
 
             

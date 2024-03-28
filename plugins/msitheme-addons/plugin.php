@@ -11,6 +11,9 @@ use MsiThemeEssentialAddons\Widgets\Blogs;
 use MsiThemeEssentialAddons\Widgets\Products;
 use MsiThemeEssentialAddons\Widgets\CounterUp;
 use MsiThemeEssentialAddons\Widgets\VideoGallery;
+use MsiThemeEssentialAddons\Widgets\TextBlock;
+use MsiThemeEssentialAddons\Widgets\TeamBlock;
+use MsiThemeEssentialAddons\Widgets\TeamMembers;
 /**
  * Class Plugin
  *
@@ -91,6 +94,9 @@ class MsiThemeEssentialAddonsPlugin {
 		require_once( __DIR__ . '/widgets/products.php' );
 		require_once( __DIR__ . '/widgets/counter-up.php' );
 		require_once( __DIR__ . '/widgets/video-gallery.php' );
+		require_once( __DIR__ . '/widgets/text-block.php' );
+		require_once( __DIR__ . '/widgets/team-block.php' );
+		require_once( __DIR__ . '/widgets/team-members.php' );
 	}
 
 	/**
@@ -117,6 +123,9 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Products() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new CounterUp() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new VideoGallery() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TextBlock() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TeamBlock() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TeamMembers() );
 	}
 
 	/**

@@ -115,6 +115,7 @@ body {
     font-style: normal;
     font-size: var(--fz18);
     line-height: var(--lh27);
+    background: var(--clrDarkBlue);
 }
 main {
 	display: block;
@@ -1358,3 +1359,42 @@ img#hand {
     opacity: 0.48;
 }
 
+/* Text Block */
+.text-block-wrapper {
+    grid-template-columns: 1fr 1fr;
+    padding-top: 50px;
+}
+
+.text-block-content .section-heading {
+    margin: 30px 0;
+}
+
+/* Team Block */
+.team-block-img {
+    text-align: center;
+    position: relative;
+    z-index: -1;
+    top: -80px;
+    margin-bottom: -150px;
+}
+
+.team-block-description {
+    display: flex;
+    width: 52%;
+    float: right;
+    margin-top: -60px;
+}
+
+/* Team member */
+.team-member-inner {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+}
+
+.team-member-img {
+    margin-bottom: 15px;
+}
+
+.team-member-content .section-heading {
+    margin-bottom: 10px;
+}
