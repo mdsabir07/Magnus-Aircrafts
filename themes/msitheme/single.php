@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main single-page">
 		<div class="container-default">
 			<?php
 			while ( have_posts() ) :
@@ -33,6 +33,7 @@ get_header();
 			endwhile; // End of the loop.
 			?>
 		</div>
+		<?php echo do_shortcode( '[popular_post]' ); ?>
 	</main><!-- #main -->
 
 <?php

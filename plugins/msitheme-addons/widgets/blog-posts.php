@@ -526,16 +526,17 @@ class Blogs extends Widget_Base {
                             <div class="single-news-post theme-border">
                                 <?php if($settings['show_img'] === 'yes') : ?>
                                     <div class="entry-media">
-                                        <?php 
-                                        if(has_post_thumbnail( $post_id )) :
-                                            if ( !empty($msitheme_meta['post_extra_img']) ) { ?>
-                                                <img class="custom-blog-img" src="<?php echo esc_url($post_extra_img['url']); ?>" alt="<?php echo esc_attr( the_title() ); ?>">
-                                            <?php 
-                                            } else {
-                                                the_post_thumbnail($post_id); 
-                                            }
-                                        endif; 
-                                        ?>
+                                        <?php if(has_post_thumbnail( $post_id )) :
+                                            if ( !empty($msitheme_meta['post_extra_img']) ) : ?>
+												<a class="post-thumbnail" href="<?php esc_url( the_permalink() ); ?>">
+													<img class="custom-blog-img" src="<?php echo esc_url($post_extra_img['url']); ?>" alt="<?php echo esc_attr( the_title() ); ?>">
+												</a>
+                                            <?php else : ?>
+												<a class="post-thumbnail" href="<?php esc_url( the_permalink() ); ?>">
+													<?php the_post_thumbnail($post_id); ?>
+												</a>
+											<?php endif;
+                                        endif; ?>
                                         <?php if($settings['show_cats'] === 'yes') : $categories = get_the_category($post_id);  foreach($categories as $category) : ?>
                                             <button><?php echo esc_html($category->cat_name); ?></button>
                                         <?php endforeach; endif; ?>
@@ -544,7 +545,7 @@ class Blogs extends Widget_Base {
 
                                 <div class="entry-details">
                                     <?php if($settings['show_title'] === 'yes') : ?>
-                                        <h4>
+                                        <h4 class="entry-title">
                                             <a href="<?php esc_url(the_permalink($post_id)); ?>">
                                                 <?php esc_html( the_title() ); ?>
                                             </a>

@@ -260,6 +260,11 @@ require get_template_directory() . '/inc/metabox-and-options.php';
 require get_template_directory() . '/inc/products.php';
 
 /**
+ * Shortcodes
+ */
+require get_template_directory() . '/inc/shortcodes.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {

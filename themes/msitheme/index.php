@@ -17,6 +17,15 @@ get_header();
 
 	<main id="primary" class="site-main">
 		<div class="container-default">
+			<div class="section-title">
+				<h6 class="theme-border section-top-heading relative clrWhite upercase">
+					<?php esc_html_e( 'reach the sky', 'msitheme' ); ?>
+				</h6>
+				<h2 class="clrWhite upercase">
+					<?php esc_html_e( 'News', 'msitheme' ); ?>
+				</h2>
+			</div>
+			<?php echo do_shortcode( '[featured_post]' ); ?>
 			<?php
 			if ( have_posts() ) :
 
@@ -28,7 +37,7 @@ get_header();
 					<?php
 				endif;
 				?>
-				<div class="news-items grid grid-3 g-gap-25">
+				<div class="blog-page news-items grid grid-3 g-gap-25">
 				<?php 
 
 					/* Start the Loop */

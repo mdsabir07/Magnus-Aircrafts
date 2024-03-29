@@ -23,12 +23,14 @@ if(array_key_exists('post_extra_img', $msitheme_meta)) {
 
 	<?php 
 	if ( !is_singular() ) :
-		if ( !empty($msitheme_meta['post_extra_img']) ) { ?>
-			<img class="custom-blog-imgs" src="<?php echo esc_url($post_extra_img['url']); ?>" alt="<?php echo esc_attr( the_title() ); ?>">
+		if ( !empty($msitheme_meta['post_extra_img']) ) : ?>
+			<a class="post-thumbnail" href="<?php esc_url( the_permalink() ); ?>">
+				<img class="custom-blog-imgs" src="<?php echo esc_url($post_extra_img['url']); ?>" alt="<?php echo esc_attr( the_title() ); ?>">
+			</a>
 		<?php 
-		} else {
-			msitheme_post_thumbnail(); 
-		}
+		else : 
+			msitheme_post_thumbnail();
+		endif;
 	endif;
 	?>
 	<header class="entry-header">
