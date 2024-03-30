@@ -31,6 +31,36 @@
         });
     });
 
+
+
+    // minicart js
+    $(".tablist-1 label").click(function () {
+        $(".product-tabbed").addClass("tablist-1-active-new");
+        $(".product-tabbed").removeClass("tablist-1-active");
+        $(".product-tabbed").removeClass("tablist-2-active");
+    });
+    $(".tablist-2 label").click(function () {
+        $(".product-tabbed").addClass("tablist-2-active");
+    });
+
+    // all categories menu js
+    // $(".all-categories").click(function () {
+    //     $(".cat-menus").addClass("cat-menus-active");
+    // });
+    // $(".close-cat-menus").click(function () {
+    //     $(".cat-menus").removeClass("cat-menus-active");
+    // });
+
+    // responsive menu js
+    // $(".responsive-menu svg").click(function () {
+    //     $(".main-navigation").addClass("menus-active");
+    // });
+    // $(".responsive-menu-close").click(function () {
+    //     $(".main-navigation").removeClass("menus-active");
+    // });
+
+
+
     // Responsive Navigation JS
     // $(".nav-mobile").click(function () {
     //     $(".nav-list").stop().slideUp(300);

@@ -14,6 +14,7 @@ use MsiThemeEssentialAddons\Widgets\VideoGallery;
 use MsiThemeEssentialAddons\Widgets\TextBlock;
 use MsiThemeEssentialAddons\Widgets\TeamBlock;
 use MsiThemeEssentialAddons\Widgets\TeamMembers;
+use MsiThemeEssentialAddons\Widgets\ProductTab;
 /**
  * Class Plugin
  *
@@ -97,6 +98,7 @@ class MsiThemeEssentialAddonsPlugin {
 		require_once( __DIR__ . '/widgets/text-block.php' );
 		require_once( __DIR__ . '/widgets/team-block.php' );
 		require_once( __DIR__ . '/widgets/team-members.php' );
+		require_once( __DIR__ . '/widgets/product-tab.php' );
 	}
 
 	/**
@@ -126,6 +128,7 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TextBlock() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TeamBlock() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TeamMembers() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductTab() );
 	}
 
 	/**

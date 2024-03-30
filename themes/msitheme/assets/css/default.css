@@ -1529,3 +1529,206 @@ body.single main {
 .single-page .entry-content h6 {
     margin: 24px 0;
 }
+
+/* Product tab css */
+.product-tabbed {
+    overflow-x: hidden;
+    margin: 32px 0;
+    padding-bottom: 16px;
+}
+
+.product-tabbed [type="radio"] {
+    display: none;
+}
+
+.product-tabs {
+    display: flex;
+    align-items: stretch;
+    list-style: none;
+    padding: 0;
+    gap: 33px;
+}
+.product-tab > label {
+    display: block;
+    border-bottom: 4px solid transparent;
+    cursor: pointer;	
+    transition: all 0.3s;
+    color: var(--clrWhite);
+    opacity: 0.45;
+    padding-bottom: 2px;
+}
+.product-tab:hover label {
+    color: var(--clrDarkRed);
+}
+
+.product-tab-content {
+    display: none;
+}
+
+/* As we cannot replace the numbers with variables or calls to element properties, the number of this selector parts is our tab count limit */
+.product-tabbed [type="radio"]:nth-of-type(1):checked ~ .product-tabs .product-tab:nth-of-type(1) label,
+.product-tabbed [type="radio"]:nth-of-type(2):checked ~ .product-tabs .product-tab:nth-of-type(2) label,
+.product-tabbed [type="radio"]:nth-of-type(3):checked ~ .product-tabs .product-tab:nth-of-type(3) label,
+.product-tabbed [type="radio"]:nth-of-type(4):checked ~ .product-tabs .product-tab:nth-of-type(4) label {
+    color: var(--clrWhite);
+    border-color: var(--clrWhite);
+    opacity: 1;
+}
+
+.product-tabbed [type="radio"]:nth-of-type(1):checked ~ .product-tab-content:nth-of-type(1),
+.product-tabbed [type="radio"]:nth-of-type(2):checked ~ .product-tab-content:nth-of-type(2),
+.product-tabbed [type="radio"]:nth-of-type(3):checked ~ .product-tab-content:nth-of-type(3){
+    display: block;
+}
+
+.product-tabbed {
+    padding: 80px 0;
+}
+
+.tablist-1-active {
+    background: #546988;
+}
+
+.tab-content-left h2 {
+    margin: 20px 0;
+}
+
+.tab-content-left h4 {
+    margin-bottom: 20px;
+}
+
+.tab-content-inner {
+    grid-template-columns: 5fr 7fr;
+    grid-gap: 50px;
+    justify-items: end;
+}
+
+.tab-content-right-img i.fa-plus {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background: #fff;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 100%;
+    color: var(--clrDarkBlue);
+    transition: 0.3s all ease-in-out;
+    cursor: pointer;
+    z-index: 5;
+    font-size: 24px;
+    font-weight: 100;
+}
+
+
+.product-2-tab-content .tab-content-right-img .aircraft-icon1 {
+    left: 45%;
+    top: 4px;
+}
+
+.product-2-tab-content .tab-content-right-img i.fa-plus:hover {
+    transform: rotate(90deg);
+}
+
+.product-2-tab-content .tab-content-right-img .aircraft-icon2 {
+    right: 40%;
+    top: 50px;
+}
+
+.product-2-tab-content .tab-content-right-img .aircraft-icon3 {
+    left: 46%;
+    top: 30%;
+}
+
+.product-2-tab-content .tab-content-right-img .aircraft-icon4 {
+    right: 35px;
+    top: 30%;
+}
+
+.product-2-tab-content .tab-content-right-img .aircraft-icon5 {
+    bottom: 38%;
+    right: 42%;
+}
+
+
+.tab-content-right-img i.fa-plus {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background: #fff;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 100%;
+    color: var(--clrDarkBlue);
+    transition: 0.3s all ease-in-out;
+    cursor: pointer;
+    z-index: 5;
+    font-size: 24px;
+    font-weight: 100;
+}
+
+.tab-content-right-img i.fa-plus:hover {
+    transform: rotate(90deg);
+}
+
+
+.aircraft-icon-btn {
+    color: var(--clrWhite);
+    font-size: var(--fz12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    bottom: 25%;
+    border-bottom: 1px solid var(--clrWhite);
+    font-weight: 700;
+}
+
+.aircraft-icon-btn:hover {
+    color: var(--clrDarkRed);
+    border-color: var(--clrDarkRed);
+}
+
+/* Pulse css */
+.pulse {
+    width: 600px;
+    height: 600px;
+    border-radius: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pulse::after, .pulse::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    /* transform: translate(-50%,-50%); */
+    width: 50%;
+    height: 50%;
+    background: #85848D;
+    border-radius: var(--br100);
+    z-index: -1;
+    animation: grow 1s ease-in-out infinite;
+}
+.pulse::after {
+    background: #657893;
+}
+
+.pulse::before {
+    background: #8B99AE;
+    animation-delay: -0.5s;
+}
+
+@keyframes grow {
+    0%{
+        transform: scale(1,1);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1.8,1.8);
+        opacity: 0;
+    }
+}
