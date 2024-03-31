@@ -19,21 +19,21 @@
         });
     });
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('.popup-youtube, .popup-vimeo, .popup-media-v').magnificPopup({
             disableOn: 700,
             type: 'iframe',
             mainClass: 'mfp-fade',
             removalDelay: 160,
             preloader: false,
-    
+
             fixedContentPos: false
         });
     });
 
 
 
-    // minicart js
+    // Product tab js (changing background color)
     $(".tablist-1 label").click(function () {
         $(".product-tabbed").addClass("tablist-1-active-new");
         $(".product-tabbed").removeClass("tablist-1-active");
@@ -43,13 +43,90 @@
         $(".product-tabbed").addClass("tablist-2-active");
     });
 
-    // all categories menu js
-    // $(".all-categories").click(function () {
-    //     $(".cat-menus").addClass("cat-menus-active");
+    // Product plus button click and change left content
+    $(".product-1-tab-content .aircraft-icon1, .product-2-tab-content .aircraft-icon1").click(function () {
+        $(".btn-content-1").addClass("btn-content1-active");
+        $(".btn-content-1").removeClass("btn-content1-active-default");
+        $(".btn-content-2").removeClass("btn-content2-active");
+        $(".btn-content-3").removeClass("btn-content3-active");
+        $(".btn-content-4").removeClass("btn-content4-active");
+        $(".btn-content-5").removeClass("btn-content5-active");
+        $(".btn-content-6").removeClass("btn-content6-active");
+    });
+
+    $(".product-1-tab-content .aircraft-icon2, .product-2-tab-content .aircraft-icon2").click(function () {
+        $(".btn-content-2").addClass("btn-content2-active");
+        $(".btn-content-1").removeClass("btn-content1-active");
+        $(".btn-content-3").removeClass("btn-content3-active");
+        $(".btn-content-4").removeClass("btn-content4-active");
+        $(".btn-content-5").removeClass("btn-content5-active");
+        $(".btn-content-6").removeClass("btn-content6-active");
+    });
+
+    $(".product-1-tab-content .aircraft-icon3, .product-2-tab-content .aircraft-icon3").click(function () {
+        $(".btn-content-3").addClass("btn-content3-active");
+        $(".btn-content-1").removeClass("btn-content1-active");
+        $(".btn-content-2").removeClass("btn-content2-active");
+        $(".btn-content-4").removeClass("btn-content4-active");
+        $(".btn-content-5").removeClass("btn-content5-active");
+        $(".btn-content-6").removeClass("btn-content6-active");
+    });
+
+    $(".product-1-tab-content .aircraft-icon4, .product-2-tab-content .aircraft-icon4").click(function () {
+        $(".btn-content-4").addClass("btn-content4-active");
+        $(".btn-content-1").removeClass("btn-content1-active");
+        $(".btn-content-2").removeClass("btn-content2-active");
+        $(".btn-content-3").removeClass("btn-content3-active");
+        $(".btn-content-5").removeClass("btn-content5-active");
+        $(".btn-content-6").removeClass("btn-content6-active");
+    });
+
+    $(".product-1-tab-content .aircraft-icon5, .product-2-tab-content .aircraft-icon5").click(function () {
+        $(".btn-content-5").addClass("btn-content5-active");
+        $(".btn-content-1").removeClass("btn-content1-active");
+        $(".btn-content-2").removeClass("btn-content2-active");
+        $(".btn-content-3").removeClass("btn-content3-active");
+        $(".btn-content-4").removeClass("btn-content4-active");
+        $(".btn-content-6").removeClass("btn-content6-active");
+    });
+
+    $(".product-1-tab-content .aircraft-icon6, .product-2-tab-content .aircraft-icon6").click(function () {
+        $(".btn-content-6").addClass("btn-content6-active");
+        $(".btn-content-1").removeClass("btn-content1-active");
+        $(".btn-content-2").removeClass("btn-content2-active");
+        $(".btn-content-3").removeClass("btn-content3-active");
+        $(".btn-content-4").removeClass("btn-content4-active");
+        $(".btn-content-5").removeClass("btn-content5-active");
+    });
+
+    // https://codepen.io/bastia-g5/pen/RwqLdzO
+    // $(function () {
+    //     $('.tab-content-right-img i.fa-plus').off("click").on("click", function () {
+    //         $parentElement = $(this).closest(".tab-content-right-img");
+    //         $parentElement.siblings(".tab-content-right-img").removeClass("active");
+    //         if ($parentElement.hasClass("active")) {
+    //             $parentElement.removeClass("active");
+    //             $parentElement.siblings(".tab-content-right-img").removeClass('filteropacity');
+    //         } else {
+    //             $parentElement.addClass("active").removeClass("filteropacity");
+    //             $parentElement.siblings(".tab-content-right-img").addClass('filteropacity');
+    //         }
+
+    //         $('.plus-btn-content').not('#div' + $(this).attr('data-target')).hide();
+    //         $('#div' + $(this).attr('data-target')).toggle();
+    //     });
     // });
-    // $(".close-cat-menus").click(function () {
-    //     $(".cat-menus").removeClass("cat-menus-active");
+
+
+    // $('.product-1-tab-content .aircraft-icon1').click(function(event){
+    //     $('.product-1-tab-content .plus-btn-content, .product-1-tab-content .btn-content-1').removeClass('active-tab');
+
+    //     $(this).addClass('active-tab');  
+    //     event.preventDefault();
     // });
+
+
+
 
     // responsive menu js
     // $(".responsive-menu svg").click(function () {

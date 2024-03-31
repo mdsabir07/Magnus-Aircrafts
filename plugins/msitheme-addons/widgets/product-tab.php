@@ -482,8 +482,15 @@ class ProductTab extends Widget_Base {
                                     </h2>
                                 <?php endif; 
                                 $i = 0;
-                                foreach ( $settings['tab_left_content'] as $left_tab ) : $i++; ?>
-                                    <div class="plus-btn-content btn-content-<?php echo esc_attr( $i ); ?>">
+                                foreach ( $settings['tab_left_content'] as $left_tab ) : 
+									$i++; 
+									if ( $i === 1 ) :
+										$add_default_class = " btn-content1-active-default";
+									else :
+										$add_default_class = "";
+									endif;
+								?>
+                                    <div id="div<?php echo esc_attr( $i ); ?>" class="plus-btn-content<?php echo esc_attr( $add_default_class ); ?> btn-content-<?php echo esc_attr( $i ); ?>">
                                         <?php if ( !empty( $left_tab['border_title'] ) ) : ?>
                                             <h4 class="theme-border relative fz-32 uppercase">
                                                 <?php echo esc_html( $left_tab['border_title'] ); ?>
@@ -502,12 +509,12 @@ class ProductTab extends Widget_Base {
                                 <div class="tab-content-right-img relative">
                                     <?php if ( !empty( $settings['fusion21img'] ) ) : ?>
                                         <img src="<?php echo esc_url(wp_get_attachment_image_url( $settings['fusion21img']['id'], 'large' )); ?>" alt="<?php echo esc_attr( $settings['label1'] ); ?>">
-                                        <i class="fa-solid fa-plus aircraft-icon1 absolute"></i>
-                                        <i class="fa-solid fa-plus aircraft-icon2 absolute"></i>
-                                        <i class="fa-solid fa-plus aircraft-icon3 absolute"></i>
-                                        <i class="fa-solid fa-plus aircraft-icon4 absolute"></i>
-                                        <i class="fa-solid fa-plus aircraft-icon5 absolute"></i>
-                                        <i class="fa-solid fa-plus aircraft-icon6 absolute"></i>
+                                        <i class="fa-solid fa-plus aircraft-icon1 absolute" data-target="1"></i>
+                                        <i class="fa-solid fa-plus aircraft-icon2 absolute" data-target="2"></i>
+                                        <i class="fa-solid fa-plus aircraft-icon3 absolute" data-target="3"></i>
+                                        <i class="fa-solid fa-plus aircraft-icon4 absolute" data-target="4"></i>
+                                        <i class="fa-solid fa-plus aircraft-icon5 absolute" data-target="5"></i>
+                                        <i class="fa-solid fa-plus aircraft-icon6 absolute" data-target="6"></i>
                                     <?php endif; if ( !empty( $settings['btn_label'] ) ) : ?>
                                         <a href="<?php echo esc_url( $settings['btn_link']['url'] ); ?>" <?php echo esc_attr( $target ); ?> <?php echo esc_attr( $nofollow ); ?>  class="aircraft-icon-btn absolute">
                                             <?php echo esc_html( $settings['btn_label'] ); ?>
@@ -529,8 +536,15 @@ class ProductTab extends Widget_Base {
                                     </h2>
                                 <?php endif; 
                                 $i = 0;
-                                foreach ( $settings['tab_left_content2'] as $left_tab2 ) : $i++; ?>
-                                    <div class="plus-btn-content btn-content-<?php echo esc_attr( $i ); ?>">
+                                foreach ( $settings['tab_left_content2'] as $left_tab2 ) : 
+									$i++; 
+									if ( $i === 1 ) :
+										$add_default_class = " btn-content-active-default";
+									else :
+										$add_default_class = "";
+									endif;
+								?>
+                                    <div class="plus-btn-content<?php echo esc_attr( $add_default_class ); ?> btn-content-<?php echo esc_attr( $i ); ?>">
                                         <?php if ( !empty( $left_tab2['border_title2'] ) ) : ?>
                                             <h4 class="theme-border relative fz-32 uppercase">
                                                 <?php echo esc_html( $left_tab2['border_title2'] ); ?>
@@ -549,11 +563,11 @@ class ProductTab extends Widget_Base {
                                 <div class="tab-content-right-img relative">
                                     <?php if ( !empty( $settings['sentinel_img'] ) ) : ?>
                                         <img src="<?php echo esc_url(wp_get_attachment_image_url( $settings['sentinel_img']['id'], 'large' )); ?>" alt="<?php echo esc_attr( $settings['label2'] ); ?>">
-                                        <i class="fa-solid fa-plus aircraft-icon1 absolute"></i>
-                                        <i class="fa-solid fa-plus aircraft-icon2 absolute"></i>
-                                        <i class="fa-solid fa-plus aircraft-icon3 absolute"></i>
-                                        <i class="fa-solid fa-plus aircraft-icon4 absolute"></i>
-                                        <i class="fa-solid fa-plus aircraft-icon5 absolute"></i>
+                                        <i class="fa-solid fa-plus aircraft-icon1 absolute" data-target="1"></i>
+                                        <i class="fa-solid fa-plus aircraft-icon2 absolute" data-target="2"></i>
+                                        <i class="fa-solid fa-plus aircraft-icon3 absolute" data-target="3"></i>
+                                        <i class="fa-solid fa-plus aircraft-icon4 absolute" data-target="4"></i>
+                                        <i class="fa-solid fa-plus aircraft-icon5 absolute" data-target="5"></i>
                                     <?php endif; if ( !empty( $settings['btn_label2'] ) ) : ?>
                                         <a href="<?php echo esc_url( $settings['btn_link2']['url'] ); ?>" <?php echo esc_attr( $target2 ); ?> <?php echo esc_attr( $nofollow2 ); ?>  class="aircraft-icon-btn absolute">
                                             <?php echo esc_html( $settings['btn_label2'] ); ?>

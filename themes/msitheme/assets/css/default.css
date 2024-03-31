@@ -1600,7 +1600,7 @@ body.single main {
 .tab-content-inner {
     grid-template-columns: 5fr 7fr;
     grid-gap: 50px;
-    justify-items: end;
+    justify-items: center;
 }
 
 .tab-content-right-img i.fa-plus {
@@ -1619,6 +1619,36 @@ body.single main {
     font-weight: 100;
 }
 
+
+.product-1-tab-content .tab-content-right-img .aircraft-icon1 {
+    left: 38%;
+    top: 88px;
+}
+
+.product-1-tab-content .tab-content-right-img .aircraft-icon2 {
+    left: 50%;
+    top: 130px;
+}
+
+.product-1-tab-content .tab-content-right-img .aircraft-icon3 {
+    left: 41%;
+    top: 43%;
+}
+
+.product-1-tab-content .tab-content-right-img .aircraft-icon4 {
+    right: 60px;
+    top: 42%;
+}
+
+.product-1-tab-content .tab-content-right-img .aircraft-icon5 {
+    right: 182px;
+    top: 47%;
+}
+
+.product-1-tab-content .tab-content-right-img .aircraft-icon6 {
+    bottom: 32%;
+    right: 45%;
+}
 
 .product-2-tab-content .tab-content-right-img .aircraft-icon1 {
     left: 45%;
@@ -1649,6 +1679,30 @@ body.single main {
     right: 42%;
 }
 
+.plus-btn-content {
+    display: none;
+    transition: 0.5s all ease-in-out;
+}
+
+.product-1-tab-content .btn-content1-active-default {
+    display: block;
+}
+
+.product-1-tab-content .btn-content1-active, 
+.product-1-tab-content .btn-content2-active,
+.product-1-tab-content .btn-content3-active,
+.product-1-tab-content .btn-content4-active, 
+.product-1-tab-content .btn-content5-active,
+.product-1-tab-content .btn-content6-active,
+.product-2-tab-content .btn-content1-active, 
+.product-2-tab-content .btn-content2-active,
+.product-2-tab-content .btn-content3-active,
+.product-2-tab-content .btn-content4-active, 
+.product-2-tab-content .btn-content5-active,
+.product-2-tab-content .btn-content6-active  {
+    display: block;
+}
+
 
 .tab-content-right-img i.fa-plus {
     display: inline-block;
@@ -1668,8 +1722,9 @@ body.single main {
 
 .tab-content-right-img i.fa-plus:hover {
     transform: rotate(90deg);
+    background: var(--clrDarkRed);
+    color: var(--clrWhite);
 }
-
 
 .aircraft-icon-btn {
     color: var(--clrWhite);
@@ -1703,11 +1758,11 @@ body.single main {
     content: "";
     display: block;
     position: absolute;
-    top: 30%;
-    left: 25%;
-    /* transform: translate(-50%,-50%); */
-    width: 50%;
-    height: 50%;
+    top: 24%;
+    left: 22%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    height: 60%;
     background: #85848D;
     border-radius: var(--br100);
     z-index: -1;
@@ -1731,4 +1786,48 @@ body.single main {
         transform: scale(1.8,1.8);
         opacity: 0;
     }
+}
+
+/* Event filter */
+.event-filter-cats {
+    padding: 25px 0;
+    border-top: 1px solid var(--clrWhite);
+    border-bottom: 1px solid var(--clrWhite);
+}
+
+.all-events {
+    width: 85vw;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    padding: 50px 0;
+}
+
+.eventBox {
+    min-width: 473px;
+    max-width: 473px;
+    height: 324px;
+}
+
+.event-content {
+    min-width: 473px;
+    max-width: 473px;
+    height: 324px;
+    background: rgba(0,0,0,0.4);
+    position: relative;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0 24px;
+    top: -4px;
+}
+
+.event-cat-name::before, .event-cat-name::after {
+    background: var(--clrDarkRed);
+}
+.event-cat-list {
+    opacity: 0.45;
+}
+
+.event-cat-list.active {
+    opacity: 1;
 }

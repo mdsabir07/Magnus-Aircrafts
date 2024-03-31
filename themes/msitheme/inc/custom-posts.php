@@ -20,8 +20,7 @@ function msitheme_product_custom_post_type() {
         'not_found'           => __( 'Not Found', 'msitheme' ),
         'not_found_in_trash'  => __( 'Not found in Trash', 'msitheme' ),
     );
-        
-        
+          
     $args = array(
         'label'               => __( 'products', 'msitheme' ),
         'description'         => __( 'Product news and reviews', 'msitheme' ),
@@ -47,6 +46,36 @@ function msitheme_product_custom_post_type() {
     register_post_type( 'product', $args );
 
 
+     // Event
+     register_post_type( 'event', [
+        'labels'    => [
+            'name'  => 'Events',
+            'singular_name' => 'Event',
+            'add_new_item'  => 'Add New Event'
+        ],
+        'public'    => true,
+        'supports'  => ['title', 'editor', 'thumbnail', 'page-attributes', 'comments'],
+        'menu_position' => 6,
+        'menu_icon'           => 'dashicons-networking',
+        'can_export'          => true,
+    ] );
+
+     // Event
+     register_post_type( 'gallery', [
+        'labels'    => [
+            'name'  => 'Galleries',
+            'singular_name' => 'Gallery',
+            'add_new_item'  => 'Add New Gallery'
+        ],
+        'public'    => true,
+        'supports'  => ['title', 'editor', 'thumbnail', 'page-attributes', 'comments'],
+        'menu_position' => 7,
+        'menu_icon'         => 'dashicons-format-gallery',
+        'can_export'          => true,
+    ] );
+
+
+    // Create product custom post taxonomy
     register_taxonomy( 'product_cats', 'product', [
         'hierarchical'  => true,
         'label' => 'Product Category',
@@ -54,6 +83,30 @@ function msitheme_product_custom_post_type() {
         'show_admin_column' => true,
         'rewrite'   => [
             'slug'  => 'product-category',
+            'with_front'    => true
+        ]
+    ] );
+
+    // Create product custom post taxonomy
+    register_taxonomy( 'event_cat', 'event', [
+        'hierarchical'  => true,
+        'label' => 'Event Category',
+        'query_var' => true,
+        'show_admin_column' => true,
+        'rewrite'   => [
+            'slug'  => 'event-category',
+            'with_front'    => true
+        ]
+    ] );
+
+    // Create product custom post taxonomy
+    register_taxonomy( 'gallery_cat', 'gallery', [
+        'hierarchical'  => true,
+        'label' => 'Gallery Category',
+        'query_var' => true,
+        'show_admin_column' => true,
+        'rewrite'   => [
+            'slug'  => 'gallery-category',
             'with_front'    => true
         ]
     ] );

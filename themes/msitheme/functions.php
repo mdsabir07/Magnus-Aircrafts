@@ -257,7 +257,7 @@ require get_template_directory() . '/inc/metabox-and-options.php';
 /**
  * Custom post type
  */
-require get_template_directory() . '/inc/products.php';
+require get_template_directory() . '/inc/custom-posts.php';
 
 /**
  * Shortcodes
