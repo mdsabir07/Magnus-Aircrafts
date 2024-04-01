@@ -16,6 +16,7 @@ use MsiThemeEssentialAddons\Widgets\TeamBlock;
 use MsiThemeEssentialAddons\Widgets\TeamMembers;
 use MsiThemeEssentialAddons\Widgets\ProductTab;
 use MsiThemeEssentialAddons\Widgets\EventFilter;
+use MsiThemeEssentialAddons\Widgets\Galleries;
 /**
  * Class Plugin
  *
@@ -101,6 +102,7 @@ class MsiThemeEssentialAddonsPlugin {
 		require_once( __DIR__ . '/widgets/team-members.php' );
 		require_once( __DIR__ . '/widgets/product-tab.php' );
 		require_once( __DIR__ . '/widgets/event-filter.php' );
+		require_once( __DIR__ . '/widgets/galleries.php' );
 	}
 
 	/**
@@ -132,6 +134,7 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TeamMembers() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductTab() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new EventFilter() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Galleries() );
 	}
 
 	/**

@@ -67,7 +67,8 @@ function msitheme_product_custom_post_type() {
             'singular_name' => 'Gallery',
             'add_new_item'  => 'Add New Gallery'
         ],
-        'public'    => true,
+        'public'    => false,
+        'show_ui'    => true,
         'supports'  => ['title', 'editor', 'thumbnail', 'page-attributes', 'comments'],
         'menu_position' => 7,
         'menu_icon'         => 'dashicons-format-gallery',
