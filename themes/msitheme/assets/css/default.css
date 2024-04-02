@@ -1684,22 +1684,7 @@ body.single main {
     transition: 0.5s all ease-in-out;
 }
 
-.product-1-tab-content .btn-content1-active-default {
-    display: block;
-}
-
-.product-1-tab-content .btn-content1-active, 
-.product-1-tab-content .btn-content2-active,
-.product-1-tab-content .btn-content3-active,
-.product-1-tab-content .btn-content4-active, 
-.product-1-tab-content .btn-content5-active,
-.product-1-tab-content .btn-content6-active,
-.product-2-tab-content .btn-content1-active, 
-.product-2-tab-content .btn-content2-active,
-.product-2-tab-content .btn-content3-active,
-.product-2-tab-content .btn-content4-active, 
-.product-2-tab-content .btn-content5-active,
-.product-2-tab-content .btn-content6-active  {
+.btn-content1-active-default {
     display: block;
 }
 
@@ -1830,4 +1815,42 @@ body.single main {
 
 .event-cat-list.active {
     opacity: 1;
+}
+
+/* Own Fusion CSS */
+.own-fusion-wrap {
+    padding: 180px 0;
+    overflow: visible;
+}
+
+.own-fusion-content .theme-btn {
+    margin-top: 30px;
+}
+
+/* Gallery CSS */
+.masonry {
+    columns: 3;
+    column-gap: 24px;
+}
+
+.masonry .single-news-post {
+    width: 100%;
+    break-inside: avoid;
+}
+
+.masonry img {
+    height: auto !important;
+}
+.single-news-post .entry-details h4 {
+    color: #fff;
+}
+@media (max-width: 1024px) {
+    .masonry {
+        columns: 2;
+    }
+}
+@media (max-width: 480px) {
+    .masonry {
+        columns: 1;
+    }
 }

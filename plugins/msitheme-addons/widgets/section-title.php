@@ -287,6 +287,15 @@ class SectionTitle extends Widget_Base {
 		);
 
 		
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Stroke::get_type(),
+			[
+				'name' => 'heading_stroke',
+				'selector' => '{{WRAPPER}} .section-heading',
+			]
+		);
+
+		
 		$this->end_controls_section();
 	}
 	/**

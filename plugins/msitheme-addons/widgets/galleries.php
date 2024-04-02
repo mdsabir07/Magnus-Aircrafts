@@ -187,6 +187,21 @@ class Galleries extends Widget_Base {
 			]
 		);
 
+		
+		$this->add_control(
+			'gallery_style',
+			[
+				'label' => esc_html__( 'Gallery style', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => '1',
+				'options' => [
+					'1' => esc_html__( 'Grid', 'msitheme' ),
+					'2' => esc_html__( 'Masonry', 'msitheme' ),
+				]
+			]
+		);
+
+
 		$this->add_control(
 			'count',
 			[
@@ -476,7 +491,7 @@ class Galleries extends Widget_Base {
 		
 		?>
 
-			<div class="msitheme-news-wrap">
+			<div class="msitheme-news-wrap msitheme-gallery-wrap">
                 <div class="container-default">
                     <?php if($settings['show_section_title'] === 'yes') : ?>
                         <div class="section-title">
@@ -499,7 +514,18 @@ class Galleries extends Widget_Base {
                         </div>
                     <?php endif; ?>
 
-                    <div class="news-posts grid grid-3 g-gap-25">
+					<?php 
+					$gallery_style = '';
+					if ( $settings['gallery_style'] === '2' ) :
+						$gallery_style = ' masonry';
+					elseif ( $settings['gallery_style'] === '1' ) : 
+						$gallery_style = ' grid grid-3 g-gap-25';
+					else : 
+						$gallery_style = '';
+					endif;
+					?>
+
+                    <div class="news-posts<?php echo esc_attr( $gallery_style ); ?>">
                         <?php 
                         while($q->have_posts()) : $q->the_post(); 
                             $post_id = get_the_ID(); 
@@ -528,9 +554,7 @@ class Galleries extends Widget_Base {
                                 <div class="entry-details">
                                     <?php if($settings['show_title'] === 'yes') : ?>
                                         <h4 class="entry-title">
-                                            <a href="<?php esc_url(the_permalink($post_id)); ?>">
-                                                <?php esc_html( the_title() ); ?>
-                                            </a>
+                                            <?php esc_html( the_title() ); ?>
                                         </h4>
                                     <?php endif; ?>
                                     <?php if($settings['show_excerpt'] === 'yes') : ?>

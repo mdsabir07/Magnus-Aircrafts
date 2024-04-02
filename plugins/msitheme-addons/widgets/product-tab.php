@@ -539,12 +539,12 @@ class ProductTab extends Widget_Base {
                                 foreach ( $settings['tab_left_content2'] as $left_tab2 ) : 
 									$i++; 
 									if ( $i === 1 ) :
-										$add_default_class = " btn-content-active-default";
+										$add_default_class = " btn-content1-active-default";
 									else :
 										$add_default_class = "";
 									endif;
 								?>
-                                    <div class="plus-btn-content<?php echo esc_attr( $add_default_class ); ?> btn-content-<?php echo esc_attr( $i ); ?>">
+                                    <div id="div<?php echo esc_attr( $i ); ?>" class="plus-btn-content<?php echo esc_attr( $add_default_class ); ?> btn-content-<?php echo esc_attr( $i ); ?>">
                                         <?php if ( !empty( $left_tab2['border_title2'] ) ) : ?>
                                             <h4 class="theme-border relative fz-32 uppercase">
                                                 <?php echo esc_html( $left_tab2['border_title2'] ); ?>
