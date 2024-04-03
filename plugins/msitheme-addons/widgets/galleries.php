@@ -363,7 +363,7 @@ class Galleries extends Widget_Base {
         $this->add_control(
 			'top_heading_color',
 			[
-				'label' => __( 'TOp Heading Color', 'msitheme' ),
+				'label' => __( 'Top Heading Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#B1DEE3',
 				'scheme' => [

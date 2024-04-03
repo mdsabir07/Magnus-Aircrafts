@@ -38,11 +38,12 @@
 						<a href="mailto:info@magnus-aircraft.com" class="d-block clrMidWhite fz-18">info@magnus-aircraft.com</a>
 					</div>
 					<div class="footer-socials flex align-center">
-						<a href="" class="facebook"><span class="dashicons dashicons-facebook-alt"></span></a>
-						<a href="" class="facebook"><span class="dashicons dashicons-linkedin"></span></a>
-						<a href="" class="facebook"><span class="dashicons dashicons-instagram"></span></a>
-						<a href="" class="facebook"><span class="dashicons dashicons-twitter"></span></a>
-						<a href="" class="facebook"><span class="dashicons dashicons-youtube"></span></a>
+						<a href="" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+						<a href="" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+						<a href="" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+						<a href="" class="twitter"><i class="fa-brands fa-x-twitter"></i></a>
+						<a href="" class="tiktok"><i class="fa-brands fa-tiktok"></i></a>
+						<a href="" class="youtube"><i class="fa-brands fa-youtube"></i></a>
 					</div>
 				</div>
 				<?php if ( is_active_sidebar( 'footer-mid-2' ) ) : ?>

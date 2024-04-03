@@ -7,6 +7,7 @@ use MsiThemeEssentialAddons\Widgets\ImageSlider;
 use MsiThemeEssentialAddons\Widgets\AboutUs;
 // use MsiThemeEssentialAddons\Widgets\AsForm;
 use MsiThemeEssentialAddons\Widgets\SocialShare;
+use MsiThemeEssentialAddons\Widgets\SocialLinks;
 use MsiThemeEssentialAddons\Widgets\Blogs;
 use MsiThemeEssentialAddons\Widgets\Products;
 use MsiThemeEssentialAddons\Widgets\CounterUp;
@@ -92,8 +93,8 @@ class MsiThemeEssentialAddonsPlugin {
 		require_once( __DIR__ . '/widgets/parallax-hero.php' );
 		require_once( __DIR__ . '/widgets/image-slider.php' );
 		require_once( __DIR__ . '/widgets/about-us.php' );
-		// require_once( __DIR__ . '/widgets/advanced-search-from.php' );
 		require_once( __DIR__ . '/widgets/social-share.php' );
+		require_once( __DIR__ . '/widgets/social-links.php' );
 		require_once( __DIR__ . '/widgets/blog-posts.php' );
 		require_once( __DIR__ . '/widgets/products.php' );
 		require_once( __DIR__ . '/widgets/counter-up.php' );
@@ -127,6 +128,7 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new AboutUs() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new AsForm() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new SocialShare() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new SocialLinks() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Blogs() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Products() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new CounterUp() );

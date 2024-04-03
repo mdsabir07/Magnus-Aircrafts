@@ -40,7 +40,7 @@ class SocialShare extends Widget_Base
 	 */
 	public function get_title()
 	{
-		return esc_html__('Social link', 'msitheme');
+		return esc_html__('Social link style 1', 'msitheme');
 	}
 
 	/**
@@ -362,7 +362,7 @@ class SocialShare extends Widget_Base
 						<?php if ( !empty($settings['tiktok_label']) ) : ?>
 							<?php echo esc_html( $settings['tiktok_label'] ); ?>
 						<?php endif; if ( $settings['show_icon'] === 'yes') : ?>
-								<i class="fa-brands fa-tiktok"></i>
+							<i class="fa-brands fa-tiktok"></i>
 						<?php endif; ?>
 					</a>
 				<?php endif; if ( !empty($settings['youtube']) ) : ?>

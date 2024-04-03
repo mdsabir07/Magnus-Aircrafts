@@ -203,6 +203,33 @@ class BorderHeading extends Widget_Base {
 				],
 			]
 		);
+		
+        $this->add_control(
+			'heading_border_color',
+			[
+				'label' => __( 'Heading Border Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#fff',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .section-top-heading::before, .section-top-heading::after' => 'background: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'heading_border_width',
+			[
+				'label' => __( 'Border width', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => '100',
+				'selectors' => [
+					'{{WRAPPER}} .section-top-heading::before' => 'width: {{VALUE}}%',
+				],
+			]
+		);
 
 		$this->end_controls_section();
 	}

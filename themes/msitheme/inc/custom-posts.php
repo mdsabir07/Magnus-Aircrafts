@@ -20,7 +20,7 @@ function msitheme_product_custom_post_type() {
         'not_found'           => __( 'Not Found', 'msitheme' ),
         'not_found_in_trash'  => __( 'Not found in Trash', 'msitheme' ),
     );
-          
+   
     $args = array(
         'label'               => __( 'products', 'msitheme' ),
         'description'         => __( 'Product news and reviews', 'msitheme' ),
@@ -40,7 +40,8 @@ function msitheme_product_custom_post_type() {
         'exclude_from_search' => false,
         'publicly_queryable'  => true,
         'capability_type'     => 'post',
-        'show_in_rest' => true,
+        'show_in_rest'        => true,
+        'menu_icon'           => 'dashicons-airplane',
     
     );
     register_post_type( 'product', $args );

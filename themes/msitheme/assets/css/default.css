@@ -1751,7 +1751,7 @@ body.single main {
     background: #85848D;
     border-radius: var(--br100);
     z-index: -1;
-    animation: grow 1s ease-in-out infinite;
+    animation: grow 3s ease-in-out infinite;
 }
 .pulse::after {
     background: #657893;
@@ -1759,7 +1759,7 @@ body.single main {
 
 .pulse::before {
     background: #8B99AE;
-    animation-delay: -0.5s;
+    animation-delay: -1s;
 }
 
 @keyframes grow {
@@ -1853,4 +1853,72 @@ body.single main {
     .masonry {
         columns: 1;
     }
+}
+
+/* Contact page CSS */
+.msitheme-contact-form p label {
+    display: block;
+    width: 100%;
+    clear: both;
+    background: transparent !important;
+}
+
+.msitheme-contact-form input, .msitheme-contact-form textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--clrWhite);
+    height: 40px;
+    padding: 6px;
+    color: var(--clrWhite);
+    font-size: 16px;
+}
+
+.msitheme-contact-form .form-column {
+    width: 100%;
+}
+
+.msitheme-contact-form .form-row {
+    margin-bottom: 15px;
+}
+
+.msitheme-contact-form .required {
+    color: var(--clrDarkRed);
+}
+
+.obligatory {
+    color: var(--clrWhite);
+    margin-top: -10px;
+}
+
+.msitheme-contact-form input[type="submit"] {
+    display: flex;
+    width: 176px;
+    padding: 21px 36px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--clrDarkRed);
+    border-bottom: none;
+    color: var(--clrWhite);
+    font-size: var(--fz12);
+    font-weight: var(--fw700);
+    height: auto;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent;
+}
+
+.msitheme-contact-form input[type="submit"]:hover {
+    background: transparent;
+    border-color: var(--clrWhite);
+}
+
+.msitheme-contact-form .submit-btn {
+    margin-top: 30px;
+}
+
+.msitheme-contact-form textarea {
+    height: 120px;
+    resize: none;
 }
