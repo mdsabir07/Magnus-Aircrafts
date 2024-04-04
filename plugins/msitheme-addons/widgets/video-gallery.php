@@ -160,6 +160,48 @@ class VideoGallery extends Widget_Base
 		);
 
         $repeater->add_control(
+			'btn_type',
+			[
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'label' => esc_html__( 'Select Button type', 'msitheme' ),
+				'default' => '1',
+				'options' => [
+					'1' => esc_html__( 'Video', 'msitheme' ),
+					'2' => esc_html__( 'Custom link', 'msitheme' ),
+				],
+			]
+		);
+		$repeater->add_control(
+			'btn_label',
+			[
+				'label'	=> __( 'Button label', 'msitheme' ),
+				'type'	=> Controls_Manager::TEXT,
+				'label_block'	=> true,
+				'condition'	=> [
+					'btn_type'	=> '2',
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'btn_link',
+			[
+				'label' => esc_html__( 'Button Link', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::URL,
+				'placeholder' => esc_html__( 'https://domain-link.com', 'msitheme' ),
+				'show_external' => true,
+				'default' => [
+					'url' => '',
+					'is_external' => true,
+					'nofollow' => true,
+				],
+				'condition'	=> [
+					'btn_type'	=> '2',
+				],
+			]
+		);
+
+        $repeater->add_control(
 			'video_type',
 			[
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -169,6 +211,9 @@ class VideoGallery extends Widget_Base
 					'1' => esc_html__( 'YouTube', 'msitheme' ),
 					'2' => esc_html__( 'Vimeo', 'msitheme' ),
 					'3' => esc_html__( 'From media library', 'msitheme' ),
+				],
+				'condition'	=> [
+					'btn_type'	=> '1',
 				],
 			]
 		);
@@ -350,7 +395,13 @@ class VideoGallery extends Widget_Base
             <!-- start of video gallery -->
 			<div class="video-galleries overflow-x-hidden">
 				<div class="video-gallery gallery-wrapper">
-					<?php $i = 0; foreach( $settings['galleries'] as $video ) : $i++; ?>
+					<?php 
+					$i = 0; 
+					foreach( $settings['galleries'] as $video ) : 
+					$i++; 
+					$target = $video['btn_link']['is_external'] ? ' target="_blank"' : '';
+                    $nofollow = $video['btn_link']['nofollow'] ? ' rel="nofollow"' : '';
+					?>
 						<div class="single-v-gallery relative v-gallery-<?php echo esc_attr( $i ); ?>">
 							<?php if( !empty($video['top_heading']) ) : ?>
 								<div class="v-gallery-top-heading absolute">
@@ -360,22 +411,32 @@ class VideoGallery extends Widget_Base
 								</div>
 							<?php endif; if( !empty($video['section_title']) ) : ?>
 								<h4 class="section-heading absolute"><?php echo wp_kses_post( $video['section_title'] ); ?></h4>
-							<?php endif; if( $video['video_type'] === '1' ) : ?>
+							<?php endif;
+							if( $video['btn_type'] === '1' ) :
+								if( $video['video_type'] === '1' ) : ?>
+									<div class="video-item absolute">
+										<a class="popup-youtube" href="<?php echo esc_url( $video['youtube'] ); ?>">
+											<?php echo esc_html( $video['play_label'] ); ?>
+										</a>
+									</div>
+								<?php endif; if( !empty($video['vimeo']) ) : ?>
+									<div class="video-item absolute">
+										<a class="popup-vimeo" href="<?php echo esc_url( $video['vimeo'] ); ?>">
+											<?php echo esc_html( $video['play_label'] ); ?>
+										</a>
+									</div>
+								<?php endif; if( !empty($video['media_library']) ) : ?>
+									<div class="video-item absolute">
+										<a class="popup-media-v" href="<?php echo esc_url( $video['media_library'] ); ?>">
+											<?php echo esc_html( $video['play_label'] ); ?>
+										</a>
+									</div>
+								<?php endif; 
+							endif; 
+							if( $video['btn_type'] === '2' ) : ?>
 								<div class="video-item absolute">
-									<a class="popup-youtube" href="<?php echo esc_url( $video['youtube'] ); ?>">
-										<?php echo esc_html( $video['play_label'] ); ?>
-									</a>
-								</div>
-							<?php endif; if( !empty($video['vimeo']) ) : ?>
-								<div class="video-item absolute">
-									<a class="popup-vimeo" href="<?php echo esc_url( $video['vimeo'] ); ?>">
-										<?php echo esc_html( $video['play_label'] ); ?>
-									</a>
-								</div>
-							<?php endif; if( !empty($video['media_library']) ) : ?>
-								<div class="video-item absolute">
-									<a class="popup-media-v" href="<?php echo esc_url( $video['vimeo'] ); ?>">
-										<?php echo esc_html( $video['play_label'] ); ?>
+									<a class="readmore-btn theme-btn" href="<?php echo esc_url( $video['btn_link']['url'] ); ?>" <?php echo esc_attr( $target ); ?> <?php echo esc_attr( $nofollow ); ?>>
+										<?php echo esc_html( $video['btn_label'] ); ?>
 									</a>
 								</div>
 							<?php endif; if( !empty($video['image']) ) : ?>

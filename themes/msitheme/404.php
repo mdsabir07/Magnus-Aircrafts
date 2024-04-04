@@ -12,46 +12,39 @@ get_header();
 
 	<main id="primary" class="site-main">
 		<div class="container-default">
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'msitheme' ); ?></h1>
-				</header><!-- .page-header -->
+			<section class="error-404 not-found relative">
+				<div class="section-border-left absolute top-0">
+					<img src="/wp-content/uploads/2024/04/border-section-left.png" alt="">
+				</div>
+				<div class="img-404 flex justify-center align-center">
+					<img src="/wp-content/uploads/2024/04/404-fusion.png" alt="404">
+				</div>
+				<div class="page-content text-center">
+					<h1 class="page-title fz-64 lh-76 clrWhite uppercase">
+						<span><?php esc_html_e( 'oh... the page', 'msitheme' ); ?></span><br>
+						<span><?php esc_html_e( 'is fly away...', 'msitheme' ); ?></span>
+					</h1>
+					<p class="fw-700 clrWhite paragraph-404"><?php esc_html_e( 'But you can find an other destination', 'msitheme' ); ?></p>
 
-				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'msitheme' ); ?></p>
-
-						<?php
-						get_search_form();
-
-						the_widget( 'WP_Widget_Recent_Posts' );
-						?>
-
-						<div class="widget widget_categories">
-							<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'msitheme' ); ?></h2>
-							<ul>
-								<?php
-								wp_list_categories(
-									array(
-										'orderby'    => 'count',
-										'order'      => 'DESC',
-										'show_count' => 1,
-										'title_li'   => '',
-										'number'     => 10,
-									)
-								);
-								?>
-							</ul>
-						</div><!-- .widget -->
-
-						<?php
-						/* translators: %1$s: smiley */
-						$msitheme_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'msitheme' ), convert_smilies( ':)' ) ) . '</p>';
-						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$msitheme_archive_content" );
-
-						the_widget( 'WP_Widget_Tag_Cloud' );
-						?>
+					<div class="readmore-btns flex align-center justify-center f-gap-25">
+						<a href="<?php echo esc_url(home_url( '/' )); ?>" class="readmore-btn fz-12 fw-700 clrWhite uppercase">
+							<?php esc_html_e( 'GO BACK', 'msitheme' ); ?>
+						</a>
+						<a href="<?php echo esc_url(home_url( '/' )); ?>" class="readmore-btn fz-12 fw-700 clrWhite uppercase">
+							<?php esc_html_e( 'MAIN PAGE', 'msitheme' ); ?>
+						</a>
+						<a href="<?php echo esc_url(home_url( '/calculator' )); ?>" class="readmore-btn fz-12 fw-700 clrWhite uppercase">
+							<?php esc_html_e( 'CALCULATOR', 'msitheme' ); ?>
+						</a>
+						<a href="<?php echo esc_url(home_url( '/contact' )); ?>" class="readmore-btn fz-12 fw-700 clrWhite uppercase">
+							<?php esc_html_e( 'CONTACT', 'msitheme' ); ?>
+						</a>
+					</div>
 
 				</div><!-- .page-content -->
+				<div class="section-border-right absolute top-0">
+					<img src="/wp-content/uploads/2024/04/border-section-right.png" alt="">
+				</div>
 			</section><!-- .error-404 -->
 		</div>
 	</main><!-- #main -->

@@ -23,8 +23,8 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); 
 // $page_meta = get_option('msitheme_page_meta');
-if (get_post_meta( $post->ID, 'msitheme_page_meta', true )) {
-	$page_meta = get_post_meta( $post->ID, 'msitheme_page_meta', true );
+if (get_post_meta( get_the_ID(), 'msitheme_page_meta', true )) {
+	$page_meta = get_post_meta( get_the_ID(), 'msitheme_page_meta', true );
 } else {
 	$page_meta = array();
 }
@@ -49,8 +49,7 @@ if (array_key_exists('header-logo', $page_meta)) {
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-logo-link" rel="home">
 							<img width="151" height="56" src="<?php echo ( $logo['url'] ); ?>" class="custom-logo" alt="<?php bloginfo( 'name' ); ?>" decoding="async">
 						</a>
-					<?php
-					$custom_logo = get_theme_mod( 'custom_logo' );
+					<?php $custom_logo = get_theme_mod( 'custom_logo' );
 					else : 
 						the_custom_logo();
 					endif;

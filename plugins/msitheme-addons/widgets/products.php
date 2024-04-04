@@ -117,7 +117,7 @@ class Products extends Widget_Base {
 				'name' => 'background',
 				'label' => esc_html__( 'Background', 'msitheme' ),
 				'types' => [ 'classic', 'gradient', 'video' ],
-				'selector' => '{{WRAPPER}} .msitheme-news-wrap',
+				'selector' => '{{WRAPPER}} .msitheme-product-wrap',
 			]
 		);
         		
@@ -354,6 +354,31 @@ class Products extends Widget_Base {
 				],
 			]
 		);
+		$this->add_control(
+			'show_btn',
+			[
+				'label' => __( 'Show button', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'msitheme' ),
+				'label_off' => __( 'Hide', 'msitheme' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+				'condition'	=> [
+					'show_bottom_content'	=> 'yes',
+				],
+			]
+		);
+		$this->add_control(
+			'btn_label',
+			[
+				'label'	=> __( 'Button label', 'msitheme' ),
+				'type'	=> Controls_Manager::TEXT,
+				'label_block'	=> true,
+				'condition'	=> [
+					'show_btn'	=> 'yes',
+				],
+			]
+		);
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -417,7 +442,7 @@ class Products extends Widget_Base {
 			[
 				'name' => 'title_typography',
 				'label' => __( 'Typography for post heading', 'msitheme' ),
-				'selector' => '{{WRAPPER}} .entry-details h4 a',
+				'selector' => '{{WRAPPER}} .single-product-item .entry-details h4 a',
 			]
 		);
 		$this->add_control(
@@ -431,7 +456,7 @@ class Products extends Widget_Base {
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .entry-details h4 a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .single-product-item .entry-details h4 a' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -441,7 +466,7 @@ class Products extends Widget_Base {
 			[
 				'name' => 'excerpt_typography',
 				'label' => __( 'Typography for post excerpt', 'msitheme' ),
-				'selector' => '{{WRAPPER}} .entry-details .excerpt',
+				'selector' => '{{WRAPPER}} .single-product-item .entry-details .excerpt',
 			]
 		);
 		$this->add_control(
@@ -455,7 +480,97 @@ class Products extends Widget_Base {
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .entry-details .excerpt' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .single-product-item .entry-details .excerpt' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'cat_typography',
+				'label' => __( 'Typography for post category', 'msitheme' ),
+				'selector' => '{{WRAPPER}} .single-product-item .entry-details .section-top-heading',
+			]
+		);
+		$this->add_control(
+			'cat_color',
+			[
+				'label' => __( 'Post category Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#B1DEE3',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .single-product-item .entry-details .section-top-heading' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'heading_border_color',
+			[
+				'label' => __( 'Category Border Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#fff',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .single-product-item .entry-details .section-top-heading::before, .single-product-item .entry-details .section-top-heading::after' => 'background: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'heading_border_width',
+			[
+				'label' => __( 'Border width', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .single-product-item .entry-details .section-top-heading::before' => 'width: {{VALUE}}%',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'btn_typography',
+				'label' => __( 'Typography for button', 'msitheme' ),
+				'selector' => '{{WRAPPER}} .single-product-item .entry-details a.readmore-btn',
+			]
+		);
+		$this->add_control(
+			'btn_color',
+			[
+				'label' => __( 'Button Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#FFF',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .single-product-item .video-item a.readmore-btn' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->add_control(
+			'link_hover_color',
+			[
+				'label' => __( 'Link Hover Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#FFF',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .single-product-item .video-item a.readmore-btn:hover' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -476,7 +591,7 @@ class Products extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 
 		if ($settings['cat_ids']) {
-			$q = new \WP_Query( array(
+			$q = new \WP_Query( [
 				'post_type'	=> 'product', 
 				'posts_per_page' => $settings['count'],
 				'orderby'	=> $settings['orderby'],
@@ -489,15 +604,16 @@ class Products extends Widget_Base {
 						'terms'		=> $settings['cat_ids']
 					)
 				),
-			) );
+			] );
 		} else {
-			$q = new \WP_Query( array(
+			$q = new \WP_Query( [
 				'post_type'	=> 'product',  
 				'posts_per_page' => $settings['count'],
 				'orderby'	=> $settings['orderby'],
 				'order'	=> $settings['order'],
 				'post_status'	=> $settings['post_status'],
-			) );
+			
+			] );
 		} 
 		
 		?>
@@ -529,7 +645,6 @@ class Products extends Widget_Base {
 						<?php 
 						while($q->have_posts()) : $q->the_post(); 
 							$post_id = get_the_ID(); 
-							$categories = get_the_category($post_id);
 
 							if ( $settings['excerpt_count'] ) {
 								$excerpt = word_count(get_the_excerpt($post_id), ''.$settings['excerpt_count'].'');
@@ -549,7 +664,7 @@ class Products extends Widget_Base {
 								$post_extra_img = '';
 							}
 						?>
-							<div class="single-product-item">
+							<div class="single-product-item relative">
 								<?php if($settings['show_img'] === 'yes') : ?>
 									<div class="entry-media">
 										<?php 
@@ -562,23 +677,46 @@ class Products extends Widget_Base {
 											}
 										endif; 
 										?>
-										<?php if($settings['show_cats'] === 'yes') : $categories = get_the_category($post_id);  foreach($categories as $category) : ?>
-											<button><?php echo esc_html($category->cat_name); ?></button>
-										<?php endforeach; endif; ?>
+										
 									</div>
 								<?php endif;
 
 								if ( $settings['show_bottom_content'] === 'yes' ) : ?>
-									<div class="entry-details">
+									<div class="entry-details absolute">
+										<?php if($settings['show_cats'] === 'yes') : 
+											$terms = get_the_terms($post_id, 'product_cats');
+											if ($terms && !is_wp_error($terms)):
+												if (!empty ($terms)) {
+													$single_cat = $terms[0]->name;
+													// $single_cat_link = get_category_link($terms[0]->term_id);
+												}
+											endif; 
+											?>
+												<h6 class="section-top-heading theme-border relative">
+													<?php echo esc_html($single_cat); ?>
+												</h6>
+										<?php endif; ?>
+										
 										<?php if($settings['show_title'] === 'yes') : ?>
 											<h4>
-												<a href="<?php esc_url(the_permalink($post_id)); ?>">
+												<a href="<?php esc_url(the_permalink( $post_id )); ?>">
 													<?php esc_html( the_title() ); ?>
 												</a>
 											</h4>
 										<?php endif; ?>
 										<?php if($settings['show_excerpt'] === 'yes') : ?>
 											<p class="excerpt"><?php echo esc_html( $excerpt ); ?></p>
+										<?php endif; ?>
+										<?php if($settings['show_btn'] === 'yes') : ?>
+											<div class="video-item">
+												<a class="readmore-btn fz-12 fw-700 clrMidWhite" href="<?php esc_url(the_permalink( $post_id )); ?>">
+													<?php if ( !empty($settings['btn_label']) ) : ?>
+														<?php echo esc_html( $settings['btn_label'] ); ?>
+													<?php else : ?>
+														<?php esc_html_e( 'CHECK THE AIRCRAFT', 'msitheme' ); ?>
+													<?php endif; ?>
+												</a>
+											</div>
 										<?php endif; ?>
 									</div>
 								<?php endif; ?>

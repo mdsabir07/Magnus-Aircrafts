@@ -119,6 +119,7 @@ body {
 }
 main {
 	display: block;
+    padding-top: 150px;
 }
 
 a,
@@ -874,7 +875,7 @@ img {
 
 .main-navigation ul li a {
     font-size: var(--fz12);
-    color: var(--clrDarkBlue);
+    color: var(--clrWhite);
     font-weight: var(--fw-700);
     text-transform: var(--uppercase);
 }
@@ -921,7 +922,7 @@ img {
 }
 
 .site-header .header-wrap {
-    border-bottom: 1px solid var(--clrDarkBlue);
+    border-bottom: 1px solid var(--clrMidWhite);
     padding: 15px 0;
 }
 
@@ -1181,7 +1182,7 @@ img#hand {
     text-decoration: var(--none);
     font-size: var(--fz12);
     font-weight: var(--fw-700);
-    color: var(--clrDarkBlue);
+    color: var(--clrMidWhite);
     display: var(--inlineFlex);
     padding: 21px 36px;
     justify-content: var(--center);
@@ -1219,6 +1220,35 @@ img#hand {
 .bordered-btn:hover {
     border-color: var(--clrTransparent);
 }
+
+/* section border left/right */
+.section-border-left {
+    left: -150px;
+}
+
+.section-border-right {
+    right: -150px;
+}
+
+.section-border-right, .section-border-left {
+    opacity: 0.45;
+}
+
+/* 404 CSS */
+.paragraph-404 {
+    margin: 20px 0;
+}
+
+.readmore-btn {
+    display: inline-block;
+    padding: 5px 0;
+    border-bottom: 1px solid #fff;
+}
+
+.img-404 {
+    padding-top: 40px;
+}
+
 
 /* Image/gallery sllider */
 .gallery-wrapper {
@@ -1272,6 +1302,36 @@ img#hand {
 .single-product-item .entry-media img {
     object-fit: cover;
     height: 324px;
+}
+.products-wrap .single-product-item {
+    height: 324px;
+}
+
+.products-wrap .single-product-item .entry-details {
+    top: 110px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.products-wrap .single-product-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--clrDarkBlue);
+    opacity: 0.48;
+}
+.single-product-item .entry-details h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.single-product-item .entry-details h4 a:hover {
+    color: var(--clrDarkRed) !important;
 }
 
 /* Social CSS */
@@ -1381,6 +1441,10 @@ img#hand {
 
 .text-block-content .section-heading {
     margin: 30px 0;
+}
+.text-block-description ul {
+    margin: 0;
+    margin-left: 35px;
 }
 
 /* Team Block */

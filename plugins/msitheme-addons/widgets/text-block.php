@@ -161,11 +161,39 @@ class TextBlock extends Widget_Base {
 		);
         
 		$this->add_control(
+			'desc_field_type',
+			[
+				'label' => __( 'Description', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => '1',
+				'options' => [
+					'1' => esc_html__( 'TEXTAREA', 'msitheme' ),
+					'2' => esc_html__( 'WP Editor', 'msitheme' ),
+				],
+			]
+		);
+        
+		$this->add_control(
 			'desc',
 			[
 				'label' => __( 'Description', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'show_label' => true,
+				'condition'	=> [
+					'desc_field_type'	=> '1',
+				],
+			]
+		);
+        
+		$this->add_control(
+			'desc2',
+			[
+				'label' => __( 'Description', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::WYSIWYG,
+				'show_label' => true,
+				'condition'	=> [
+					'desc_field_type'	=> '2',
+				],
 			]
 		);
 
@@ -364,11 +392,22 @@ class TextBlock extends Widget_Base {
                             <?php echo wp_kses_post( $settings['section_title'] ); ?>
                         </<?php echo esc_attr( $settings['section_title_tag'] ); ?>>
                     <?php endif; ?>
-                    <?php if( !empty($settings['desc']) ) : ?>
+                    <?php 
+						if( $settings['desc_field_type'] === '1' ) : 
+						if( !empty($settings['desc']) ) : 
+					?>
                         <div class="text-block-description">
                             <?php echo wp_kses_post( $settings['desc'] ); ?>
                         </div>
-                    <?php endif; ?>
+                    <?php endif; endif; ?>
+                    <?php 
+						if( $settings['desc_field_type'] === '2' ) : 
+						if( !empty($settings['desc2']) ) : 
+					?>
+                        <div class="text-block-description">
+                            <?php echo wp_kses_post( $settings['desc2'] ); ?>
+                        </div>
+                    <?php endif; endif; ?>
                 </div>
                 <?php if ( $settings['img_position'] === '2' ) : ?>
                     <div class="text-block-img">

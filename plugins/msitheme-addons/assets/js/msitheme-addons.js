@@ -45,13 +45,9 @@
 
     // Product plus button click and change left content
     $(".fa-plus").on("click", function () {
-
         var id = $(this).data('target');
-
         var getElement = $(this).parents().find('.tab-content-left');
-		 
 		getElement.find('.plus-btn-content').hide();
-
 		getElement.find('.btn-content-' + id).show();
     });
 
