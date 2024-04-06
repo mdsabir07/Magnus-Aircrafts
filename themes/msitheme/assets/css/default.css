@@ -1986,3 +1986,59 @@ body.single main {
     height: 120px;
     resize: none;
 }
+
+/* career table block */
+.career-block-table {
+    border: 1px solid #fff;
+}
+
+.table-header h4 {
+    border-bottom: 1px solid #fff;
+    padding: 16px;
+}
+
+.table-details h6 {
+    margin-bottom: 10px;
+}
+
+.table-desc {
+    margin-bottom: 24px;
+}
+
+.table-body-content {
+    width: 70%;
+    margin: 30px auto;
+}
+
+
+/* Dealer CSS */
+.dealerBox {
+    border-bottom: 1px solid #fff;
+    padding: 0px 0 20px;
+}
+
+.dealer-infos .d-info-single i {
+    font-size: 15px;
+}
+
+.dealer-filter-cats .dealer-cat-list {
+    padding: 15px 0;
+    display: inline-block;
+    border-bottom: 3px solid transparent;
+    opacity: 0.45;
+}
+
+.dealer-filter-cats .dealer-cat-list.active, .dealer-filter-cats .dealer-cat-list:hover {
+    border-color: #fff;
+    opacity: 1;
+}
+
+.dealer-filter-cats {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 24px;
+}
+h5.dealer-title:hover {
+    color: var(--clrDarkRed);
+    cursor: pointer;
+}

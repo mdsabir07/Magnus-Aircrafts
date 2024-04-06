@@ -5,7 +5,6 @@ use MsiThemeEssentialAddons\Widgets\BorderHeading;
 use MsiThemeEssentialAddons\Widgets\ParallaxHero;
 use MsiThemeEssentialAddons\Widgets\ImageSlider;
 use MsiThemeEssentialAddons\Widgets\AboutUs;
-// use MsiThemeEssentialAddons\Widgets\AsForm;
 use MsiThemeEssentialAddons\Widgets\SocialShare;
 use MsiThemeEssentialAddons\Widgets\SocialLinks;
 use MsiThemeEssentialAddons\Widgets\Blogs;
@@ -19,6 +18,8 @@ use MsiThemeEssentialAddons\Widgets\ProductTab;
 use MsiThemeEssentialAddons\Widgets\EventFilter;
 use MsiThemeEssentialAddons\Widgets\Galleries;
 use MsiThemeEssentialAddons\Widgets\OwnFusion;
+use MsiThemeEssentialAddons\Widgets\CareerPageBlocks;
+use MsiThemeEssentialAddons\Widgets\DealerFilter;
 /**
  * Class Plugin
  *
@@ -106,6 +107,8 @@ class MsiThemeEssentialAddonsPlugin {
 		require_once( __DIR__ . '/widgets/event-filter.php' );
 		require_once( __DIR__ . '/widgets/galleries.php' );
 		require_once( __DIR__ . '/widgets/own-fusion.php' );
+		require_once( __DIR__ . '/widgets/career-page-block.php' );
+		require_once( __DIR__ . '/widgets/dealer-filter.php' );
 	}
 
 	/**
@@ -126,7 +129,6 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ParallaxHero() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ImageSlider() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new AboutUs() );
-		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new AsForm() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new SocialShare() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new SocialLinks() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Blogs() );
@@ -140,6 +142,8 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new EventFilter() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Galleries() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new OwnFusion() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new CareerPageBlocks() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new DealerFilter() );
 	}
 
 	/**

@@ -142,6 +142,93 @@ if (class_exists('CSF')) {
 			),
 		)
 	));
+
+	// Dealer post Metabox 
+	// Set a unique slug-like ID
+	$msitheme_dealer_metabox_prefix = 'msitheme_dealer_meta';
+	// Create a metabox
+	CSF::createMetabox($msitheme_dealer_metabox_prefix, array(
+		'title' => 'Dealer optons',
+		'post_type' => 'dealer',
+		'data_type' => 'serialize',
+	));
+
+	// Create a section
+	CSF::createSection($msitheme_dealer_metabox_prefix, array(
+		'title' => esc_html__('Dealer name and business', 'msitheme'),
+		'fields' => array(
+			array(
+				'id' => 'dealer_name',
+				'type' => 'text',
+				'title' => 'Dealer name',
+			),
+			array(
+				'id' => 'dealer_business',
+				'type' => 'text',
+				'title' => 'Dealer business',
+			),
+		)
+	));
+
+	// Create a section
+	CSF::createSection($msitheme_dealer_metabox_prefix, array(
+		'title' => esc_html__('Dealer contact informatons', 'msitheme'),
+		'fields' => array(
+			// phone 
+			array(
+				'id'      => 'phone_icon',
+				'type'    => 'icon',
+				'title'   => 'Select phone Icon',
+				'default' => 'fa fa-phone'
+			),
+			array(
+				'id'    => 'phone_num',
+				'type'  => 'text',
+				'title' => 'Phone number',
+				// 'dependency' => array( 'info_field_type', '==', 'text' ),
+			),
+			array(
+				'id'    => 'num_link',
+				'type'  => 'text',
+				'title' => 'Insert link (exam: tel:+34523542)',
+				// 'dependency' => array( 'info_field_type', '==', 'link' ),
+			),
+			// email 
+			array(
+				'id'      => 'mail_icon',
+				'type'    => 'icon',
+				'title'   => 'Select email Icon',
+				'default' => 'fa fa-heart'
+			),
+			array(
+				'id'    => 'mail_name',
+				'type'  => 'text',
+				'title' => 'Insert email address',
+				// 'dependency' => array( 'info_field_type', '==', 'text' ),
+			),
+			array(
+				'id'    => 'email_link',
+				'type'  => 'text',
+				'title' => 'Insert link (exam: mailto:email@domain.com)',
+				// 'dependency' => array( 'info_field_type', '==', 'link' ),
+			),
+			// address
+			array(
+				'id'      => 'address_icon',
+				'type'    => 'icon',
+				'title'   => 'Select address Icon',
+				'default' => 'fa fa-heart'
+			),
+			array(
+				'id'    => 'address_name',
+				'type'  => 'textarea',
+				'title' => 'Address',
+				// 'dependency' => array( 'info_field_type', '==', 'text' ),
+			),
+		)
+	));
+
+
 	// Create a section
 	CSF::createSection($msitheme_post_metabox_prefix, array(
 		'title' => esc_html__('Post header customization', 'msitheme'),

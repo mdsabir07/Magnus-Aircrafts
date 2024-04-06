@@ -200,3 +200,113 @@ function msitheme_event_shortcode( $atts ){
     <?
 } 
 add_shortcode( 'event_filter', 'msitheme_event_shortcode'); 
+
+// Dealer filter shortcode
+function msitheme_dealer_shortcode( $atts ){
+    extract( shortcode_atts( 
+        array(
+            'count' => -1,
+            'post_type' => 'dealer',
+            'order' => 'DESC',
+        ), $atts  )
+    );
+
+    ?>
+    <div class="msitheme-dealer-filter">
+        <div class="container-default">
+            <ul class="dealer-filter-cats list-unstyled flex align-center f-gap-20">
+                <li class="dealer-cat-list active clrWhite fz-12 fw-700 lh-18 capitalize cursor-pointer" data-filter="all">
+                    <?php esc_html_e( 'The World', 'kalni' ); ?>
+                </li>
+                <?php 
+                $cat_info = get_terms( 'dealer_cat', array('hide_empty' => true) );
+                foreach ($cat_info as $cat) : ?>
+                    <li class="dealer-cat-list clrWhite fz-12 fw-700 lh-18 capitalize cursor-pointer" data-filter="<?php echo esc_attr( $cat->slug ); ?>">
+                        <?php echo esc_attr( $cat->name ); ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <div class="all-dealers grid align-center g-gap-25">
+                <?php 
+                $q = new WP_Query( 
+                    array(
+                        'post_type'	=> $post_type,
+                        'posts_per_page' => $count,
+                        'order' => $order,
+                    ) 
+                );
+
+                while($q->have_posts()) : $q->the_post();
+                    $post_id = get_the_ID();
+                    $dealer_category = get_the_terms( $post_id, 'dealer_cat' );
+                    if ( !empty( $dealer_category && ! is_wp_error( $dealer_category ) ) ) {
+                        $dealer_cat_list = array();
+                        foreach ($dealer_category as $category) {
+                            $dealer_cat_list[] = $category->slug;
+                        }
+                        $dealer_assigned_cat = join(" ", $dealer_cat_list);
+                    } else {
+                        $dealer_assigned_cat = '';
+                    }
+
+                    // Dealer metabox
+                    if (get_post_meta( $post_id, 'msitheme_dealer_meta', true ) ) {
+                        $msitheme_meta = get_post_meta( $post_id, 'msitheme_dealer_meta', true );
+                    } else {
+                        $msitheme_meta = array();
+                    }
+                    
+                    ?>
+                    <div class="dealerBox relative flex justify-between align-center <?php echo esc_attr( $dealer_assigned_cat ) ?>">
+                        <h5 class="dealer-title clrWhite fz-28 lh-42 uppercase"><?php echo esc_html( the_title() ); ?></h5>
+                        <div class="dealer-names">
+                            <?php if ( !empty($msitheme_meta['dealer_name']) ) : ?>
+                                <div class="d-name clrLightBlue fw-700 uppercase">
+                                    <?php echo esc_html( $msitheme_meta['dealer_name'] ); ?>
+                                </div>
+                            <?php endif; if ( !empty($msitheme_meta['dealer_business']) ) : ?>
+                                <div class="d-business clrLightBlue">
+                                    <?php echo esc_html( $msitheme_meta['dealer_business'] ); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="dealer-infos grid g-gap-10">
+                            <?php if ( !empty($msitheme_meta['num_link']) ) : ?>
+                                <a href="<?php echo esc_url( $msitheme_meta['num_link'] ); ?>" class="d-info-single clrWhite phone-box flex align-center f-gap-10">
+                                    <span class="d-icon">
+                                        <i class="<?php echo esc_attr( $msitheme_meta['phone_icon'] ); ?>"></i>
+                                    </span>
+                                    <span class="d-info-text phone-number">
+                                        <?php echo esc_html( $msitheme_meta['phone_num'] ); ?>
+                                    </span>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ( !empty($msitheme_meta['email_link']) ) : ?>
+                                <a href="<?php echo esc_url( $msitheme_meta['email_link'] ); ?>" class="d-info-single clrWhite email-box flex align-center f-gap-10">
+                                    <span class="d-icon">
+                                        <i class="<?php echo esc_attr( $msitheme_meta['mail_icon'] ); ?>"></i>
+                                    </span>
+                                    <span class="d-info-text email">
+                                        <?php echo esc_html( $msitheme_meta['mail_name'] ); ?>
+                                    </span>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ( !empty($msitheme_meta['address_name']) ) : ?>
+                                <div class="d-info-single address-box clrWhite flex align-center f-gap-10">
+                                    <span class="d-icon">
+                                        <i class="<?php echo esc_attr( $msitheme_meta['address_icon'] ); ?>"></i>
+                                    </span>
+                                    <span class="d-info-text address">
+                                        <?php echo esc_html( $msitheme_meta['address_name'] ); ?>
+                                    </span>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endwhile; wp_reset_query(); ?>
+            </div>
+        </div>
+    </div>
+    <?
+} 
+add_shortcode( 'dealer_filter', 'msitheme_dealer_shortcode'); 

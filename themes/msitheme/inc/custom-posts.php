@@ -61,7 +61,7 @@ function msitheme_product_custom_post_type() {
         'can_export'          => true,
     ] );
 
-     // Event
+     // Gallery
      register_post_type( 'gallery', [
         'labels'    => [
             'name'  => 'Galleries',
@@ -75,6 +75,22 @@ function msitheme_product_custom_post_type() {
         'menu_icon'         => 'dashicons-format-gallery',
         'can_export'          => true,
     ] );
+
+     // Dealer
+     register_post_type( 'dealer', [
+            'labels'    => [
+                'name'  => 'Dealers',
+                'singular_name' => 'Dealer',
+                'add_new_item'  => 'Add New Dealer'
+            ],
+            'public'    => false,
+            'show_ui'    => true,
+            'supports'  => ['title', 'thumbnail', 'page-attributes'],
+            'menu_position' => 8,
+            'menu_icon'     => 'dashicons-groups',
+            'can_export'    => true,
+        ] 
+    );
 
 
     // Create product custom post taxonomy
@@ -112,6 +128,20 @@ function msitheme_product_custom_post_type() {
             'with_front'    => true
         ]
     ] );
+    // Create product custom post taxonomy
+    register_taxonomy( 
+        'dealer_cat', 'dealer', 
+        [
+            'hierarchical'  => true,
+            'label' => 'Dealer Category',
+            'query_var' => true,
+            'show_admin_column' => true,
+            'rewrite'   => [
+                'slug'  => 'dealer-category',
+                'with_front'    => true
+            ]
+        ] 
+    );
     
 }
 add_action( 'init', 'msitheme_product_custom_post_type', 0 );
