@@ -20,6 +20,7 @@ use MsiThemeEssentialAddons\Widgets\Galleries;
 use MsiThemeEssentialAddons\Widgets\OwnFusion;
 use MsiThemeEssentialAddons\Widgets\CareerPageBlocks;
 use MsiThemeEssentialAddons\Widgets\DealerFilter;
+use MsiThemeEssentialAddons\Widgets\Documents;
 /**
  * Class Plugin
  *
@@ -109,6 +110,7 @@ class MsiThemeEssentialAddonsPlugin {
 		require_once( __DIR__ . '/widgets/own-fusion.php' );
 		require_once( __DIR__ . '/widgets/career-page-block.php' );
 		require_once( __DIR__ . '/widgets/dealer-filter.php' );
+		require_once( __DIR__ . '/widgets/documents.php' );
 	}
 
 	/**
@@ -144,6 +146,7 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new OwnFusion() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new CareerPageBlocks() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new DealerFilter() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Documents() );
 	}
 
 	/**
