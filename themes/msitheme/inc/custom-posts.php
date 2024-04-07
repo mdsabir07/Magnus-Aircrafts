@@ -92,6 +92,22 @@ function msitheme_product_custom_post_type() {
         ] 
     );
 
+     // Dealer
+     register_post_type( 'faq', [
+            'labels'    => [
+                'name'  => 'FAQs',
+                'singular_name' => 'FAQ',
+                'add_new_item'  => 'Add New FAQ'
+            ],
+            'public'    => false,
+            'show_ui'    => true,
+            'supports'  => ['title', 'editor', 'page-attributes'],
+            'menu_position' => 9,
+            'menu_icon'     => 'dashicons-info-outline',
+            'can_export'    => true,
+        ] 
+    );
+
 
     // Create product custom post taxonomy
     register_taxonomy( 'product_cats', 'product', [
@@ -138,6 +154,20 @@ function msitheme_product_custom_post_type() {
             'show_admin_column' => true,
             'rewrite'   => [
                 'slug'  => 'dealer-category',
+                'with_front'    => true
+            ]
+        ] 
+    );
+    // Create product custom post taxonomy
+    register_taxonomy( 
+        'faq_cat', 'faq', 
+        [
+            'hierarchical'  => true,
+            'label' => 'FAQ Category',
+            'query_var' => true,
+            'show_admin_column' => true,
+            'rewrite'   => [
+                'slug'  => 'faq-category',
                 'with_front'    => true
             ]
         ] 

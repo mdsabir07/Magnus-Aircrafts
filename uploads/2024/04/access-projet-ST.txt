@@ -1,0 +1,9 @@
+WORDPRESS ADMIN
+Link : https://staging.solidtransports.fr/wp-login.php
+Id : TechTeam
+Pwd : a39Gurruu!FZqpG$v7996M9J
+
+FTP
+Host : ftp-solidtransports.alwaysdata.net
+User : solidtransports
+Pwd : Solidcouly7519!

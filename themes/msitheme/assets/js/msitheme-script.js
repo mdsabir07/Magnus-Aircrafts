@@ -13,6 +13,16 @@
         $(this).addClass('active').siblings().removeClass('active');
     })
 
+    // FAQs js
+    $('.faq-cat-list').click(function() {
+        const value = $(this).attr('data-filter');
+        $('.faqBox').not('.'+value).hide('1000');
+        $('.faqBox').filter('.'+value).show('1000');
+    })
+    $('.faq-cat-list').click(function() {
+        $(this).addClass('active').siblings().removeClass('active');
+    })
+
     // Dealer js
     $('.dealer-cat-list').click(function() {
         const value = $(this).attr('data-filter');

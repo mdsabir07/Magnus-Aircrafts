@@ -398,9 +398,9 @@ class VideoGallery extends Widget_Base
 					<?php 
 					$i = 0; 
 					foreach( $settings['galleries'] as $video ) : 
-					$i++; 
-					$target = $video['btn_link']['is_external'] ? ' target="_blank"' : '';
-                    $nofollow = $video['btn_link']['nofollow'] ? ' rel="nofollow"' : '';
+						$i++; 
+						$target = $video['btn_link']['is_external'] ? ' target="_blank"' : '';
+						$nofollow = $video['btn_link']['nofollow'] ? ' rel="nofollow"' : '';
 					?>
 						<div class="single-v-gallery relative v-gallery-<?php echo esc_attr( $i ); ?>">
 							<?php if( !empty($video['top_heading']) ) : ?>

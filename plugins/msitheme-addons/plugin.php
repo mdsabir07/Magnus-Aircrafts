@@ -21,6 +21,9 @@ use MsiThemeEssentialAddons\Widgets\OwnFusion;
 use MsiThemeEssentialAddons\Widgets\CareerPageBlocks;
 use MsiThemeEssentialAddons\Widgets\DealerFilter;
 use MsiThemeEssentialAddons\Widgets\Documents;
+use MsiThemeEssentialAddons\Widgets\FaqsFilter;
+use MsiThemeEssentialAddons\Widgets\ProductHero;
+use MsiThemeEssentialAddons\Widgets\Productdata;
 /**
  * Class Plugin
  *
@@ -111,6 +114,9 @@ class MsiThemeEssentialAddonsPlugin {
 		require_once( __DIR__ . '/widgets/career-page-block.php' );
 		require_once( __DIR__ . '/widgets/dealer-filter.php' );
 		require_once( __DIR__ . '/widgets/documents.php' );
+		require_once( __DIR__ . '/widgets/faqs-filter.php' );
+		require_once( __DIR__ . '/widgets/product-hero.php' );
+		require_once( __DIR__ . '/widgets/product-data.php' );
 	}
 
 	/**
@@ -147,6 +153,9 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new CareerPageBlocks() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new DealerFilter() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Documents() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new FaqsFilter() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductHero() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Productdata() );
 	}
 
 	/**

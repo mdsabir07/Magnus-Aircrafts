@@ -2042,3 +2042,148 @@ h5.dealer-title:hover {
     color: var(--clrDarkRed);
     cursor: pointer;
 }
+
+/* Documents CSS */
+.document-tabbed {
+    overflow-x: hidden;
+    margin: 32px 0;
+    padding-bottom: 16px;
+}
+
+.document-tabbed [type="radio"] {
+    display: none;
+}
+
+.document-tabs {
+    border-top: 1px solid var(--clrWhite);
+    border-bottom: 1px solid var(--clrWhite);
+}
+
+.document-tab > label {
+    display: block;
+    border-bottom: 6px solid transparent;
+    cursor: pointer;	
+    transition: all 0.3s;
+    color: var(--clrWhite);
+    opacity: 0.45;
+    padding: 24px 0;
+}
+.document-tab:hover label {
+    color: var(--clrDarkRed);
+}
+
+.document-tab-content {
+    display: none;
+    padding: 42px 0;
+}
+
+.document-tabbed [type="radio"]:nth-of-type(1):checked ~ .document-tabs .document-tab:nth-of-type(1) label,
+.document-tabbed [type="radio"]:nth-of-type(2):checked ~ .document-tabs .document-tab:nth-of-type(2) label,
+.document-tabbed [type="radio"]:nth-of-type(3):checked ~ .document-tabs .document-tab:nth-of-type(3) label,
+.document-tabbed [type="radio"]:nth-of-type(4):checked ~ .document-tabs .document-tab:nth-of-type(4) label, 
+.document-tabbed [type="radio"]:nth-of-type(5):checked ~ .document-tabs .document-tab:nth-of-type(5) label, 
+.document-tabbed [type="radio"]:nth-of-type(6):checked ~ .document-tabs .document-tab:nth-of-type(6) label, 
+.document-tabbed [type="radio"]:nth-of-type(7):checked ~ .document-tabs .document-tab:nth-of-type(7) label, 
+.document-tabbed [type="radio"]:nth-of-type(8):checked ~ .document-tabs .document-tab:nth-of-type(8) label, 
+.document-tabbed [type="radio"]:nth-of-type(9):checked ~ .document-tabs .document-tab:nth-of-type(9) label, 
+.document-tabbed [type="radio"]:nth-of-type(10):checked ~ .document-tabs .document-tab:nth-of-type(10) label,
+.document-tabbed [type="radio"]:nth-of-type(11):checked ~ .document-tabs .document-tab:nth-of-type(11) label {
+    color: var(--clrWhite);
+    border-color: var(--clrWhite);
+    opacity: 1;
+}
+
+.document-tabbed [type="radio"]:nth-of-type(1):checked ~ .document-tab-content:nth-of-type(1),
+.document-tabbed [type="radio"]:nth-of-type(2):checked ~ .document-tab-content:nth-of-type(2),
+.document-tabbed [type="radio"]:nth-of-type(3):checked ~ .document-tab-content:nth-of-type(3), 
+.document-tabbed [type="radio"]:nth-of-type(4):checked ~ .document-tab-content:nth-of-type(4), 
+.document-tabbed [type="radio"]:nth-of-type(5):checked ~ .document-tab-content:nth-of-type(5), 
+.document-tabbed [type="radio"]:nth-of-type(6):checked ~ .document-tab-content:nth-of-type(6), 
+.document-tabbed [type="radio"]:nth-of-type(7):checked ~ .document-tab-content:nth-of-type(7), 
+.document-tabbed [type="radio"]:nth-of-type(8):checked ~ .document-tab-content:nth-of-type(8), 
+.document-tabbed [type="radio"]:nth-of-type(9):checked ~ .document-tab-content:nth-of-type(9), 
+.document-tabbed [type="radio"]:nth-of-type(10):checked ~ .document-tab-content:nth-of-type(10) {
+    display: block;
+}
+
+.document-tab-content h4 {
+    margin-bottom: 24px;
+}
+
+.document-content {
+    border-bottom: 1px solid var(--clrWhite);
+    padding: 20px 0 5px;
+}
+
+.document-content a i {
+    font-size: 14px;
+    transform: scale(1);
+}
+
+.document-content a:hover i {
+    color: var(--clrDarkRed) !important;
+    transform: scale(1.2);
+}
+
+/* Accordion CSS */
+.msitheme-faq-inner input {
+    appearance: none;
+}
+.msitheme-faq-inner label {
+    cursor: pointer;
+    border-bottom: 1px solid var(--clrWhite);
+    padding-bottom: 5px;
+}
+
+.msitheme-faq-inner input:checked ~ label {
+    border: none;
+}
+
+.msitheme-faq-inner input:checked ~ .msitheme-faq-content {
+    border-bottom: 1px solid var(--clrDarkRed);
+}
+
+.msitheme-faq-inner input:checked ~ label i {
+    transform: rotate(90deg);
+}
+.msitheme-faq-inner input:checked ~ label i,
+.msitheme-faq-inner input:checked ~ label .faq-title {
+    color: var(--clrDarkRed) !important;
+}
+.msitheme-faq-inner .msitheme-faq-content {
+    max-height: 0;
+    transition: 1s;
+    overflow: hidden;
+}
+.msitheme-faq-inner input:checked ~ .msitheme-faq-content {
+    max-height: 100vh;
+    padding: 10px 0;
+}
+
+.faq-cat-list {
+    padding: 24px 0;
+}
+
+.faq-filter-cats {
+    border-top: 1px solid var(--clrWhite);
+    border-bottom: 1px solid var(--clrWhite);
+}
+
+.msitheme-faq input[type="radio"] + label:before {
+    border: none;
+}
+.faq-cat-list.active, .faq-cat-list:hover {
+    opacity: 1 !important;
+}
+
+/* Porduct fusion 212 */
+.product-hero-content {
+    position: relative;
+}
+
+.product-hero-img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 115px;
+}

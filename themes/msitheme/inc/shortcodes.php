@@ -310,3 +310,74 @@ function msitheme_dealer_shortcode( $atts ){
     <?
 } 
 add_shortcode( 'dealer_filter', 'msitheme_dealer_shortcode'); 
+
+
+
+// FAQs filter shortcode
+function msitheme_faqs_shortcode( $atts ){
+    extract( shortcode_atts( 
+        array(
+            'count' => -1,
+            'post_type' => 'faq',
+            'order' => 'DESC',
+        ), $atts  )
+    );
+
+    ?>
+    <div class="msitheme-faq-filter">
+            <ul class="faq-filter-cats list-unstyled flex align-center f-gap-20">
+                <!-- <li class="faq-cat-list active clrWhite fz-12 fw-700 lh-18 uppercase" data-filter="all">All</li> -->
+                <?php 
+                $cat_info = get_terms( 'faq_cat', array('hide_empty' => true) );
+                foreach ($cat_info as $cat) : ?>
+                    <li class="faq-cat-list clrWhite fz-12 fw-700 lh-18 cursor-pointer" data-filter="<?php echo esc_attr( $cat->slug ); ?>">
+                        <?php echo esc_attr( $cat->name ); ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            
+            <div class="all-faqs msitheme-faq">
+                <?php 
+                $q = new WP_Query( 
+                    array(
+                        'post_type'	=> $post_type,
+                        'posts_per_page' => $count,
+                        'order' => $order,
+                    ) 
+                );
+
+                $i = 0;
+                while($q->have_posts()) : $q->the_post();
+                    $i++;
+                    $post_id = get_the_ID();
+                    $faq_category = get_the_terms( $post_id, 'faq_cat' );
+                    if ( !empty( $faq_category && ! is_wp_error( $faq_category ) ) ) {
+                        $faq_cat_list = array();
+                        foreach ($faq_category as $category) {
+                            $faq_cat_list[] = $category->slug;
+                        }
+                        $faq_assigned_cat = join(" ", $faq_cat_list);
+                    } else {
+                        $faq_assigned_cat = '';
+                    }
+                    ?>
+                    <div class="faqBox <?php echo esc_attr( $faq_assigned_cat ) ?>">
+                        <div class="msitheme-faq-inner">
+                            <input type="radio" name="acc" id="acc<?php echo esc_attr( $i ); ?>">
+                            <label for="acc<?php echo esc_attr( $i ); ?>" class="flex justify-between align-center clrWhite">
+                                <div class="faq-title clrWhite">
+                                    <?php echo esc_html( the_title() ); ?>
+                                </div>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </label>
+                            <div class="msitheme-faq-content">
+                                <?php echo the_content(); ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endwhile; wp_reset_query(); ?>
+            </div>
+    </div>
+    <?
+} 
+add_shortcode( 'faqs_filter', 'msitheme_faqs_shortcode'); 
