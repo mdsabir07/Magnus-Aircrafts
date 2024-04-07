@@ -31,6 +31,16 @@
         });
     });
 
+    // Product video
+    $('.product-popup-youtube, .product-popup-vimeo, .product-popup-media-v').magnificPopup({
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false
+    });
+
 
 
     // Product tab js (changing background color)

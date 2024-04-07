@@ -446,9 +446,6 @@ class VideoGallery extends Widget_Base
 					<?php endforeach; ?>
 				</div>
             </div>
-
-            
-
-    <?php endif; 
+    	<?php endif; 
     } 
 }

@@ -38,4 +38,150 @@
         $(this).addClass('active').siblings().removeClass('active');
     })
 
+    // Product power slider 1
+    $(".power-slider1").not('.slick-initialized').slick({
+        dots: false,
+        loop: true,
+        arrows: true,
+        nextArrow: "<i class=\'fa fa-arrow-right arrow-right cursor-pointer text-center absolute\'></i>",
+        prevArrow: "<i class=\'fa fa-arrow-left arrow-left cursor-pointer text-center absolute\'></i>",
+        slidesToShow: 3,
+        infinite: true,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        speed: 2000,
+        responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    });
+    // Product power slider 2
+    $(".power-slider2").not('.slick-initialized').slick({
+        dots: false,
+        loop: true,
+        arrows: true,
+        nextArrow: "<i class=\'fa fa-arrow-right arrow-right cursor-pointer text-center absolute\'></i>",
+        prevArrow: "<i class=\'fa fa-arrow-left arrow-left cursor-pointer text-center absolute\'></i>",
+        slidesToShow: 3,
+        infinite: true,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        speed: 2000,
+        responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    });
+    // Product power slider 3
+    $(".power-slider3").not('.slick-initialized').slick({
+        dots: false,
+        loop: true,
+        arrows: true,
+        nextArrow: "<i class=\'fa fa-arrow-right arrow-right cursor-pointer text-center absolute\'></i>",
+        prevArrow: "<i class=\'fa fa-arrow-left arrow-left cursor-pointer text-center absolute\'></i>",
+        slidesToShow: 3,
+        infinite: true,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        speed: 2000,
+        responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    });
+    // Product power slider 4
+    $(".power-slider4").not('.slick-initialized').slick({
+        dots: false,
+        loop: true,
+        arrows: true,
+        nextArrow: "<i class=\'fa fa-arrow-right arrow-right cursor-pointer text-center absolute\'></i>",
+        prevArrow: "<i class=\'fa fa-arrow-left arrow-left cursor-pointer text-center absolute\'></i>",
+        slidesToShow: 3,
+        infinite: true,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        speed: 2000,
+        responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    });
+    // Product power slider 5
+    $(".power-slider5").not('.slick-initialized').slick({
+        dots: false,
+        loop: true,
+        arrows: true,
+        nextArrow: "<i class=\'fa fa-arrow-right arrow-right cursor-pointer text-center absolute\'></i>",
+        prevArrow: "<i class=\'fa fa-arrow-left arrow-left cursor-pointer text-center absolute\'></i>",
+        slidesToShow: 3,
+        infinite: true,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        speed: 2000,
+        responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    });
+
 }(jQuery));

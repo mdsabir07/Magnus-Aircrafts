@@ -287,6 +287,28 @@ class SectionTitle extends Widget_Base {
 				],
 			]
 		);
+		$this->add_control(
+			'border_position',
+			[
+				'label' => esc_html__( 'Border alignment ', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'block' => [
+						'title' => esc_html__( 'Left', 'msitheme' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'inline-block' => [
+						'title' => esc_html__( 'Center', 'msitheme' ),
+						'icon' => 'eicon-text-align-center',
+					],
+				],
+				'default' => 'block',
+				'toggle' => true,
+				'selectors' => [
+					'{{WRAPPER}} .section-top-heading' => 'display: {{VALUE}};',
+				],
+			]
+		);
 
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),

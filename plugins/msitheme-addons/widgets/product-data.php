@@ -392,9 +392,9 @@ class Productdata extends Widget_Base {
                 if($settings['show_section_title'] === 'yes') : ?>
                     <<?php echo esc_attr( $settings['section_title_tag'] ); ?> class="section-heading">
                         <?php echo wp_kses_post( $settings['section_title'] ); ?> 
-                        <?php if ( !empty( $settings['sup'] ) ) : ?>
-                            <sup><?php echo esc_html( $settings['sup'] ); ?></sup>
-                        <?php endif; ?>
+						<?php if ( !empty( $settings['sup'] ) ) : ?>
+							<sup><?php echo esc_html( $settings['sup'] ); ?></sup>
+						<?php endif; ?>
                     </<?php echo esc_attr( $settings['section_title_tag'] ); ?>>
                 <?php endif; ?>
             </div>

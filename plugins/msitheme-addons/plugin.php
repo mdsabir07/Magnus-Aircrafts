@@ -24,6 +24,11 @@ use MsiThemeEssentialAddons\Widgets\Documents;
 use MsiThemeEssentialAddons\Widgets\FaqsFilter;
 use MsiThemeEssentialAddons\Widgets\ProductHero;
 use MsiThemeEssentialAddons\Widgets\Productdata;
+use MsiThemeEssentialAddons\Widgets\ProductTabNav;
+use MsiThemeEssentialAddons\Widgets\ProductVideo;
+use MsiThemeEssentialAddons\Widgets\ProductPower;
+use MsiThemeEssentialAddons\Widgets\ContentBlock;
+use MsiThemeEssentialAddons\Widgets\ContentList;
 /**
  * Class Plugin
  *
@@ -117,6 +122,11 @@ class MsiThemeEssentialAddonsPlugin {
 		require_once( __DIR__ . '/widgets/faqs-filter.php' );
 		require_once( __DIR__ . '/widgets/product-hero.php' );
 		require_once( __DIR__ . '/widgets/product-data.php' );
+		require_once( __DIR__ . '/widgets/product-tab-nav.php' );
+		require_once( __DIR__ . '/widgets/product-video.php' );
+		require_once( __DIR__ . '/widgets/product-power.php' );
+		require_once( __DIR__ . '/widgets/content-block.php' );
+		require_once( __DIR__ . '/widgets/content-list.php' );
 	}
 
 	/**
@@ -156,6 +166,11 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new FaqsFilter() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductHero() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Productdata() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductTabNav() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductVideo() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductPower() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ContentBlock() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ContentList() );
 	}
 
 	/**
