@@ -929,6 +929,7 @@ class ProductTabNav extends Widget_Base {
                 <input type="radio" id="document-tab8" name="css-tabs2">
                 <input type="radio" id="document-tab9" name="css-tabs2">
                 <input type="radio" id="document-tab10" name="css-tabs2">
+                <input type="radio" id="document-tab11" name="css-tabs2">
                 
                 <?php
                 if ( !empty( $settings['tab_labels'] ) ) : ?>

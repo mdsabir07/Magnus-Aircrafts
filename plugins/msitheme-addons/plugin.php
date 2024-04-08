@@ -27,6 +27,8 @@ use MsiThemeEssentialAddons\Widgets\Productdata;
 use MsiThemeEssentialAddons\Widgets\ProductTabNav;
 use MsiThemeEssentialAddons\Widgets\ProductVideo;
 use MsiThemeEssentialAddons\Widgets\ProductPower;
+use MsiThemeEssentialAddons\Widgets\ProductSafety;
+use MsiThemeEssentialAddons\Widgets\ProductServices;
 use MsiThemeEssentialAddons\Widgets\ContentBlock;
 use MsiThemeEssentialAddons\Widgets\ContentList;
 /**
@@ -125,6 +127,8 @@ class MsiThemeEssentialAddonsPlugin {
 		require_once( __DIR__ . '/widgets/product-tab-nav.php' );
 		require_once( __DIR__ . '/widgets/product-video.php' );
 		require_once( __DIR__ . '/widgets/product-power.php' );
+		require_once( __DIR__ . '/widgets/product-safety.php' );
+		require_once( __DIR__ . '/widgets/product-tab-services.php' );
 		require_once( __DIR__ . '/widgets/content-block.php' );
 		require_once( __DIR__ . '/widgets/content-list.php' );
 	}
@@ -169,6 +173,8 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductTabNav() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductVideo() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductPower() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductSafety() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductServices() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ContentBlock() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ContentList() );
 	}
