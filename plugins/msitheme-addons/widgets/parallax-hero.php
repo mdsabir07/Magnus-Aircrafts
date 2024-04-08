@@ -329,11 +329,11 @@ class ParallaxHero extends Widget_Base
 			<!-- start of hero -->
 			<div class="hero-wrapper">
 				<div class="parallax-hero">
-					<?php if ( !empty($settings['top_right_txt']) ) : ?>
+					<?php if ( ! wp_is_mobile() ) : if ( !empty($settings['top_right_txt']) ) : ?>
 						<div class="hero-top-right fz-18 lh-27 fw-700 clrDarkBlue">
 							<?php echo wp_kses_post( $settings['top_right_txt'] ); ?>
 						</div>
-					<?php endif; ?>
+					<?php endif; endif; ?>
 					<div class="hero-bottom-content" id="heroText">
 						<?php if(!empty($settings['bottom_heading'])) : ?>
 							<div class="hero-text">
@@ -342,6 +342,11 @@ class ParallaxHero extends Widget_Base
 								<?php endif; ?>
 								<h2><?php echo esc_html( $settings['bottom_heading'] ); ?></h2>
 							</div>
+							<?php if ( wp_is_mobile() ) : if ( !empty($settings['top_right_txt']) ) : ?>
+								<div class="hero-top-right fz-18 lh-27 fw-700 clrDarkBlue">
+									<?php echo wp_kses_post( $settings['top_right_txt'] ); ?>
+								</div>
+							<?php endif; endif; ?>
 						<?php endif; if(!empty($settings['btns'])) : ?>
 							<div class="flex align-center f-gap-25" id="heroBtns">
 								<?php 

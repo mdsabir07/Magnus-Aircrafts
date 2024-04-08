@@ -145,11 +145,13 @@ class ImageSlider extends Widget_Base
 		$settings = $this->get_settings_for_display();
         if ( !empty($settings['gallery']) ) { ?>
             <!-- start of image gallery -->
-            <div class="gallery-wrapper">
-					<?php $i = 0; foreach( $settings['gallery'] as $image ) : $i++; ?>
-						<img class="gallery-img<?php echo esc_attr( $i ); ?>" src="<?php echo esc_attr( $image['url'] ); ?>">
-					<?php endforeach; ?>
-				<!-- </div> -->
+			<div class="gallery-wrapper-parent">
+				<div class="gallery-wrapper">
+						<?php $i = 0; foreach( $settings['gallery'] as $image ) : $i++; ?>
+							<img class="gallery-img<?php echo esc_attr( $i ); ?>" src="<?php echo esc_attr( $image['url'] ); ?>">
+						<?php endforeach; ?>
+					<!-- </div> -->
+				</div>
             </div>
     <?php } } 
     protected function content_template() { 

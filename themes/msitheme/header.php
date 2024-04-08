@@ -55,8 +55,22 @@ if (array_key_exists('header-logo', $page_meta)) {
 					endif;
 					?>
 				</div><!-- .site-branding -->
+				<div class="responsive-menu cursor-pointer">
+					<div class="menu-bars">
+						<?php esc_html_e( 'Menu', 'msitheme' ); ?> <i class="fa-solid fa-bars"></i>
+					</div>
+				</div>
 				<nav id="site-navigation" class="main-navigation">
-					<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php //esc_html_e( 'Primary Menu', 'msitheme' ); ?></button> -->
+					<div class="responsive-menu-close cursor-pointer">
+						<?php esc_html_e( 'Close', 'msitheme' ); ?> <i class="fa-solid fa-xmark"></i>
+					</div>
+					<?php if ( wp_is_mobile() ) : ?>
+						<div class="header-btn">
+							<a href="" class="button theme-btn bordered-btn uppercase flex align-center justify-center fz-12 fw-700 clrDarkBlue">
+								CONFIGURATOR
+							</a>
+						</div>
+					<?php endif; ?>
 					<?php
 					wp_nav_menu(
 						array(
@@ -71,11 +85,13 @@ if (array_key_exists('header-logo', $page_meta)) {
 						<span class="language">Hung /</span>
 						<span class="language"> Eng</span>
 					</div>
-					<div class="header-btn">
-						<a href="" class="button theme-btn bordered-btn uppercase flex align-center justify-center fz-12 fw-700 clrDarkBlue">
-							CONFIGURATOR
-						</a>
-					</div>
+					<?php if ( ! wp_is_mobile() ) : ?>
+						<div class="header-btn">
+							<a href="" class="button theme-btn bordered-btn uppercase flex align-center justify-center fz-12 fw-700 clrDarkBlue">
+								CONFIGURATOR
+							</a>
+						</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>

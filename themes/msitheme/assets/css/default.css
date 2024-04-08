@@ -1195,7 +1195,7 @@ img#hand {
 .parallax-hero .hover-border-btn {
     transform: translateY(100px);
     text-decoration: var(--textUnderline);
-    border: 1px solid var(--clrTransparent);
+    border: 1px solid var(--clrDarkBlue);
 }
 .button.theme-btn {
     display: flex;
@@ -1251,6 +1251,15 @@ img#hand {
 
 
 /* Image/gallery sllider */
+.msitheme-product-wrap {
+    position: relative;
+    left: 80px;
+    z-index: 4;
+}
+.gallery-wrapper-parent {
+    position: relative;
+    z-index: 4;
+}
 .gallery-wrapper {
     display: flex;
     gap: 20px;
@@ -1258,15 +1267,20 @@ img#hand {
     overflow-x: scroll;
     padding-bottom: 40px;
     height: 393px;
-    scrollbar-width: 80vw !important;
+}
+.msitheme-product-wrap .gallery-wrapper {
+    width: 88vw;
+    margin-left: -80px;
+}
+.gallery-wrapper-parent .gallery-wrapper {
+    width: 100vw;
+    margin-left: 0px;
 }
 
 .gallery-wrapper::-webkit-scrollbar {
     height: 5px;
-    max-width: 80vw !important;
-    scrollbar-width: 80vw !important;
 }
-.gallery-wrapper::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
+.gallery-wrapper::-webkit-scrollbar-track, .gallery-wrapper::-webkit-scrollbar-thumb {
     background: #fff;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -1274,12 +1288,21 @@ img#hand {
 }
 .gallery-wrapper::-webkit-scrollbar-track {
     background: #fff;
-    width: 80vw !important;
-    max-width: 80vw !important;
+    max-width: 100% !important;
+    margin-right:12vw;
+    margin-left: 0;
+}
+.gallery-wrapper-parent .gallery-wrapper::-webkit-scrollbar-track {
+    background: #fff;
+    max-width: 100% !important;
+    margin-right:10vw;
+    margin-left: 10vw;
 }
 .gallery-wrapper::-webkit-scrollbar-thumb {
     background: #B1DEE3;
     position: relative;
+    z-index: 9;
+    cursor: pointer;
 }
 
 /* About us CSS */
@@ -1291,10 +1314,6 @@ img#hand {
 /* Product addon CSS */
 .msitheme-product-wrap .gallery-wrapper {
     margin-bottom: 0;
-}
-.msitheme-product-wrap .container-default {
-    margin-right: -175px;
-    width: 100vw;
 }
 .single-product-item .entry-media {
     width: 473px;
@@ -2568,4 +2587,271 @@ ul.power-tabs {
     max-height: 500px;
     object-fit: contain;
     object-position: center;
+}
+
+
+html, body {
+    overflow-x: hidden;
+}
+.responsive-menu, .responsive-menu-close {
+    display: none;
+}
+/* Responsive CSS */
+@media (max-width: 992px) {
+    .languages, .main-navigation {
+        display: none;
+    }
+
+    .main-navigation.mobile-menu, 
+    .responsive-menu, 
+    .main-navigation.mobile-menu .responsive-menu-close, .menu-bars {
+        display: block;
+    }
+    .menu-bars.hide-menubar {
+        display: none;
+    }
+
+    .main-navigation {
+        transition: all 30s ease-in-out;
+        height: 0%;
+        left: 0;
+    }
+    
+    .main-navigation.mobile-menu {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 4;
+        padding: 15px;
+        top: 93px;
+        background: rgba(0,0,0,0.8);
+    }
+    .main-navigation.mobile-menu ul {
+        flex-direction: column;
+        gap: 10px;
+   }
+   .main-navigation ul li {
+        width: 100%;
+    }
+    .main-navigation ul ul {
+        width: 100%;
+        z-index: 9;
+    }
+    .responsive-menu-close {
+        text-align: center;
+        position: absolute;
+        right: 15px;
+        top: -60px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        z-index: 99;
+    }
+    .responsive-menu-close:hover {
+        color: var(--clrDarkRed);
+   }
+   .main-navigation.mobile-menu ul li a {
+        padding: 8px 8px 14px;
+        display: block;
+        text-align: left;
+        line-height: 20px;
+        border-bottom: 1px solid #E5E8EC;
+   }
+
+   .main-navigation ul li.menu-item-has-children::after {
+    content: '\f061';
+    right: 0px;
+    font-size: 18px;
+}
+     
+   .header-wrap .responsive-menu {
+        order: 3;
+        text-align: right;
+    }
+
+    .responsive-menu {
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .responsive-menu i {
+        margin-left: 3px;
+    }
+
+    .header-wrap {
+        grid-template-columns: 1fr auto auto;
+        position: relative;
+    }
+
+    .button.theme-btn {
+        padding: 10px 20px 8px;
+    }
+   
+}
+@media (max-width: 767px) {
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-logo {
+        order: 2;
+    }
+    
+    .footer-middle {
+        grid-template-columns: 1fr;
+    }
+    .msitheme-product-wrap .container-default {
+        margin-right: 0px;
+    }
+    .gallery-wrapper {
+        height: 295px;
+    }
+    .products-wrap .single-product-item,
+    .single-product-item .entry-media img {
+        height: 250px;
+    }
+    .single-product-item .entry-media {
+        width: 350px;
+    }
+    .hero-bottom-content {
+        bottom: auto;
+        left: 20px;
+        width: 100%;
+        top: 140px;
+    }
+    .hero-top-right {
+        width: 90%;
+        right: 40px;
+        top: 210px;
+        padding: 0px;
+        border: none;
+    }
+    .parallax-hero h6, .parallax-hero h2 {
+        transform: translateY(0);
+    }
+    
+    .hero-text h6 {
+        top: -20px;
+    }
+    
+    .parallax-hero h2 {
+        font-size: 48px;
+        line-height: 48px;
+    }
+    #heroBtns {
+        margin-top: 200px !important;
+    }
+    .parallax-hero .hover-border-btn {
+        color: var(--clrDarkBlue);
+    }
+    .theme-btn {
+        padding: 10px 20px;
+    }
+    .parallax-hero img {
+        bottom: -60px;
+        top: auto !important;
+    }
+    img#aircraft, img#hand {
+        width: auto;
+        margin-left: 0;
+        margin-top: 0;
+    }
+    .parallax-hero {
+        margin-bottom: 200px;
+    }
+    img#hand {
+        bottom: -425px;
+        right: -225px;
+        left: auto;
+        max-width: 600px;
+    }
+    .parallax-hero img#cloud {
+        top: auto !important;
+        bottom: -225px;
+        width: 100%;
+        height: 230px;
+    }
+    .pulse {
+        width: 100%;
+        height: 100%;
+    }
+    .tab-content-inner {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .tab-content-right-img i.fa-plus {
+        height: 28px;
+        width: 28px;
+        line-height: 28px;
+        font-size: 16px;
+    }
+    .product-1-tab-content .tab-content-right-img .aircraft-icon1 {
+        top: 50px;
+    }
+    .product-1-tab-content .tab-content-right-img .aircraft-icon2 {
+        top: 84px;
+    }
+    .product-1-tab-content .tab-content-right-img .aircraft-icon5 {
+        right: 108px;
+    }
+    .product-tabbed, .msitheme-news-wrap {
+        padding: 50px 0;
+    }
+    .news-posts {
+        display: flex;
+        width: 100vw;
+        overflow-x: scroll;
+    }
+    
+    .news-posts .single-news-post {
+        width: 300px !important;
+        margin-bottom: 25px;
+    }
+    
+    .news-posts .single-news-post .entry-media {
+        width: 320px;
+    }
+    
+    .news-posts .single-news-post .entry-media img {
+        height: auto !important;
+    }
+    
+    .news-posts .single-news-post .entry-details h4, .news-posts .single-news-post .entry-details .excerpt {
+        font-size: 16px !important;
+    }
+    .msitheme-news-wrap {
+        overflow-x: hidden;
+    }
+
+    .news-posts::-webkit-scrollbar {
+        height: 5px;
+        max-width: 80vw !important;
+        scrollbar-width: 80vw !important;
+    }
+    .news-posts::-webkit-scrollbar-track, .news-posts::-webkit-scrollbar-thumb {
+        background: #fff;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        
+    }
+    .news-posts::-webkit-scrollbar-track {
+        background: #fff;
+        width: 80vw !important;
+        max-width: 80vw !important;
+    }
+    .news-posts::-webkit-scrollbar-thumb {
+        background: #B1DEE3;
+        position: relative;
+    }
+    
+    .counter-inner {
+        flex-wrap: wrap;
+        padding: 10px 0;
+        gap: 30px;
+    }
 }

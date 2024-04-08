@@ -3,6 +3,16 @@
 (function ($) {
     "use strict";
 
+    // responsive menu js
+    $(".responsive-menu").click(function() {
+        $(".main-navigation").addClass("mobile-menu");
+        $(".menu-bars").addClass("hide-menubar");
+    });
+    $(".responsive-menu-close").click(function() {
+        $(".main-navigation").removeClass("mobile-menu");
+        $(".menu-bars").removeClass("hide-menubar");
+    });
+
     // Event js
     $('.event-cat-list').click(function() {
         const value = $(this).attr('data-filter');
