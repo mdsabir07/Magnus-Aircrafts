@@ -187,17 +187,8 @@ class VideoGallery extends Widget_Base
 			'btn_link',
 			[
 				'label' => esc_html__( 'Button Link', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => esc_html__( 'https://domain-link.com', 'msitheme' ),
-				'show_external' => true,
-				'default' => [
-					'url' => '',
-					'is_external' => true,
-					'nofollow' => true,
-				],
-				'condition'	=> [
-					'btn_type'	=> '2',
-				],
+				'type'	=> Controls_Manager::TEXT,
+				'label_block'	=> true,
 			]
 		);
 
@@ -399,8 +390,8 @@ class VideoGallery extends Widget_Base
 					$i = 0; 
 					foreach( $settings['galleries'] as $video ) : 
 						$i++; 
-						$target = $video['btn_link']['is_external'] ? ' target="_blank"' : '';
-						$nofollow = $video['btn_link']['nofollow'] ? ' rel="nofollow"' : '';
+						// $target = $video['btn_link']['is_external'] ? ' target="_blank"' : '';
+						// $nofollow = $video['btn_link']['nofollow'] ? ' rel="nofollow"' : '';
 					?>
 						<div class="single-v-gallery relative v-gallery-<?php echo esc_attr( $i ); ?>">
 							<?php if( !empty($video['top_heading']) ) : ?>
@@ -435,7 +426,7 @@ class VideoGallery extends Widget_Base
 							endif; 
 							if( $video['btn_type'] === '2' ) : ?>
 								<div class="video-item absolute">
-									<a class="readmore-btn theme-btn" href="<?php echo esc_url( $video['btn_link']['url'] ); ?>" <?php echo esc_attr( $target ); ?> <?php echo esc_attr( $nofollow ); ?>>
+									<a class="readmore-btn theme-btn" href="<?php echo esc_url( $video['btn_link'] ); ?>">
 										<?php echo esc_html( $video['btn_label'] ); ?>
 									</a>
 								</div>

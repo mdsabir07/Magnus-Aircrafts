@@ -46,7 +46,8 @@
 						<a href="" class="youtube"><i class="fa-brands fa-youtube"></i></a>
 					</div>
 				</div>
-				<?php if ( is_active_sidebar( 'footer-mid-2' ) ) : ?>
+
+				<?php if ( ! wp_is_mobile() ) : if ( is_active_sidebar( 'footer-mid-2' ) ) : ?>
 					<div class="foo-mid-2">
 						<?php dynamic_sidebar( 'footer-mid-2' ) ?>
 					</div>
@@ -58,7 +59,7 @@
 					<div class="foo-mid-4">
 						<?php dynamic_sidebar( 'footer-mid-4' ) ?>
 					</div>
-				<?php endif; ?>
+				<?php endif; endif; ?>
 			</div>
 			<div class="footer-bottom flex justify-between align-center">
 				<?php if ( is_active_sidebar( 'footer-bottom-1' ) ) : ?>
