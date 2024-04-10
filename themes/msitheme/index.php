@@ -25,7 +25,7 @@ get_header();
 					<?php esc_html_e( 'News', 'msitheme' ); ?>
 				</h2>
 			</div>
-			<?php echo do_shortcode( '[featured_post]' ); ?>
+			<?php if ( ! wp_is_mobile() ) : echo do_shortcode( '[featured_post]' ); endif; ?>
 			<?php
 			if ( have_posts() ) :
 

@@ -916,6 +916,18 @@ img {
     width: 100%;
 }
 
+.main-navigation ul li:hover > a {
+    color: var(--clrDarkRed);
+}
+
+.main-navigation ul ul li:hover {
+    border-color: var(--clrDarkRed);
+}
+
+.main-navigation ul ul li:hover::before {
+    background: var(--clrDarkRed);
+}
+
 .main-navigation ul li:hover ul {
     opacity: 1;
     visibility: visible;
@@ -967,6 +979,14 @@ img {
     border-bottom: 1px solid var(--clrWhite);
 }
 
+.widget ul li:hover a {
+    color: var(--clrDarkRed);
+}
+
+.widget ul li:hover {
+    border-color: var(--clrDarkRed);
+}
+
 .footer-bottom .textwidget p {
     color: var(--clrWhite);
     margin-bottom: 0;
@@ -998,6 +1018,46 @@ img {
     border-color: var(--clrDarkRed);
     color: var(--clrDarkRed);
 }
+
+.email-field, .email-field input {
+    width: 100%;
+}
+/* Newsletter CSS */
+.email-field input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    padding: 15px 0;
+    color: #fff;
+    font-size: 18px;
+}
+
+.newsletter-submit button {
+    width: 90px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 25px;
+    padding: 11px 30px;
+    cursor: pointer;
+}
+
+.email-field input::placeholder {
+    color: #fff;
+}
+
+.email-field input::-webkit-placeholder {
+    color: #fff;
+}
+.wpcf7 form.sent .wpcf7-response-output {
+    color: #fff;
+}
+.newsletter-submit button:hover {
+    /* background: var(--clrDarkRed); */
+    border-color: var(--clrDarkRed);
+    color: var(--clrDarkRed);
+}
+
 
 /* News post Addon */
 .single-news-post .entry-details h4, 
@@ -2219,11 +2279,11 @@ h5.dealer-title:hover {
 /* Product data */
 .product-data .section-heading {
     position: relative;
+    display: inline-block;
 }
-
 .product-data .section-heading sup {
     position: absolute;
-    right: 0;
+    right: -20px;
     top: 10px;
 }
 
@@ -2499,22 +2559,22 @@ ul.power-tabs {
     width: 100%;
 }
 .safety-clould img {
-    width: 100%;
+    width: 10000px;
     height: 250px;
     object-fit: cover;
     object-position: center;
-    animation: scroll-anim 10s linear infinite;
 }
-
-
-/* @keyframes drift {
-	from { transform: translateX(-255px);}
-	to { transform: translatex(1350px);}
-} */
-@keyframes scroll-anim {
-	100% {
-		background-position: -100% 0;
-	}
+.safety-content-right img {
+    animation: move 20s ease-in-out infinite;
+    transform-origin: 50% 50%;
+}
+@keyframes move {
+    0%   { transform: scale(1) rotate(5deg)}
+    20%  { transform: scale(0.9, 1) rotate(10deg); }
+    40%  { transform: scale(0.9, 1) rotate(20deg); }
+    60%  { transform: scale(1.1) rotate(10deg); }
+    80%  { transform: scale(1.1) rotate(5deg); }
+    100% { transform: scale(1) }
 }
 
 .safety-content {
@@ -2607,6 +2667,9 @@ html, body {
 }
 /* Responsive CSS */
 @media (max-width: 992px) {
+    body {
+        font-size: 16px;
+    }
     .languages, .main-navigation {
         display: none;
     }
@@ -2667,13 +2730,20 @@ html, body {
         text-align: left;
         line-height: 20px;
         border-bottom: 1px solid #E5E8EC;
-   }
-
-   .main-navigation ul li.menu-item-has-children::after {
-    content: '\f061';
-    right: 0px;
-    font-size: 18px;
-}
+        color: var(--clrWhite);
+    }
+    .main-navigation ul li.menu-item-has-children::after {
+        content: '\f061';
+        right: 0px;
+        font-size: 18px;
+        color: var(--clrWhite);
+    }
+    .main-navigation ul li:hover:after, .main-navigation ul li:hover > a {
+        color: var(--clrDarkRed);
+    }
+    .main-navigation ul li:hover:after {
+        transform: rotate(90deg);
+    }
      
    .header-wrap .responsive-menu {
         order: 3;
@@ -2796,6 +2866,7 @@ html, body {
     
     .service-tabs {
         flex-wrap: wrap;
+        gap: 10px;
     }
     .gallery-wrapper {
         height: 250px;
@@ -2813,9 +2884,36 @@ html, body {
     .safety-content-right {
         margin-top: -40px;
     }
+    .tabNav-grid {
+        grid-gap: 40px;
+    }
+    .blog-page.news-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .single-page .entry-title, .single-page .entry-content, .single-page .entry-meta, .single-page .entry-footer, .single-page .navigation {
+        width: 100%;
+    }
+    .msitheme-gallery-wrap .news-posts {
+        display: grid;
+        overflow: inherit;
+        grid-template-columns: repeat(2, 1fr);
+        padding-right: 30px;
+    }
+    .msitheme-gallery-wrap .news-posts .single-news-post, .msitheme-gallery-wrap .news-posts .single-news-post .entry-media {
+        width: 100% !important;
+    }
+    .table-body-content {
+        width: 100%;
+        padding: 0 20px;
+    }
    
 }
 @media (max-width: 767px) {
+    .newsletter-submit button {
+        width: 60px;
+        padding: 16px 18px;
+        font-size: 16px;
+    }
     .footer-top {
         grid-template-columns: 1fr;
     }
@@ -2866,7 +2964,7 @@ html, body {
         line-height: 48px;
     }
     #heroBtns {
-        margin-top: 200px !important;
+        margin-top: 80px !important;
     }
     .parallax-hero .hover-border-btn {
         color: var(--clrDarkBlue);
@@ -2991,6 +3089,36 @@ html, body {
         padding: 40px 0;
     }
     .product-video-grid {
+        grid-template-columns: 1fr;
+    }
+    .product-tabNav-content {
+        padding-top: 30px;
+    }
+    .tabNav-grid {
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 10px;
+    }
+    .single-services-product .block-desc p {
+        width: 100%;
+    }
+    .safety-content {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 60px 0 30px;
+    }
+    .safety-content .msitheme-content-block {
+        order: 2;
+    }
+    .blog-page.news-items {
+        grid-template-columns: 1fr;
+    }
+    .single-page .entry-title {
+        font-size: 30px;
+    }
+    .msitheme-contact-form .form-row {
+        flex-wrap: wrap;
+    }
+    .msitheme-gallery-wrap .news-posts {
         grid-template-columns: 1fr;
     }
     

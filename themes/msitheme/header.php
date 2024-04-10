@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); 
-// $page_meta = get_option('msitheme_page_meta');
+$msitheme = get_option('msitheme_options');
 if (get_post_meta( get_the_ID(), 'msitheme_page_meta', true )) {
 	$page_meta = get_post_meta( get_the_ID(), 'msitheme_page_meta', true );
 } else {
@@ -66,9 +66,11 @@ if (array_key_exists('header-logo', $page_meta)) {
 					</div>
 					<?php if ( wp_is_mobile() ) : ?>
 						<div class="header-btn">
-							<a href="" class="button theme-btn bordered-btn uppercase flex align-center justify-center fz-12 fw-700 clrDarkBlue">
-								CONFIGURATOR
-							</a>
+							<?php if ( !empty( $msitheme['header_button'] ) ) : ?>
+								<a href="<?php echo esc_url( $msitheme['header_button_link'] ); ?>" class="button theme-btn bordered-btn uppercase flex align-center justify-center fz-12 fw-700 clrDarkBlue">
+									<?php echo esc_html( $msitheme['header_button'] ); ?>
+								</a>
+							<?php endif; ?>
 						</div>
 					<?php endif; ?>
 					<?php
@@ -81,15 +83,18 @@ if (array_key_exists('header-logo', $page_meta)) {
 					?>
 				</nav><!-- #site-navigation -->
 				<div class="header-right-content flex align-center f-gap-10">
-					<div class="languages clrDarkBlue fz-12 fw-700">
-						<span class="language">Hung /</span>
-						<span class="language"> Eng</span>
-					</div>
+					<?php if ( !empty( $msitheme['language'] ) ) : ?>
+						<div class="languages clrDarkBlue fz-12 fw-700">
+							<?php echo esc_html( $msitheme['language'] ); ?>
+						</div>
+					<?php endif; ?>
 					<?php if ( ! wp_is_mobile() ) : ?>
 						<div class="header-btn">
-							<a href="" class="button theme-btn bordered-btn uppercase flex align-center justify-center fz-12 fw-700 clrDarkBlue">
-								CONFIGURATOR
-							</a>
+							<?php if ( !empty( $msitheme['header_button'] ) ) : ?>
+								<a href="<?php echo esc_url( $msitheme['header_button_link'] ); ?>" class="button theme-btn bordered-btn uppercase flex align-center justify-center fz-12 fw-700 clrDarkBlue">
+									<?php echo esc_html( $msitheme['header_button'] ); ?>
+								</a>
+							<?php endif; ?>
 						</div>
 					<?php endif; ?>
 				</div>

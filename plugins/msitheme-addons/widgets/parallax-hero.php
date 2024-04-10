@@ -291,7 +291,7 @@ class ParallaxHero extends Widget_Base
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .slider-txts a.clr-white' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hero-btn' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -306,7 +306,52 @@ class ParallaxHero extends Widget_Base
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .slider-txts a.clr-orange-bg' => 'background: {{VALUE}}',
+					'{{WRAPPER}} .hero-btn' => 'background: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'button_hover_color',
+			[
+				'label' => __( 'Button hover Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#B1DEE3',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hero-btn.theme-btn:hover' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'button_hover_bg',
+			[
+				'label' => __( 'Button hover background Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#050028',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hero-btn.theme-btn:hover' => 'background: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'button_hover_border',
+			[
+				'label' => __( 'Button hover border Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#050028',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hero-btn.theme-btn:hover' => 'border-color: {{VALUE}}',
 				],
 			]
 		);

@@ -9,8 +9,9 @@
  * @package MSITheme
  */
 
-?>
+ $msitheme = get_option('msitheme_options');
 
+?>
 	<footer id="colophon" class="site-footer">
 		<div class="container-default">
 			<div class="footer-top grid grid-2 align-center g-gap-20">
@@ -26,24 +27,41 @@
 			</div>
 			<div class="footer-middle grid grid-4 g-gap-20">
 				<div class="foo-mid-1">
-					<div class="site-dialougue fw-700 clrMidWhite">
-						Our aim is to design an aircraft that it is not only custom-made for you, but it is also about you.
-					</div>
+					<?php if ( !empty( $msitheme['logo_text'] ) ) : ?> 
+						<div class="site-dialougue fw-700 clrMidWhite">
+							<?php echo wp_kses_post( $msitheme['logo_text'] ); ?>
+						</div>
+					<?php endif; ?>
 					<div class="site-address">
-						<h6 class="clrMidWhite fz-18">MAGNUS AIRCRAFT ZRT.</h6>
-						<p class="clrMidWhite">H-7666 Pogány<br>Repülőtér 08/8 hrsz.</p>
+					<?php if ( !empty( $msitheme['address_head'] ) ) : ?>
+						<h6 class="clrMidWhite fz-18">
+							<?php echo esc_html( $msitheme['address_head'] ); ?> 
+						</h6>
+					<?php endif; if ( !empty( $msitheme['address_txt'] ) ) : ?>
+						<p class="clrMidWhite"><?php echo wp_kses_post( $msitheme['address_txt'] ); ?></p>
+					<?php endif; ?>
 					</div>
 					<div class="footer-contact">
-						<a href="tel:+36304121129" class="d-block clrMidWhite fz-18">+36 30 412 1129</a>
-						<a href="mailto:info@magnus-aircraft.com" class="d-block clrMidWhite fz-18">info@magnus-aircraft.com</a>
+					<?php if ( !empty( $msitheme['phone_number'] ) ) : ?>
+						<a href="tel:<?php echo esc_html( $msitheme['phone_link'] ); ?>" class="d-block clrMidWhite fz-18"><?php echo esc_html( $msitheme['phone_number'] ); ?></a>
+					<?php endif; if ( !empty( $msitheme['email'] ) ) : ?>
+						<a href="mailto:<?php echo esc_html( $msitheme['email_link'] ); ?>" class="d-block clrMidWhite fz-18"><?php echo esc_html( $msitheme['email'] ); ?></a>
+					<?php endif; ?>
 					</div>
 					<div class="footer-socials flex align-center">
-						<a href="" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
-						<a href="" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
-						<a href="" class="instagram"><i class="fa-brands fa-instagram"></i></a>
-						<a href="" class="twitter"><i class="fa-brands fa-x-twitter"></i></a>
-						<a href="" class="tiktok"><i class="fa-brands fa-tiktok"></i></a>
-						<a href="" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+						<?php if ( !empty( $msitheme['facebook'] ) ) : ?>
+							<a href="<?php echo esc_url( $msitheme['facebook'] ); ?>" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+						<?php endif; if ( !empty( $msitheme['linkedin'] ) ) : ?>
+							<a href="<?php echo esc_url( $msitheme['linkedin'] ); ?>" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+						<?php endif; if ( !empty( $msitheme['instagram'] ) ) : ?>
+							<a href="<?php echo esc_url( $msitheme['instagram'] ); ?>" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+						<?php endif; if ( !empty( $msitheme['twitter'] ) ) : ?>
+							<a href="<?php echo esc_url( $msitheme['twitter'] ); ?>" class="twitter"><i class="fa-brands fa-x-twitter"></i></a>
+						<?php endif; if ( !empty( $msitheme['tiktok'] ) ) : ?>
+							<a href="<?php echo esc_url( $msitheme['tiktok'] ); ?>" class="tiktok"><i class="fa-brands fa-tiktok"></i></a>
+						<?php endif; if ( !empty( $msitheme['youtube'] ) ) : ?>
+							<a href="<?php echo esc_url( $msitheme['youtube'] ); ?>" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+						<?php endif; ?>
 					</div>
 				</div>
 
@@ -67,7 +85,7 @@
 						<?php dynamic_sidebar( 'footer-bottom-1' ) ?>
 					</div>
 				<?php endif; if ( is_active_sidebar( 'footer-bottom-2' ) ) : ?>
-					<div class="languages footer-lang">
+					<div class="languages-footer footer-lang">
 						<?php dynamic_sidebar( 'footer-bottom-2' ) ?>
 					</div>
 				<?php endif; ?>

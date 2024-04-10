@@ -614,11 +614,11 @@ class ProductPower extends Widget_Base {
 
 		?>
         	<div class="product-tabbed-power">
-                <input type="radio" id="power-tab1" name="css-tabs2" checked>
-                <input type="radio" id="power-tab2" name="css-tabs2">
-                <input type="radio" id="power-tab3" name="css-tabs2">
-                <input type="radio" id="power-tab4" name="css-tabs2">
-                <input type="radio" id="power-tab5" name="css-tabs2">
+                <input type="radio" id="power-tab1" name="css-tabs4" checked>
+                <input type="radio" id="power-tab2" name="css-tabs4">
+                <input type="radio" id="power-tab3" name="css-tabs4">
+                <input type="radio" id="power-tab4" name="css-tabs4">
+                <input type="radio" id="power-tab5" name="css-tabs4">
                 
                 <?php if ( !empty( $settings['tab_labels'] ) ) : ?>
 					<ul class="power-tabs list-unstyled flex justify-center f-gap-25 align-center">

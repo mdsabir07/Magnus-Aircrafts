@@ -919,17 +919,17 @@ class ProductTabNav extends Widget_Base {
 
 		?>
         	<div class="document-tabbed product-tabbed-nav">
-                <input type="radio" id="document-tab1" name="css-tabs2" checked>
-                <input type="radio" id="document-tab2" name="css-tabs2">
-                <input type="radio" id="document-tab3" name="css-tabs2">
-                <input type="radio" id="document-tab4" name="css-tabs2">
-                <input type="radio" id="document-tab5" name="css-tabs2">
-                <input type="radio" id="document-tab6" name="css-tabs2">
-                <input type="radio" id="document-tab7" name="css-tabs2">
-                <input type="radio" id="document-tab8" name="css-tabs2">
-                <input type="radio" id="document-tab9" name="css-tabs2">
-                <input type="radio" id="document-tab10" name="css-tabs2">
-                <input type="radio" id="document-tab11" name="css-tabs2">
+                <input type="radio" id="document-tab1" name="css-tabs5" checked>
+                <input type="radio" id="document-tab2" name="css-tabs5">
+                <input type="radio" id="document-tab3" name="css-tabs5">
+                <input type="radio" id="document-tab4" name="css-tabs5">
+                <input type="radio" id="document-tab5" name="css-tabs5">
+                <input type="radio" id="document-tab6" name="css-tabs5">
+                <input type="radio" id="document-tab7" name="css-tabs5">
+                <input type="radio" id="document-tab8" name="css-tabs5">
+                <input type="radio" id="document-tab9" name="css-tabs5">
+                <input type="radio" id="document-tab10" name="css-tabs5">
+                <input type="radio" id="document-tab11" name="css-tabs5">
                 
                 <?php
                 if ( !empty( $settings['tab_labels'] ) ) : ?>

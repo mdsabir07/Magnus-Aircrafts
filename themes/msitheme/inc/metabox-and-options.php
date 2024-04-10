@@ -13,38 +13,177 @@ if (class_exists('CSF')) {
 		'menu_slug' => 'theme-options',
 	));
 
-	// Create a section
+	// Header options
+	CSF::createCustomizeOptions( $msitheme_options_prefix );
+	CSF::createSection( $msitheme_options_prefix, array(
+		'id'    => 'header-options',
+		'title' => esc_html__( 'Header settings', 'msitheme' ),
+		'icon'   => 'fab fa-wordpress-simple',
+	) );
 	CSF::createSection($msitheme_options_prefix, array(
-		'title' => 'General',
+		'parent' => 'header-options',
+        'title'  => esc_html__('Header options', 'msitheme'),
+        'icon'   => 'fas fa-file-code',
 		'fields' => array(
 			// A text field
 			array(
-				'id' => 'socials',
-				'type' => 'group',
-				'title' => 'Social Links',
-				'button_title' => 'Add New Link',
-				'accordion_title' => 'Add New',
-				'fields' => array(
-					array(
-						'id' => 'icon',
-						'type' => 'icon',
-						'title' => 'Select icon',
-					),
-					array(
-						'id' => 'link',
-						'type' => 'text',
-						'title' => 'Link',
-						'title' => esc_html__('Type social link', 'msitheme'),
-					),
-				)
+				'id' => 'language',
+				'type' => 'wp_editor',
+				'title' => esc_html__('Insert language shortcode', 'msitheme'),
 			),
+			
 			array(
-				'id' => 'phone',
+				'id' => 'header_button',
 				'type' => 'text',
-				'title' => 'Phone number',
-			)
+				'title' => esc_html__('Header button text', 'msitheme'),
+			),
+			
+			array(
+				'id' => 'header_button_link',
+				'type' => 'text',
+				'title' => esc_html__('Header button link', 'msitheme'),
+			),
 		)
 	));
+
+
+
+
+	 // Footer options
+	 CSF::createCustomizeOptions( $msitheme_options_prefix );
+	 CSF::createSection( $msitheme_options_prefix, array(
+		 'id'    => 'footer-options',
+		 'title' => esc_html__( 'Footer settings', 'msitheme' ),
+		 'icon'   => 'fab fa-wordpress-simple',
+	 ) );
+	CSF::createSection($msitheme_options_prefix, array(
+		'parent' => 'footer-options',
+        'title'  => esc_html__('Footer informations', 'msitheme'),
+        'icon'   => 'fas fa-file-code',
+		'fields' => array(
+			// A text field
+			
+			array(
+				'id' => 'logo_text',
+				'type' => 'textarea',
+				'title' => esc_html__('Type text for display under the logo', 'msitheme'),
+			),
+			
+			array(
+				'id' => 'address_head',
+				'type' => 'text',
+				'title' => esc_html__('Type address heading', 'msitheme'),
+			),
+			
+			array(
+				'id' => 'address_txt',
+				'type' => 'textarea',
+				'title' => esc_html__('Type address', 'msitheme'),
+			),
+			
+			array(
+				'id' => 'phone_number',
+				'type' => 'text',
+				'title' => esc_html__('Type phone number', 'msitheme'),
+			),
+			
+			array(
+				'id' => 'phone_link',
+				'type' => 'text',
+				'title' => esc_html__('Type phone link number', 'msitheme'),
+			),
+			
+			array(
+				'id' => 'email',
+				'type' => 'text',
+				'title' => esc_html__('Email', 'msitheme'),
+			),
+			
+			array(
+				'id' => 'email_link',
+				'type' => 'text',
+				'title' => esc_html__('Email link', 'msitheme'),
+			),
+		)
+	));
+	CSF::createSection($msitheme_options_prefix, array(
+		'parent' => 'footer-options',
+        'title'  => esc_html__('Social media', 'msitheme'),
+        'icon'   => 'fas fa-file-code',
+		'fields' => array(
+			// A text field
+			
+			array(
+				'id' => 'facebook',
+				'type' => 'text',
+				'title' => esc_html__('Insert facebook link', 'msitheme'),
+			),
+			
+			array(
+				'id' => 'linkedin',
+				'type' => 'text',
+				'title' => esc_html__('Insert linkedin link', 'msitheme'),
+			),
+			
+			array(
+				'id' => 'instagram',
+				'type' => 'text',
+				'title' => esc_html__('Insert instagram link', 'msitheme'),
+			),
+			
+			array(
+				'id' => 'twitter',
+				'type' => 'text',
+				'title' => esc_html__('Insert twitter link', 'msitheme'),
+			),
+			
+			array(
+				'id' => 'tiktok',
+				'type' => 'text',
+				'title' => esc_html__('Insert tiktok link', 'msitheme'),
+			),
+			
+			array(
+				'id' => 'youtube',
+				'type' => 'text',
+				'title' => esc_html__('Insert youtube link', 'msitheme'),
+			),
+		)
+	));
+
+
+	
+	// 404 options
+	CSF::createCustomizeOptions( $msitheme_options_prefix );
+	CSF::createSection( $msitheme_options_prefix, array(
+		'id'    => 'error-options',
+		'title' => esc_html__( '404 page settings', 'msitheme' ),
+		'icon'   => 'fab fa-wordpress-simple',
+	) );
+	CSF::createSection($msitheme_options_prefix, array(
+		'parent' => 'error-options',
+        'title'  => esc_html__('404 page options', 'msitheme'),
+        'icon'   => 'fas fa-file-code',
+		'fields' => array(
+			// A text field
+			array(
+                'id'    => '404_main_img',
+                'type'  => 'media',
+                'title' => esc_html__('Add 404 image', 'msitheme'),
+            ),
+			array(
+                'id'    => 'left_border_img',
+                'type'  => 'media',
+                'title' => esc_html__('Add 404 left border image', 'msitheme'),
+            ),
+			array(
+                'id'    => 'right_border_img',
+                'type'  => 'media',
+                'title' => esc_html__('Add 404 right border image', 'msitheme'),
+            ),
+		)
+	));
+
 
 	// Create a section
 	CSF::createSection($msitheme_options_prefix, array(

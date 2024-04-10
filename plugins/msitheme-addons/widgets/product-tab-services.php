@@ -287,17 +287,17 @@ class ProductServices extends Widget_Base {
 
 		?>
         	<div class="product-tabbed-service">
-                <input type="radio" id="service-tab1" name="css-tabs2" checked>
-                <input type="radio" id="service-tab2" name="css-tabs2">
-                <input type="radio" id="service-tab3" name="css-tabs2">
-                <input type="radio" id="service-tab4" name="css-tabs2">
-                <input type="radio" id="service-tab5" name="css-tabs2">
-                <input type="radio" id="service-tab6" name="css-tabs2">
-                <input type="radio" id="service-tab7" name="css-tabs2">
-                <input type="radio" id="service-tab8" name="css-tabs2">
-                <input type="radio" id="service-tab9" name="css-tabs2">
-                <input type="radio" id="service-tab10" name="css-tabs2">
-                <input type="radio" id="service-tab11" name="css-tabs2">
+                <input type="radio" id="service-tab1" name="css-tabs3" checked>
+                <input type="radio" id="service-tab2" name="css-tabs3">
+                <input type="radio" id="service-tab3" name="css-tabs3">
+                <input type="radio" id="service-tab4" name="css-tabs3">
+                <input type="radio" id="service-tab5" name="css-tabs3">
+                <input type="radio" id="service-tab6" name="css-tabs3">
+                <input type="radio" id="service-tab7" name="css-tabs3">
+                <input type="radio" id="service-tab8" name="css-tabs3">
+                <input type="radio" id="service-tab9" name="css-tabs3">
+                <input type="radio" id="service-tab10" name="css-tabs3">
+                <input type="radio" id="service-tab11" name="css-tabs3">
                 
                 <?php if ( !empty( $settings['tab_labels'] ) ) : ?>
 					<ul class="service-tabs list-unstyled flex justify-center f-gap-25 align-center">

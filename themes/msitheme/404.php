@@ -8,17 +8,46 @@
  */
 
 get_header();
+
+$msitheme = get_option('msitheme_options');
+
+
+if (array_key_exists('404_main_img', $msitheme)) {
+	$img_404 = $msitheme['404_main_img'];
+} else {
+	$img_404 = '';
+}
+
+
+if (array_key_exists('left_border_img', $msitheme)) {
+	$left_border_img = $msitheme['left_border_img'];
+} else {
+	$left_border_img = '';
+}
+
+
+if (array_key_exists('right_border_img', $msitheme)) {
+	$right_border_img = $msitheme['right_border_img'];
+} else {
+	$right_border_img = '';
+}
+
 ?>
 
 	<main id="primary" class="site-main">
 		<div class="container-default">
 			<section class="error-404 not-found relative">
-				<div class="section-border-left absolute top-0">
-					<img src="/wp-content/uploads/2024/04/border-section-left.png" alt="">
-				</div>
-				<div class="img-404 flex justify-center align-center">
-					<img src="/wp-content/uploads/2024/04/404-fusion.png" alt="404">
-				</div>
+				<?php if ( !empty($left_border_img) ) : ?>
+					<div class="section-border-left absolute top-0">
+						<img src="<?php echo ( $left_border_img['url'] ); ?>" alt="">
+					</div>
+				<?php endif; ?>
+				<?php if ( !empty($img_404) ) : ?>
+					<div class="img-404 flex justify-center align-center">
+						<img src="<?php echo ( $img_404['url'] ); ?>" alt="404">
+					</div>
+				<?php endif; ?>
+
 				<div class="page-content text-center">
 					<h1 class="page-title fz-64 lh-76 clrWhite uppercase">
 						<span><?php esc_html_e( 'oh... the page', 'msitheme' ); ?></span><br>
@@ -42,9 +71,11 @@ get_header();
 					</div>
 
 				</div><!-- .page-content -->
-				<div class="section-border-right absolute top-0">
-					<img src="/wp-content/uploads/2024/04/border-section-right.png" alt="">
-				</div>
+				<?php if ( !empty($right_border_img) ) : ?>
+					<div class="section-border-right absolute top-0">
+						<img src="<?php echo ( $right_border_img['url'] ); ?>" alt="">
+					</div>
+				<?php endif; ?>
 			</section><!-- .error-404 -->
 		</div>
 	</main><!-- #main -->
