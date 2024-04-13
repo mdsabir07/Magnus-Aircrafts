@@ -18,18 +18,31 @@ if (array_key_exists('404_main_img', $msitheme)) {
 	$img_404 = '';
 }
 
-
 if (array_key_exists('left_border_img', $msitheme)) {
 	$left_border_img = $msitheme['left_border_img'];
 } else {
 	$left_border_img = '';
 }
 
-
 if (array_key_exists('right_border_img', $msitheme)) {
 	$right_border_img = $msitheme['right_border_img'];
 } else {
 	$right_border_img = '';
+}
+if (array_key_exists('head_404', $msitheme)) {
+	$head_404 = $msitheme['head_404'];
+} else {
+	$head_404 = '';
+}
+if (array_key_exists('paragraph_404', $msitheme)) {
+	$paragraph_404 = $msitheme['paragraph_404'];
+} else {
+	$paragraph_404 = '';
+}
+if (array_key_exists('btns_404', $msitheme)) {
+	$btns_404 = $msitheme['btns_404'];
+} else {
+	$btns_404 = '';
 }
 
 ?>
@@ -49,26 +62,26 @@ if (array_key_exists('right_border_img', $msitheme)) {
 				<?php endif; ?>
 
 				<div class="page-content text-center">
-					<h1 class="page-title fz-64 lh-76 clrWhite uppercase">
-						<span><?php esc_html_e( 'oh... the page', 'msitheme' ); ?></span><br>
-						<span><?php esc_html_e( 'is fly away...', 'msitheme' ); ?></span>
-					</h1>
-					<p class="fw-700 clrWhite paragraph-404"><?php esc_html_e( 'But you can find an other destination', 'msitheme' ); ?></p>
-
-					<div class="readmore-btns flex align-center justify-center f-gap-25">
-						<a href="<?php echo esc_url(home_url( '/' )); ?>" class="readmore-btn fz-12 fw-700 clrWhite uppercase">
-							<?php esc_html_e( 'GO BACK', 'msitheme' ); ?>
-						</a>
-						<a href="<?php echo esc_url(home_url( '/' )); ?>" class="readmore-btn fz-12 fw-700 clrWhite uppercase">
-							<?php esc_html_e( 'MAIN PAGE', 'msitheme' ); ?>
-						</a>
-						<a href="<?php echo esc_url(home_url( '/calculator' )); ?>" class="readmore-btn fz-12 fw-700 clrWhite uppercase">
-							<?php esc_html_e( 'CALCULATOR', 'msitheme' ); ?>
-						</a>
-						<a href="<?php echo esc_url(home_url( '/contact' )); ?>" class="readmore-btn fz-12 fw-700 clrWhite uppercase">
-							<?php esc_html_e( 'CONTACT', 'msitheme' ); ?>
-						</a>
-					</div>
+					<?php if ( !empty( $head_404 ) ) : ?>
+						<h1 class="page-title fz-64 lh-76 clrWhite uppercase"><?php echo wp_kses_post( $head_404 ); ?></h1>
+					<?php else : ?>
+						<h1 class="page-title fz-64 lh-76 clrWhite uppercase">
+							<span><?php esc_html_e( 'oh... the page', 'msitheme' ); ?></span><br>
+							<span><?php esc_html_e( 'is fly away...', 'msitheme' ); ?></span>
+						</h1>
+					<?php endif; if ( !empty( $paragraph_404 ) ) : ?>
+						<p class="fw-700 clrWhite paragraph-404"><?php echo wp_kses_post( $paragraph_404 ); ?></p>
+					<?php else : ?>
+						<p class="fw-700 clrWhite paragraph-404"><?php esc_html_e( 'But you can find an other destination', 'msitheme' ); ?></p>
+					<?php endif; if ( !empty( $btns_404 ) ) : ?>
+						<div class="readmore-btns flex align-center justify-center f-gap-25">
+							<?php foreach ( $btns_404 as $btn ) : ?>
+								<a href="<?php echo esc_url($btn['link_404']); ?>" class="readmore-btn fz-12 fw-700 clrWhite uppercase">
+									<?php echo esc_html( $btn['btn_404'] ); ?>
+								</a>
+							<?php endforeach; ?>
+						</div>
+					<?php endif; ?>
 
 				</div><!-- .page-content -->
 				<?php if ( !empty($right_border_img) ) : ?>

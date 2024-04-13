@@ -1681,6 +1681,16 @@ body.single main {
 .single-page .entry-content h6 {
     margin: 24px 0;
 }
+.single .entry-title a {
+    color: var(--clrDarkBlue);
+}
+
+.single .entry-title a:hover {
+    color: var(--clrDarkRed);
+}
+.single .navigation.post-navigation {
+    display: none;
+}
 
 /* Product tab css */
 .product-tabbed {

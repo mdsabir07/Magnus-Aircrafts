@@ -181,6 +181,34 @@ if (class_exists('CSF')) {
                 'type'  => 'media',
                 'title' => esc_html__('Add 404 right border image', 'msitheme'),
             ),
+			array(
+				'id' => 'head_404',
+				'type' => 'textarea',
+				'title' => esc_html__('Type heading text', 'msitheme'),
+			),
+			array(
+				'id' => 'paragraph_404',
+				'type' => 'textarea',
+				'title' => esc_html__('Type description text', 'msitheme'),
+			),
+			array(
+				'id'        => 'btns_404',
+				'type'      => 'repeater',
+				'title'     => '404 Buttons',
+				'fields'    => array(
+					array(
+						'id'    => 'btn_404',
+						'type'  => 'text',
+						'title' => 'Button Text',
+					),
+					array(
+						'id'    => 'link_404',
+						'type'  => 'text',
+						'title' => 'Button link',
+					),
+				
+				)
+			),
 		)
 	));
 
