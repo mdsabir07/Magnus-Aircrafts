@@ -528,11 +528,11 @@ class Blogs extends Widget_Base {
                                     <div class="entry-media">
                                         <?php if(has_post_thumbnail( $post_id )) :
                                             if ( !empty($msitheme_meta['post_extra_img']) ) : ?>
-												<a class="post-thumbnail" href="<?php esc_url( the_permalink() ); ?>">
+												<a class="post-thumbnail" href="<?php echo the_permalink(); ?>">
 													<img class="custom-blog-img" src="<?php echo esc_url($post_extra_img['url']); ?>" alt="<?php echo esc_attr( the_title() ); ?>">
 												</a>
                                             <?php else : ?>
-												<a class="post-thumbnail" href="<?php esc_url( the_permalink() ); ?>">
+												<a class="post-thumbnail" href="<?php echo the_permalink(); ?>">
 													<?php the_post_thumbnail($post_id); ?>
 												</a>
 											<?php endif;
@@ -546,7 +546,7 @@ class Blogs extends Widget_Base {
                                 <div class="entry-details">
                                     <?php if($settings['show_title'] === 'yes') : ?>
                                         <h4 class="entry-title">
-                                            <a href="<?php esc_url(the_permalink($post_id)); ?>">
+                                            <a href="<?php echo the_permalink(); ?>">
                                                 <?php esc_html( the_title() ); ?>
                                             </a>
                                         </h4>

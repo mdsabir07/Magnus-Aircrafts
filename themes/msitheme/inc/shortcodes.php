@@ -103,11 +103,11 @@ function msitheme_popular_post_shortcode( $atts ) {
                         <div class="entry-media">
                             <?php if(has_post_thumbnail( $post_id )) :
                                 if ( !empty($msitheme_meta['post_extra_img']) ) : ?>
-                                    <a class="post-thumbnail" href="<?php esc_url( the_permalink() ); ?>">
+                                    <a class="post-thumbnail" href="<?php echo the_permalink($post_id); ?>">
                                         <img class="custom-blog-img" src="<?php echo esc_url($post_extra_img['url']); ?>" alt="<?php echo esc_attr( the_title() ); ?>">
                                     </a>
                                 <?php else : ?>
-                                    <a class="post-thumbnail" href="<?php esc_url( the_permalink() ); ?>">
+                                    <a class="post-thumbnail" href="<?php echo the_permalink($post_id); ?>">
                                         <?php the_post_thumbnail($post_id); ?>
                                     </a>
                                 <?php endif;
@@ -116,7 +116,7 @@ function msitheme_popular_post_shortcode( $atts ) {
 
                         <div class="entry-details">
                             <h4 class="entry-title">
-                                <a href="<?php esc_url(the_permalink($post_id)); ?>">
+                                <a href="<?php echo the_permalink($post_id); ?>">
                                     <?php esc_html( the_title() ); ?>
                                 </a>
                             </h4>
