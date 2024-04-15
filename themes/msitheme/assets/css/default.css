@@ -1176,8 +1176,6 @@ img {
     line-height: var(--lh76);
 }
 
-
-
 .hero-top-right {
     width: 270px;
     right: 190px;
@@ -1215,16 +1213,42 @@ img#aircraft {
     z-index: 20;
     height: var(--auto) !important;
     width: 522px;
-    margin-left: 480px;
+    /* margin-left: 480px; */
     margin-top: 70px;
+    animation: planeMove 20s linear infinite;
 }
+
+@keyframes planeMove {
+    0% {
+       margin-left: 100%;
+    }
+    100% {
+       margin-left: -100%;
+    }
+    
+   }
 
 img#hand {
     width: 862px;
     z-index: 1;
     margin-left: 520px;
     margin-top: 310px;
+    -webkit-animation: hand 10s infinite  alternate;
+    animation: hand 10s infinite  alternate;
 }
+@-webkit-keyframes hand {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-60px); }
+}
+/* .parallax-hero #cloud {
+    width: 100%;
+    box-sizing: border-box;
+  -webkit-animation: cloud 30s linear infinite;
+}
+@-webkit-keyframes cloud {
+    from { background-position: 0 0; }
+    to { background-position: -512px -512px; }
+} */
 .hero-wrapper {
     overflow: var(--overflowHidden);
 }
@@ -1887,7 +1911,7 @@ body.single main {
 .pulse {
     width: 600px;
     height: 600px;
-    border-radius: var(--w100);
+    border-radius: var(--hundred);
     position: var(--relative);
     z-index: 1;
     display: var(--dFlex);
@@ -1906,7 +1930,7 @@ body.single main {
     background: #85848D;
     border-radius: var(--br100);
     z-index: -1;
-    animation: grow var(--transition) infinite;
+    animation: grow 3s ease-in-out infinite;
 }
 .pulse::after {
     background: #657893;
@@ -2132,6 +2156,14 @@ body.single main {
 h5.dealer-title:hover {
     color: var(--clrDarkRed);
     cursor: var(--pointer);
+}
+
+.dealer-title, .dealer-infos {
+    width: 300px;
+}
+
+.dealer-names {
+    flex-grow: 1;
 }
 
 /* Documents CSS */
@@ -2413,7 +2445,7 @@ h5.dealer-title:hover {
     height: var(--h100);
     border-radius: var(--br100);
     z-index: -1;
-    animation: videogrow var(--transition) infinite;
+    animation: videogrow 2.5s ease-in-out infinite;
 }
 .product-video-item a::after {
     border: 1px var(--solid) var(--clrMidWhite);

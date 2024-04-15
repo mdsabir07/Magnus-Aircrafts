@@ -417,9 +417,9 @@ class ParallaxHero extends Widget_Base
 			</div>
 			<!-- end of hero slider -->
 			<script>
-				let text = document.getElementById("heroText");
-				let aircraft = document.getElementById("aircraft");
-				let hand = document.getElementById("hand");
+				// let text = document.getElementById("heroText");
+				// let aircraft = document.getElementById("aircraft");
+				// let hand = document.getElementById("hand");
 				let btn = document.getElementById("heroBtns");
 				let cloud = document.getElementById("cloud");
 				let masthead = document.getElementById("masthead");
@@ -427,12 +427,12 @@ class ParallaxHero extends Widget_Base
 				window.addEventListener('scroll', function() {
 					let value = window.scrollY;
 
-					text.style.marginTop = value * 50 + 'px';
-					text.style.right = value * -5.2 + 'px';
-					aircraft.style.top = value * 1 + 'px';
-					aircraft.style.left = value * -0.1 + '%';
-					hand.style.top = value * -1.5 + 'px';
-					hand.style.left = value * 2 + 'px';
+					// text.style.marginTop = value * 50 + 'px';
+					// text.style.right = value * -5.2 + 'px';
+					// aircraft.style.top = value * 1 + 'px';
+					// aircraft.style.left = value * -0.1 + '%';
+					// hand.style.top = value * -1.5 + 'px';
+					// hand.style.left = value * 2 + 'px';
 					btn.style.marginTop = value * -1.5 + 'px';
 					cloud.style.top = value * -1.12 + 'px';
 					masthead.style.top = value * 0.7 + 'px';
